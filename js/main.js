@@ -397,8 +397,7 @@
   function loadAdSense() {
     // Google AdSense
     // Replace ca-pub-XXXXXXXXXXXXXXXX with your Publisher ID from adsense.google.com
-    const ADSENSE_ID = 'ca-pub-XXXXXXXXXXXXXXXX'; // e.g. 'ca-pub-1234567890123456'
-    if (ADSENSE_ID === 'ca-pub-XXXXXXXXXXXXXXXX') return; // Placeholder — skip until real ID added
+    const ADSENSE_ID = 'ca-pub-6207125181553910';
 
     const adScript = document.createElement('script');
     adScript.async = true;
