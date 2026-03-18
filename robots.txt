@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Block legal pages from indexing (already set via meta robots, belt-and-suspenders)
+Disallow: /privacy.html
+Disallow: /terms.html
+
+# Sitemap
+Sitemap: https://findyourinkinchrist.com/sitemap.xml

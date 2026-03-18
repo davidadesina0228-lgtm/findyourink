@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+>
+  <channel>
+    <title>Find Your Ink</title>
+    <link>https://findyourinkinchrist.com</link>
+    <description>Christ-centered healing, emotional transformation, and spiritual depth. Written from scars, not wounds — by David Adesina.</description>
+    <language>en-us</language>
+    <managingEditor>david@findyourinkinchrist.com (David Adesina)</managingEditor>
+    <webMaster>david@findyourinkinchrist.com (David Adesina)</webMaster>
+    <lastBuildDate>Mon, 15 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://findyourinkinchrist.com/rss.xml" rel="self" type="application/rss+xml" />
+    <image>
+      <url>https://findyourinkinchrist.com/images/rss-logo.png</url>
+      <title>Find Your Ink</title>
+      <link>https://findyourinkinchrist.com</link>
+    </image>
+
+    <item>
+      <title>Why Smart Christians Struggle to Feel Their Feelings</title>
+      <link>https://findyourinkinchrist.com/blog/why-smart-christians-struggle-to-feel.html</link>
+      <guid isPermaLink="true">https://findyourinkinchrist.com/blog/why-smart-christians-struggle-to-feel.html</guid>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <dc:creator>David Adesina</dc:creator>
+      <category>Emotional Intelligence</category>
+      <description><![CDATA[We were taught to think our way to God. To reason through the pain. To exegete our way out of the darkness. But feelings don't respond to arguments — and the part of you that needs healing isn't the part that reads commentaries.]]></description>
+      <content:encoded><![CDATA[
+        <p>I used to argue with my own sadness.</p>
+        <p>Not out loud. In the interior courtroom where I spent most of my prayer life — I would cross-examine the feeling. Build a case against it. Present evidence for why it wasn't warranted, why it wasn't proportional, why a man who knew Romans 8:28 had no business sitting in this particular darkness.</p>
+        <p>I thought I was being disciplined. What I was actually doing was abandoning myself.</p>
+        <p><em>Read the full essay at <a href="https://findyourinkinchrist.com/blog/why-smart-christians-struggle-to-feel.html">Find Your Ink</a>.</em></p>
+      ]]></content:encoded>
+    </item>
+
+    <item>
+      <title>The Sabbath Your Ancestors Never Took</title>
+      <link>https://findyourinkinchrist.com/blog/the-sabbath-your-ancestors-never-took.html</link>
+      <guid isPermaLink="true">https://findyourinkinchrist.com/blog/the-sabbath-your-ancestors-never-took.html</guid>
+      <pubDate>Mon, 08 Jan 2024 00:00:00 +0000</pubDate>
+      <dc:creator>David Adesina</dc:creator>
+      <category>Trauma &amp; Healing</category>
+      <description><![CDATA[Generational rest debt is real. You're tired in ways sleep can't fix — because the exhaustion didn't begin with you.]]></description>
+    </item>
+
+    <item>
+      <title>The Difference Between Being Anointed and Being Whole</title>
+      <link>https://findyourinkinchrist.com/blog/the-difference-between-anointed-and-whole.html</link>
+      <guid isPermaLink="true">https://findyourinkinchrist.com/blog/the-difference-between-anointed-and-whole.html</guid>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <dc:creator>David Adesina</dc:creator>
+      <category>Spiritual Formation</category>
+      <description><![CDATA[God can use broken things. He does it all the time. But he doesn't want you to stay broken — and those two truths need to be held together.]]></description>
+    </item>
+
+    <item>
+      <title>When Prayer Feels Like Performance</title>
+      <link>https://findyourinkinchrist.com/blog/when-prayer-feels-like-performance.html</link>
+      <guid isPermaLink="true">https://findyourinkinchrist.com/blog/when-prayer-feels-like-performance.html</guid>
+      <pubDate>Mon, 18 Dec 2023 00:00:00 +0000</pubDate>
+      <dc:creator>David Adesina</dc:creator>
+      <category>Faith &amp; Doubt</category>
+      <description><![CDATA[The exhaustion of spiritual theater. The relief of praying nothing at all. And what it means when you can't find the words.]]></description>
+    </item>
+
+    <item>
+      <title>Decolonizing Your Faith</title>
+      <link>https://findyourinkinchrist.com/blog/decolonizing-your-faith.html</link>
+      <guid isPermaLink="true">https://findyourinkinchrist.com/blog/decolonizing-your-faith.html</guid>
+      <pubDate>Mon, 04 Dec 2023 00:00:00 +0000</pubDate>
+      <dc:creator>David Adesina</dc:creator>
+      <category>Cultural Commentary</category>
+      <description><![CDATA[What African Christians inherited that isn't biblical — and what we must return to the Giver.]]></description>
+    </item>
+
+    <item>
+      <title>Rewiring: The Neuroscience of Romans 12:2</title>
+      <link>https://findyourinkinchrist.com/blog/rewiring-the-renewing-of-your-mind.html</link>
+      <guid isPermaLink="true">https://findyourinkinchrist.com/blog/rewiring-the-renewing-of-your-mind.html</guid>
+      <pubDate>Mon, 06 Nov 2023 00:00:00 +0000</pubDate>
+      <dc:creator>David Adesina</dc:creator>
+      <category>Mind &amp; Neuroscience</category>
+      <description><![CDATA[Long before scientists tracked synaptic changes, Scripture declared: be transformed by the renewing of your mind. Renewing — not repaired once, then left to rust.]]></description>
+    </item>
+
+    <item>
+      <title>The Violence of Unforgiveness</title>
+      <link>https://findyourinkinchrist.com/blog/the-violence-of-unforgiveness.html</link>
+      <guid isPermaLink="true">https://findyourinkinchrist.com/blog/the-violence-of-unforgiveness.html</guid>
+      <pubDate>Sun, 08 Oct 2023 00:00:00 +0000</pubDate>
+      <dc:creator>David Adesina</dc:creator>
+      <category>Trauma &amp; Healing</category>
+      <description><![CDATA[Unforgiveness isn't just spiritual rebellion. It's a neural prison. Every time you rehearse the wound, you deepen the groove.]]></description>
+    </item>
+
+  </channel>
+</rss>
