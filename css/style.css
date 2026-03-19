@@ -335,10 +335,27 @@ em { font-style: italic; }
   text-decoration: none;
   transition: color var(--transition-fast);
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.nav__logo-img {
+  height: 40px;
+  width: auto;
+  display: block;
+  transition: opacity var(--transition-fast);
+}
+
+.nav__logo:hover .nav__logo-img {
+  opacity: 0.85;
 }
 
 .nav--light .nav__logo {
   color: var(--color-black);
+}
+
+.nav--light .nav__logo-img {
+  filter: invert(1);
 }
 
 .nav__logo span {
@@ -1160,6 +1177,13 @@ em { font-style: italic; }
     grid-template-columns: 1.5fr 1fr 1fr;
     gap: var(--space-8);
   }
+}
+
+.footer__brand-logo-img {
+  height: 64px;
+  width: auto;
+  display: block;
+  margin-bottom: var(--space-4);
 }
 
 .footer__brand-logo {
