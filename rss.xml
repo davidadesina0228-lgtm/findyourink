@@ -11,7 +11,7 @@
     <language>en-us</language>
     <managingEditor>david@findyourinkinchrist.com (David Adesina)</managingEditor>
     <webMaster>david@findyourinkinchrist.com (David Adesina)</webMaster>
-    <lastBuildDate>Mon, 20 May 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 10 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://findyourinkinchrist.com/rss.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://findyourinkinchrist.com/images/rss-logo.png</url>
@@ -395,5 +395,23 @@
       <description><![CDATA[Prayer is powerful. And it can also be a way to feel faithful while avoiding the cost of showing up. Here's what James 2 says about both.]]></description>
     </item>
 
+  
+    <item>
+      <title><![CDATA[The Bane of the Gifted]]></title>
+      <link>https://findyourinkinchrist.com/blog/the-bane-of-the-gifted.html</link>
+      <guid isPermaLink="true">https://findyourinkinchrist.com/blog/the-bane-of-the-gifted.html</guid>
+      <pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate>
+      <category><![CDATA[Identity in Christ]]></category>
+      <description><![CDATA[It's not pride that haunts the gifted — it's blindness. The familiarity of your own brilliance can become the very thing that blinds you to the purpose behind it.]]></description>
+    </item>
+
+    <item>
+      <title><![CDATA[Heaven Still Interrupts Boardrooms]]></title>
+      <link>https://findyourinkinchrist.com/blog/heaven-still-interrupts-boardrooms.html</link>
+      <guid isPermaLink="true">https://findyourinkinchrist.com/blog/heaven-still-interrupts-boardrooms.html</guid>
+      <pubDate>Tue, 10 Feb 2026 00:00:00 +0000</pubDate>
+      <category><![CDATA[Faith &amp; Doubt]]></category>
+      <description><![CDATA[God doesn't place His children in powerful rooms to make them feel small. He places them there to remind the powerful who truly gives wisdom.]]></description>
+    </item>
   </channel>
 </rss>
