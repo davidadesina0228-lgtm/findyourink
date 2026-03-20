@@ -323,3 +323,79 @@ The chat-uploaded logo image could not be automatically exported by tooling into
 ### Result
 - Visitors can no longer submit newsletter forms.
 - UI consistently communicates newsletter availability as coming soon site-wide.
+
+## Update - 2026-03-20 (Sabbath Post Voice + Link Coverage Audit)
+
+### User Request
+- Rewrite "The Sabbath Your Ancestors Never Took" so it reads as studied/observational, not personal lived experience.
+- Clarify whether every page/post has internal and external link coverage.
+
+### Change Applied
+- Updated article voice in:
+  - `blog/the-sabbath-your-ancestors-never-took.html`
+- Rewrote first-person experiential statements into research/observational framing while preserving core theological argument.
+
+### Link Coverage Audit (Local HTML)
+- Pages analyzed: 57
+- Pages with zero internal links: 0
+- Pages with zero outbound external links: 0
+- Total internal links found: 2453
+- Total outbound external links found: 318
+
+## Update - 2026-03-20 (Last-30-Days Trend Blog Pack: 10 New Drafts)
+
+### User Request
+- Use the last-30-days skill approach to research current niche demand.
+- Write 10 blog drafts based on what is currently trending in the niche.
+- Apply the right writing and SEO-oriented skills.
+
+### Skills Applied
+- `last30days` (recency-first trend framing and source gathering)
+- `copywriting`
+- `seo-content-writer`
+
+### Deliverable Added
+- `TRENDING_BLOGS_LAST30_2026-03-20.md`
+
+### What The New File Contains
+- Parsed-intent block and trend signal summary.
+- 10 full blog drafts tailored to revival ministry + Find Your Ink positioning.
+- For each draft:
+  - Title
+  - Suggested slug
+  - Category
+  - Meta description
+  - Full body draft
+  - Internal link targets
+  - External backlink/reference targets
+
+### Draft Coverage Check
+- Total drafts: 10
+- Drafts with internal link targets: 10/10
+- Drafts with external reference/backlink targets: 10/10
+
+## Update - 2026-03-20 (Ministry YouTube Link + Crawl/Ads Coverage Check)
+
+### User Request
+- Add the ministry YouTube channel in relevant places:
+  - `https://youtube.com/@davidadesina0?si=oQRRDq-_5o9eDQP1`
+- Confirm `robots.txt`, `llms.txt`, and `ads.txt` coverage status.
+
+### Changes Applied
+- Replaced legacy YouTube channel URL references on homepage (`index.html`) with the new ministry handle URL.
+- Updated footer YouTube social links site-wide (top-level pages + all blog post pages) from placeholder `#` to the ministry YouTube URL.
+- Added ministry YouTube reference to `llms.txt` under Contact.
+- Added missing AdSense account meta tag to:
+  - `404.html`
+  - `privacy.html`
+  - `terms.html`
+
+### Validation Snapshot
+- Old YouTube channel references remaining: 0
+- Placeholder YouTube footer links remaining: 0
+- Pages containing new YouTube URL: homepage + all footer social sections
+- HTML pages analyzed: 57
+- Pages missing `<meta name="google-adsense-account">`: 0
+- `robots.txt`: present at root and allows major AI crawlers
+- `llms.txt`: present at root and includes ministry YouTube
+- `ads.txt`: present at root with valid publisher entry
