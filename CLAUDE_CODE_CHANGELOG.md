@@ -173,3 +173,17 @@ The chat-uploaded logo image could not be automatically exported by tooling into
   - Current Projects card
   - Footer social link (`AI`)
   - Footer external links list
+
+## Update - 2026-03-20 (Official David Adesina Logo)
+
+### User Correction
+- User provided the official David Adesina logo via Google Drive.
+- Previous `images/david-adesina-logo.png` was the older FYI mark and did not match the official logo.
+
+### Change Applied
+- Replaced `images/david-adesina-logo.png` with the official David Adesina logo asset from:
+  - `https://drive.google.com/file/d/1H2R1YQQWp1tm2AOvbLaVAVggyAKLgMae/view`
+- This file is used across navigation, hero, and footer branding references already present in the site templates.
+- Optimized the new logo for web delivery:
+  - Cropped excessive empty margins for better visual presence.
+  - Resized to `1600x987` (~696 KB) for faster page loading.
