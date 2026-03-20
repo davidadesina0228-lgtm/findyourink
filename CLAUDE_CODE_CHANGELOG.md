@@ -110,8 +110,7 @@ Also replaced legacy hardcoded gold RGB references (`rgba(201,169,97,...)`) with
 - `CLAUDE_CODE_CHANGELOG.md` (this file)
 
 ## Pending Placeholders (Need Real URLs)
-In `index.html`:
-- `https://YOUR-AI-BUSINESS-WEBSITE.com`
+All major external placeholders have now been replaced.
 
 ## Important Note About Uploaded Logo
 The chat-uploaded logo image could not be automatically exported by tooling into workspace as a direct file.
@@ -163,3 +162,14 @@ The chat-uploaded logo image could not be automatically exported by tooling into
 - `index.html`
 - `js/main.js`
 - `CLAUDE_CODE_CHANGELOG.md`
+
+## Update - 2026-03-20 (AI Business URL)
+
+### User Update
+- AI business website set to: `https://remshield.solutions/`
+
+### Change Applied
+- Replaced all remaining AI business placeholder links in `index.html`:
+  - Current Projects card
+  - Footer social link (`AI`)
+  - Footer external links list
