@@ -187,3 +187,19 @@ The chat-uploaded logo image could not be automatically exported by tooling into
 - Optimized the new logo for web delivery:
   - Cropped excessive empty margins for better visual presence.
   - Resized to `1600x987` (~696 KB) for faster page loading.
+
+## Update - 2026-03-20 (Homepage Copywriting Pass)
+
+### User Request
+- Improve landing-page copy quality using copywriting best practices.
+- Remove unnecessary hero label/logo block from above-the-fold copy flow.
+
+### Change Applied
+- Refined homepage copy for clarity, stronger outcomes, and cleaner CTA language:
+  - Hero headline/subheadline
+  - Primary CTA labels
+  - Find Your Ink section messaging
+  - Ministry and projects section copy
+  - Contact CTA copy
+  - Footer tagline
+- Removed top hero "Personal Website" label and extra hero logo block to reduce clutter and keep focus on headline + action.
