@@ -2595,14 +2595,6 @@ body.hub-page .nav__toggle span {
   max-width: 760px;
 }
 
-.hub-hero__logo {
-  width: clamp(180px, 28vw, 320px);
-  height: auto;
-  display: block;
-  margin: 0 0 1.3rem;
-  filter: drop-shadow(0 10px 32px rgba(0, 0, 0, 0.35));
-}
-
 .hub-hero__title {
   font-size: clamp(2.3rem, 8vw, 5rem);
   line-height: 1.02;
