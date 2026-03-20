@@ -203,3 +203,23 @@ The chat-uploaded logo image could not be automatically exported by tooling into
   - Contact CTA copy
   - Footer tagline
 - Removed top hero "Personal Website" label and extra hero logo block to reduce clutter and keep focus on headline + action.
+
+## Update - 2026-03-20 (Primary Domain + Hero Messaging)
+
+### User Update
+- Primary connected domain is now `davidadesina.com`.
+- Hero copy should avoid explicit AI/media positioning and stay general.
+
+### Change Applied
+- Replaced site-domain references from `findyourinkinchrist.com` to `davidadesina.com` across:
+  - Canonical URLs
+  - Open Graph URLs
+  - Structured data `url` fields
+  - `robots.txt` sitemap pointer
+  - `sitemap.xml` entries
+  - `rss.xml` links/guid values
+  - Blog share URLs
+- Updated hero line in `index.html` to general positioning:
+  - from explicit AI/media wording to broader mission wording with dedicated sites for specific projects.
+- Added `ads.txt` at site root using current AdSense publisher ID:
+  - `google.com, pub-6207125181553910, DIRECT, f08c47fec0942fa0`

@@ -6,4 +6,4 @@ Disallow: /privacy.html
 Disallow: /terms.html
 
 # Sitemap
-Sitemap: https://findyourinkinchrist.com/sitemap.xml
+Sitemap: https://davidadesina.com/sitemap.xml
