@@ -112,8 +112,6 @@ Also replaced legacy hardcoded gold RGB references (`rgba(201,169,97,...)`) with
 ## Pending Placeholders (Need Real URLs)
 In `index.html`:
 - `https://YOUR-AI-BUSINESS-WEBSITE.com`
-- `https://YOUR-GLEAMSHIELD-WEBSITE.com`
-- `https://youtube.com/@YOUR_CHANNEL`
 
 ## Important Note About Uploaded Logo
 The chat-uploaded logo image could not be automatically exported by tooling into workspace as a direct file.
@@ -124,3 +122,44 @@ The chat-uploaded logo image could not be automatically exported by tooling into
 1. Replace placeholder external URLs.
 2. Drop final official logo artwork into `images/david-adesina-logo.png` (same filename).
 3. Optionally align `about.html`, `blog.html`, `resources.html`, and `contact.html` with the same personal-hub style direction.
+
+---
+
+## Update - 2026-03-20 (Blog Cover Image Generation)
+
+### User Request
+- Fill all blog picture spaces/placeholders with generated images.
+- Use the provided Gleamshield and YouTube URLs.
+
+### Additional Completed Changes
+
+#### 1) External Links Updated on Homepage
+- Replaced placeholder links in `index.html` for:
+  - Gleamshield: `https://gleamshieldstudios.org/`
+  - YouTube: `https://www.youtube.com/channel/UC1tRDe9fnkXVbC-djCLCLzQ`
+
+#### 2) Generated Blog Cover Artwork for Every Blog Post
+- Added a reusable generator script:
+  - `scripts/generate-blog-covers.mjs`
+- Generated **49 SVG cover images** in:
+  - `images/blog-covers/`
+- Each cover is derived from blog metadata (title + section) and uses the approved brand palette.
+
+#### 3) Automatic Placeholder Replacement on Blog Cards
+- Updated `js/main.js` with a new block:
+  - `hydrateBlogCardCovers()`
+- This script:
+  - finds `.card__image-placeholder` blocks,
+  - derives the target blog slug from the card link,
+  - swaps in `images/blog-covers/{slug}.svg` (or `../images/...` on blog post pages).
+- Result:
+  - Blog listing cards and related-post cards now render real cover images instead of empty placeholders.
+
+### Files Added
+- `scripts/generate-blog-covers.mjs`
+- `images/blog-covers/*.svg` (49 files)
+
+### Files Updated
+- `index.html`
+- `js/main.js`
+- `CLAUDE_CODE_CHANGELOG.md`

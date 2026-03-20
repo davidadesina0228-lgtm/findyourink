@@ -330,6 +330,56 @@
   }
 
   /* ================================================================
+     BLOG CARD COVERS - replace placeholder blocks with generated art
+     ================================================================ */
+  function getBlogCoverBasePath() {
+    return window.location.pathname.includes('/blog/')
+      ? '../images/blog-covers/'
+      : 'images/blog-covers/';
+  }
+
+  function getSlugFromLink(href) {
+    if (!href) return null;
+    const cleanHref = href.split('?')[0].split('#')[0];
+    const match = cleanHref.match(/(?:^|\/)([^\/?#]+)\.html$/i);
+    return match ? match[1] : null;
+  }
+
+  function hydrateBlogCardCovers() {
+    const placeholders = document.querySelectorAll('.card__image-placeholder');
+    if (!placeholders.length) return;
+
+    const basePath = getBlogCoverBasePath();
+    placeholders.forEach(placeholder => {
+      const card = placeholder.closest('.card');
+      if (!card) return;
+
+      const link =
+        card.querySelector('.card__title a[href]') ||
+        card.querySelector('.card__link[href]');
+
+      if (!link) return;
+      const slug = getSlugFromLink(link.getAttribute('href'));
+      if (!slug) return;
+
+      const image = document.createElement('img');
+      image.src = `${basePath}${slug}.svg`;
+      image.alt = (link.textContent || 'Blog cover image').replace(/\s+/g, ' ').trim();
+      image.loading = 'lazy';
+      image.decoding = 'async';
+
+      image.onerror = function () {
+        // Preserve the existing placeholder if a cover file is missing.
+        image.remove();
+      };
+
+      placeholder.replaceWith(image);
+    });
+  }
+
+  hydrateBlogCardCovers();
+
+  /* ================================================================
      BLOG CATEGORY FILTER
      ================================================================ */
   const filterPills = document.querySelectorAll('.blog-filters .category-pill');
