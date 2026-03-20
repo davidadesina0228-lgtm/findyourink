@@ -1,6 +1,6 @@
 /* ================================================================
    FIND YOUR INK — Main JavaScript
-   findyourinkinchrist.com
+   davidadesina.com
    ================================================================ */
 
 (function () {
@@ -182,11 +182,54 @@
      Replace the action URL with your email service endpoint
      Supports: ConvertKit, Mailerlite, Beehiiv, Substack API
      ================================================================ */
+  const NEWSLETTER_COMING_SOON = true;
   const newsletterForms = document.querySelectorAll('.newsletter__form');
+
+  function activateNewsletterComingSoonMode() {
+    if (!NEWSLETTER_COMING_SOON) return;
+
+    newsletterForms.forEach(form => {
+      const emailInput = form.querySelector('.newsletter__input');
+      const submitBtn = form.querySelector('button[type="submit"]');
+
+      if (emailInput) {
+        emailInput.value = '';
+        emailInput.placeholder = 'Newsletter coming soon';
+        emailInput.disabled = true;
+        emailInput.setAttribute('aria-disabled', 'true');
+      }
+
+      if (submitBtn) {
+        submitBtn.textContent = 'Coming Soon';
+        submitBtn.disabled = true;
+        submitBtn.setAttribute('aria-disabled', 'true');
+      }
+
+      showFormMessage(form, 'Newsletter is coming soon. Check back soon.', 'success', true);
+    });
+
+    // Update CTA links that point to newsletter sections.
+    const newsletterLinks = document.querySelectorAll('a[href*="#newsletter"]');
+    newsletterLinks.forEach(link => {
+      link.textContent = 'Newsletter Coming Soon';
+      link.setAttribute('aria-disabled', 'true');
+      link.setAttribute('title', 'Newsletter coming soon');
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+      });
+    });
+  }
+
+  activateNewsletterComingSoonMode();
 
   newsletterForms.forEach(form => {
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
+
+      if (NEWSLETTER_COMING_SOON) {
+        showFormMessage(form, 'Newsletter is coming soon. Check back soon.', 'success', true);
+        return;
+      }
 
       const emailInput = form.querySelector('.newsletter__input');
       const submitBtn = form.querySelector('button[type="submit"]');
@@ -256,7 +299,7 @@
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
-  function showFormMessage(form, message, type) {
+  function showFormMessage(form, message, type, persistent = false) {
     let msg = form.querySelector('.form-message');
     if (!msg) {
       msg = document.createElement('p');
@@ -267,6 +310,8 @@
     }
     msg.textContent = message;
     msg.style.color = type === 'success' ? '#C9A961' : '#e05555';
+    msg.dataset.persistent = persistent ? 'true' : 'false';
+    if (persistent) return;
     // Auto-clear after 6 seconds
     setTimeout(() => {
       msg.textContent = '';

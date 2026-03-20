@@ -1,0 +1,37 @@
+# David Adesina - davidadesina.com
+
+> Official website of David Adesina. Core focus: writing (Find Your Ink), revival ministry (Cave Echoes), and current projects.
+
+## Canonical Domain
+
+- https://davidadesina.com
+
+## Core Pages
+
+- https://davidadesina.com/
+- https://davidadesina.com/about.html
+- https://davidadesina.com/blog.html
+- https://davidadesina.com/resources.html
+- https://davidadesina.com/contact.html
+
+## Writing (Find Your Ink)
+
+- https://davidadesina.com/blog.html
+- https://davidadesina.com/rss.xml
+- https://davidadesina.com/sitemap.xml
+
+## Key Organizations and Projects
+
+- Find Your Ink (on-site writing publication)
+- Cave Echoes (revival ministry)
+- Remshield (AI engineering business): https://remshield.solutions/
+- Gleamshield Studios (animation): https://gleamshieldstudios.org/
+
+## Contact
+
+- https://davidadesina.com/contact.html
+
+## Legal
+
+- https://davidadesina.com/privacy.html
+- https://davidadesina.com/terms.html

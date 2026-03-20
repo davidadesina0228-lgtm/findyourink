@@ -223,3 +223,103 @@ The chat-uploaded logo image could not be automatically exported by tooling into
   - from explicit AI/media wording to broader mission wording with dedicated sites for specific projects.
 - Added `ads.txt` at site root using current AdSense publisher ID:
   - `google.com, pub-6207125181553910, DIRECT, f08c47fec0942fa0`
+
+## Update - 2026-03-20 (SEO + GEO Audit and Auto-Fixes)
+
+### User Request
+- Add `ads.txt`.
+- Run SEO audit and GEO audit with the appropriate skills.
+- Automatically fix issues found where possible.
+
+### Audit Skills Used
+- `seo-audit`
+- `geo-audit`
+
+### Changes Applied
+
+#### 1) GEO/Technical Discoverability
+- Added `llms.txt` with canonical domain, core pages, feeds, legal, and key external project links.
+- Updated `robots.txt`:
+  - Kept global crawl allow.
+  - Added sitemap pointer (`https://davidadesina.com/sitemap.xml`).
+  - Added explicit allow rules for:
+    - `GPTBot`
+    - `ChatGPT-User`
+    - `ClaudeBot`
+    - `Claude-Web`
+    - `PerplexityBot`
+    - `Google-Extended`
+
+#### 2) Social Metadata and Asset Completeness
+- Generated missing social preview assets:
+  - `images/og-home.jpg`
+  - `images/og-about.jpg`
+  - `images/og-blog.jpg`
+  - `images/og-resources.jpg`
+  - `images/og-contact.jpg`
+  - `images/og-post-01.jpg` to `images/og-post-49.jpg`
+  - `images/rss-logo.png`
+- Added/fixed OG + Twitter metadata on utility pages (`404`, `privacy`, `terms`).
+- Backfilled missing `twitter:image` tags across affected pages using corresponding `og:image` values.
+- Fixed a legacy incorrect domain in one blog post `og:image` reference.
+
+#### 3) Feed/Sitemap Freshness and Domain Consistency
+- Updated `rss.xml` `lastBuildDate` to match most recent publish date in feed entries.
+- Updated top-level `sitemap.xml` `lastmod` values to `2026-03-20`.
+- Fixed one remaining legacy schema URL to use `https://davidadesina.com`.
+
+#### 4) Automation Scripts Added
+- `scripts/generate-social-images.ps1`
+- `scripts/fix-social-meta.ps1`
+
+### Audit Deliverables Added
+- `SEO-AUDIT-REPORT.md`
+- `GEO-AUDIT-REPORT.md`
+
+### Post-Fix Validation Snapshot
+- HTML pages checked: 57
+- Missing title/description/canonical/H1/OG/Twitter-image tags: 0
+- Missing referenced image assets: 0
+- Broken internal refs: 0
+- Sitemap targets missing: 0
+- `ads.txt`: present and valid publisher ID
+- `llms.txt`: present
+
+## Update - 2026-03-20 (Ministry-First Positioning Refresh)
+
+### User Direction
+- Website narrative should center on revival ministry as the main assignment.
+- Find Your Ink should be positioned as support for believers facing attacks on the mind.
+- Avoid AI/technology-forward positioning in homepage messaging.
+- Frame Gleamshield as next-generation faith storytelling that addresses attacks on belief and logic.
+
+### Change Applied
+- Rewrote core homepage copy in `index.html`:
+  - Hero headline/subheadline
+  - Meta description, OG description, Twitter description
+  - About section lead/body
+  - Find Your Ink section copy
+  - Cave Echoes emphasis language
+  - Mission map/project section framing
+  - Footer tagline and external link labels
+- Updated JSON-LD profile language:
+  - `jobTitle` and description now ministry/writing centered
+  - removed AI-focused knowledge item from `knowsAbout`
+- Kept the business website link as a separate external reference without AI-forward copy.
+
+## Update - 2026-03-20 (Newsletter Set to Coming Soon)
+
+### User Request
+- Newsletter is not ready yet and should display as "coming soon."
+
+### Change Applied
+- Added global newsletter "coming soon" mode in `js/main.js`:
+  - Set `NEWSLETTER_COMING_SOON = true`.
+  - Disabled all `.newsletter__form` inputs/buttons across pages.
+  - Replaced newsletter submit button text with `Coming Soon`.
+  - Added persistent form message: `Newsletter is coming soon. Check back soon.`
+  - Updated all links targeting `#newsletter` to display `Newsletter Coming Soon` and prevent click-through.
+
+### Result
+- Visitors can no longer submit newsletter forms.
+- UI consistently communicates newsletter availability as coming soon site-wide.

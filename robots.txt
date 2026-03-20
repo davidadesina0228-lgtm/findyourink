@@ -1,9 +1,24 @@
 User-agent: *
 Allow: /
 
-# Block legal pages from indexing (already set via meta robots, belt-and-suspenders)
-Disallow: /privacy.html
-Disallow: /terms.html
-
 # Sitemap
 Sitemap: https://davidadesina.com/sitemap.xml
+
+# AI crawler guidance (GEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
