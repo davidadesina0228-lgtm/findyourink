@@ -2561,9 +2561,9 @@ body.hub-page .nav__toggle span {
 }
 
 .hub-logo-img {
-  height: 44px;
+  height: 64px;
   width: auto;
-  max-width: 180px;
+  max-width: 240px;
   object-fit: contain;
 }
 
@@ -2593,6 +2593,14 @@ body.hub-page .nav__toggle span {
 
 .hub-hero__inner {
   max-width: 760px;
+}
+
+.hub-hero__logo {
+  width: clamp(180px, 28vw, 320px);
+  height: auto;
+  display: block;
+  margin: 0 0 1.3rem;
+  filter: drop-shadow(0 10px 32px rgba(0, 0, 0, 0.35));
 }
 
 .hub-hero__title {
