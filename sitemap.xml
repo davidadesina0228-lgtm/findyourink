@@ -354,4 +354,39 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://davidadesina.com/blog/how-the-church-helped-build-the-lgbtq-movement.html</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://davidadesina.com/blog/pain-is-a-prophet.html</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://davidadesina.com/blog/stockholm-syndrome-when-captivity-twists-the-soul.html</loc>
+    <lastmod>2026-03-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://davidadesina.com/blog/when-thinking-dies.html</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://davidadesina.com/blog/the-anatomy-of-doubt.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
