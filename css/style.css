@@ -1609,6 +1609,21 @@ em { font-style: italic; }
   background: rgba(74,90,102,0.5);
 }
 
+/* Article Lead Figure (hero image below post header) */
+.article-lead-figure {
+  margin: 0;
+  background: var(--color-black);
+  overflow: hidden;
+}
+
+.article-lead-figure__img {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  display: block;
+  opacity: 0.9;
+}
+
 /* Article Body */
 .article-wrapper {
   padding: var(--space-12) 0 var(--space-20);
