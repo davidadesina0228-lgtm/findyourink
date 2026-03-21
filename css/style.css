@@ -919,8 +919,8 @@ em { font-style: italic; }
     grid-template-columns: 1.2fr 1fr;
   }
   .card--featured .card__image {
-    aspect-ratio: unset;
-    min-height: 320px;
+    aspect-ratio: 4/3;
+    max-height: 420px;
   }
   .card--featured .card__body {
     padding: var(--space-10);
@@ -1375,6 +1375,79 @@ em { font-style: italic; }
 /* ================================================================
    18. BLOG LISTING PAGE
    ================================================================ */
+/* ── Blog Search ────────────────────────────────────────── */
+.blog-search {
+  padding: var(--space-8) 0 var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.blog-search__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.blog-search__wrap {
+  position: relative;
+  max-width: 560px;
+}
+
+.blog-search__icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-gray);
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.blog-search__input {
+  width: 100%;
+  padding: 0.75rem 2.75rem 0.75rem 2.75rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--color-black);
+  background: var(--color-cream);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.blog-search__input:focus {
+  border-color: var(--color-gold);
+}
+
+.blog-search__input::placeholder {
+  color: #aaa;
+}
+
+.blog-search__clear {
+  position: absolute;
+  right: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-gray);
+  font-size: 0.85rem;
+  padding: 0.25rem;
+  line-height: 1;
+}
+
+.blog-search__clear:hover { color: var(--color-black); }
+
+.blog-search__count {
+  font-size: 0.8125rem;
+  color: var(--color-gray);
+  margin: 0;
+  padding-left: 0.25rem;
+}
+
+/* ── Blog Filters ───────────────────────────────────────── */
 .blog-filters {
   padding: var(--space-8) 0;
   border-bottom: 1px solid var(--color-border);

@@ -85,6 +85,23 @@
       </div>
     </section>
 
+    <!-- SEARCH -->
+    <div class="blog-search" role="search" aria-label="Search blog posts">
+      <div class="container">
+        <div class="blog-search__inner">
+          <label for="blog-search-input" class="visually-hidden">Search posts</label>
+          <div class="blog-search__wrap">
+            <span class="blog-search__icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </span>
+            <input type="search" id="blog-search-input" class="blog-search__input" placeholder="Search posts — try 'doubt', 'trauma', 'healing'…" autocomplete="off" />
+            <button class="blog-search__clear" id="blog-search-clear" type="button" aria-label="Clear search" hidden>✕</button>
+          </div>
+          <p class="blog-search__count" id="blog-search-count" aria-live="polite" hidden></p>
+        </div>
+      </div>
+    </div>
+
     <!-- CATEGORY FILTERS -->
     <div class="blog-filters" role="navigation" aria-label="Filter by category">
       <div class="container">
@@ -113,10 +130,8 @@
             <!-- Featured Post -->
             <article class="card card--featured" data-category="emotional-intelligence" style="margin-bottom: 2.5rem;">
               <div class="card__image">
-                <div class="card__image-placeholder" aria-hidden="true">
-                  <span class="card__image-glyph">"</span>
+                  <img src="images/og-post-01.jpg" alt="Why Smart Christians Struggle to Feel Their Feelings — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
-              </div>
               <div class="card__body">
                 <span class="card__category">Emotional Intelligence · Featured</span>
                 <h2 class="card__title">
@@ -291,9 +306,7 @@
 
               <article class="card" data-category="trauma-healing">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true">
-                    <span class="card__image-glyph">"</span>
-                  </div>
+                  <img src="images/og-post-02.jpg" alt="The Sabbath Your Ancestors Never Took — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Trauma &amp; Healing</span>
@@ -317,9 +330,7 @@
 
               <article class="card" data-category="spiritual-formation">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true">
-                    <span class="card__image-glyph">"</span>
-                  </div>
+                  <img src="images/og-post-03.jpg" alt="The Difference Between Being Anointed and Being Whole — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Spiritual Formation</span>
@@ -344,9 +355,7 @@
 
               <article class="card" data-category="faith-doubt">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true">
-                    <span class="card__image-glyph">"</span>
-                  </div>
+                  <img src="images/og-post-04.jpg" alt="When Prayer Feels Like Performance — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Faith &amp; Doubt</span>
@@ -370,9 +379,7 @@
 
               <article class="card" data-category="cultural-commentary">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true">
-                    <span class="card__image-glyph">"</span>
-                  </div>
+                  <img src="images/og-post-05.jpg" alt="Decolonizing Your Faith — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Cultural Commentary</span>
@@ -396,9 +403,7 @@
 
               <article class="card" data-category="generational-patterns">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true">
-                    <span class="card__image-glyph">"</span>
-                  </div>
+                  <img src="images/og-post-06.jpg" alt="The Myth of the Strong Black Woman — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Generational Patterns</span>
@@ -421,9 +426,7 @@
 
               <article class="card" data-category="mind-neuroscience">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true">
-                    <span class="card__image-glyph">"</span>
-                  </div>
+                  <img src="images/og-post-07.jpg" alt="Rewiring: The Neuroscience of Romans 12:2 — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Mind &amp; Neuroscience</span>
@@ -447,9 +450,7 @@
 
               <article class="card" data-category="identity-in-christ">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true">
-                    <span class="card__image-glyph">"</span>
-                  </div>
+                  <img src="images/og-post-08.jpg" alt="Prophets Without Platforms — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Identity in Christ</span>
@@ -473,9 +474,7 @@
 
               <article class="card" data-category="trauma-healing">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true">
-                    <span class="card__image-glyph">"</span>
-                  </div>
+                  <img src="images/og-post-09.jpg" alt="The Violence of Unforgiveness — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Trauma &amp; Healing</span>
@@ -500,7 +499,7 @@
 
               <article class="card" data-category="trauma-healing">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-10.jpg" alt="Healing Is Not Linear — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Trauma &amp; Healing</span>
@@ -519,7 +518,7 @@
 
               <article class="card" data-category="faith-doubt">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-11.jpg" alt="When the Church Hurt You — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Faith &amp; Doubt</span>
@@ -538,7 +537,7 @@
 
               <article class="card" data-category="generational-patterns">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-12.jpg" alt="Fatherlessness and the Father — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Generational Patterns</span>
@@ -557,7 +556,7 @@
 
               <article class="card" data-category="spiritual-formation">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-13.jpg" alt="Lament as Worship — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Spiritual Formation</span>
@@ -576,7 +575,7 @@
 
               <article class="card" data-category="emotional-intelligence">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-14.jpg" alt="The Stigma of Christian Mental Health — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Emotional Intelligence</span>
@@ -595,7 +594,7 @@
 
               <article class="card" data-category="spiritual-formation">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-15.jpg" alt="Rest as Rebellion — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Spiritual Formation</span>
@@ -614,7 +613,7 @@
 
               <article class="card" data-category="emotional-intelligence">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-16.jpg" alt="Emotional Triggers Are Not Your Enemy — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Emotional Intelligence</span>
@@ -633,7 +632,7 @@
 
               <article class="card" data-category="mind-neuroscience">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-17.jpg" alt="The Neuroscience of Shame — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Mind &amp; Neuroscience</span>
@@ -652,7 +651,7 @@
 
               <article class="card" data-category="trauma-healing">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-18.jpg" alt="Attachment Theory and the Love of God — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Trauma &amp; Healing</span>
@@ -671,7 +670,7 @@
 
               <article class="card" data-category="generational-patterns">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-19.jpg" alt="What African Fathers Couldn't Give You — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Generational Patterns</span>
@@ -690,7 +689,7 @@
 
               <article class="card" data-category="identity-in-christ">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-20.jpg" alt="The Comparison Trap — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Identity in Christ</span>
@@ -709,7 +708,7 @@
 
               <article class="card" data-category="emotional-intelligence">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-21.jpg" alt="Boundaries Are Not Betrayal — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Emotional Intelligence</span>
@@ -728,7 +727,7 @@
 
               <article class="card" data-category="generational-patterns">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-22.jpg" alt="The Weight of Being First — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Generational Patterns</span>
@@ -747,7 +746,7 @@
 
               <article class="card" data-category="trauma-healing">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-23.jpg" alt="How Childhood Wounds Shape Adult Faith — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Trauma &amp; Healing</span>
@@ -766,7 +765,7 @@
 
               <article class="card" data-category="faith-doubt">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-24.jpg" alt="When Your Faith and Therapy Disagree — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Faith &amp; Doubt</span>
@@ -785,7 +784,7 @@
 
               <article class="card" data-category="spiritual-formation">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-25.jpg" alt="Spiritual Warfare Is Also Internal — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Spiritual Formation</span>
@@ -804,7 +803,7 @@
 
               <article class="card" data-category="spiritual-formation">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-26.jpg" alt="Sanctification on a Bad Day — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Spiritual Formation</span>
@@ -823,7 +822,7 @@
 
               <article class="card" data-category="spiritual-formation">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-27.jpg" alt="The God Who Meets You in the Waiting — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Spiritual Formation</span>
@@ -842,7 +841,7 @@
 
               <article class="card" data-category="mind-neuroscience">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-28.jpg" alt="The Body Holds Your Story — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Mind &amp; Neuroscience</span>
@@ -861,7 +860,7 @@
 
               <article class="card" data-category="spiritual-formation">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-29.jpg" alt="Conviction vs Shame — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Spiritual Formation</span>
@@ -880,7 +879,7 @@
 
               <article class="card" data-category="cultural-commentary">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-30.jpg" alt="Breaking the Silence — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Cultural Commentary</span>
@@ -899,7 +898,7 @@
 
               <article class="card" data-category="spiritual-formation">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-31.jpg" alt="The Theology of Crying — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Spiritual Formation</span>
@@ -918,7 +917,7 @@
 
               <article class="card" data-category="cultural-commentary">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-32.jpg" alt="African and Not Allowed to Fall Apart — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Cultural Commentary</span>
@@ -937,7 +936,7 @@
 
               <article class="card" data-category="trauma-healing">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-33.jpg" alt="When Forgiveness Feels Impossible — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Trauma &amp; Healing</span>
@@ -956,7 +955,7 @@
 
               <article class="card" data-category="identity-in-christ">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-34.jpg" alt="The Inner Child God Never Lost — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Identity in Christ</span>
@@ -975,7 +974,7 @@
 
               <article class="card" data-category="emotional-intelligence">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-35.jpg" alt="What Is Christian Counseling? — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Emotional Intelligence</span>
@@ -994,7 +993,7 @@
 
               <article class="card" data-category="faith-doubt">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-36.jpg" alt="The Problem with Toxic Positivity in the Church — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Faith &amp; Doubt</span>
@@ -1013,7 +1012,7 @@
 
               <article class="card" data-category="mind-neuroscience">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-37.jpg" alt="How to Hear God When You're Numb — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Mind &amp; Neuroscience</span>
@@ -1032,7 +1031,7 @@
 
               <article class="card" data-category="identity-in-christ">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-38.jpg" alt="What It Means to Be Known — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Identity in Christ</span>
@@ -1051,7 +1050,7 @@
 
               <article class="card" data-category="faith-doubt">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-39.jpg" alt="When "I'll Pray for You" Is Not Enough — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Faith &amp; Doubt</span>
@@ -1070,7 +1069,7 @@
 
               <article class="card" data-category="identity-in-christ">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-40.jpg" alt="The Bane of the Gifted — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Identity in Christ</span>
@@ -1089,7 +1088,7 @@
 
               <article class="card" data-category="identity-in-christ">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-41.jpg" alt="Heaven Still Interrupts Boardrooms — Find Your Ink" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Identity in Christ</span>
@@ -1108,7 +1107,7 @@
 
               <article class="card" data-category="faith-doubt">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-42.jpg" alt="Right Isn't Always Right — But Truth Never Changes" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Faith &amp; Doubt</span>
@@ -1127,7 +1126,7 @@
 
               <article class="card" data-category="spiritual-formation">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-43.jpg" alt="When the Word Burns: A Letter to the Misunderstood Messenger" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Spiritual Formation</span>
@@ -1146,7 +1145,7 @@
 
               <article class="card" data-category="cultural-commentary">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-44.jpg" alt="A Letter to the Church in Africa: When Anointing Isn't Enough" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Cultural Commentary</span>
@@ -1165,7 +1164,7 @@
 
               <article class="card" data-category="trauma-healing">
                 <div class="card__image">
-                  <div class="card__image-placeholder" aria-hidden="true"><span class="card__image-glyph">"</span></div>
+                  <img src="images/og-post-45.jpg" alt="When the Prey Becomes the Predator: The Hidden Cycle of Wounded Souls" loading="lazy" width="800" height="450" />
                 </div>
                 <div class="card__body">
                   <span class="card__category">Trauma &amp; Healing</span>
@@ -1322,6 +1321,50 @@
 
   <script src="js/main.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    (function () {
+      const input   = document.getElementById('blog-search-input');
+      const clearBtn = document.getElementById('blog-search-clear');
+      const countEl = document.getElementById('blog-search-count');
+      const cards   = Array.from(document.querySelectorAll('.posts-grid .card, .card--featured'));
+
+      function getCardText(card) {
+        const title   = card.querySelector('.card__title')   ? card.querySelector('.card__title').textContent   : '';
+        const excerpt = card.querySelector('.card__excerpt') ? card.querySelector('.card__excerpt').textContent : '';
+        const cat     = card.querySelector('.card__category') ? card.querySelector('.card__category').textContent : '';
+        return (title + ' ' + excerpt + ' ' + cat).toLowerCase();
+      }
+
+      function runSearch(query) {
+        const q = query.trim().toLowerCase();
+        clearBtn.hidden = q === '';
+        let visible = 0;
+
+        cards.forEach(function (card) {
+          const matches = q === '' || getCardText(card).includes(q);
+          card.style.display = matches ? '' : 'none';
+          if (matches) visible++;
+        });
+
+        if (q === '') {
+          countEl.hidden = true;
+        } else {
+          countEl.hidden = false;
+          countEl.textContent = visible === 0
+            ? 'No posts found for "' + query.trim() + '"'
+            : visible + ' post' + (visible === 1 ? '' : 's') + ' found';
+        }
+      }
+
+      input.addEventListener('input', function () { runSearch(this.value); });
+
+      clearBtn.addEventListener('click', function () {
+        input.value = '';
+        input.focus();
+        runSearch('');
+      });
+    })();
+  </script>
 </body>
 </html>
 
