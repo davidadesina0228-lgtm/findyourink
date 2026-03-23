@@ -68,7 +68,6 @@
 </div>
 
 <main>
-  <!-- Hero -->
   <section class="gs-page-hero gs-pt-nav">
     <div class="gs-container gs-container--narrow" style="text-align:center;">
       <span class="gs-label">The Chronicle</span>
@@ -77,31 +76,137 @@
     </div>
   </section>
 
-  <!-- Coming Soon -->
-  <section class="gs-section">
-    <div class="gs-container gs-container--narrow" style="text-align:center;padding:4rem 0 6rem;">
-      <div style="width:64px;height:64px;border:2px solid var(--gs-accent);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 2rem;">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gs-accent)" stroke-width="1.5" aria-hidden="true"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg>
+  <section style="padding:1rem 0 2rem;">
+    <div class="gs-container" style="display:flex;justify-content:center;">
+      <div class="gs-filters" id="gs-filters">
+        <button class="gs-filter-btn active" data-cat="all">All Archives</button>
+        <button class="gs-filter-btn" data-cat="faith">Faith &amp; Thought</button>
+        <button class="gs-filter-btn" data-cat="story">Story &amp; Meaning</button>
+        <button class="gs-filter-btn" data-cat="behind">Behind the Scenes</button>
       </div>
-      <h2 style="font-family:var(--gs-font-display);font-size:2rem;color:var(--gs-text);margin-bottom:1rem;">The Chronicle is Being Written</h2>
-      <p style="color:var(--gs-text-dim);max-width:480px;margin:0 auto 2.5rem;line-height:1.8;">
-        GleamShield's first articles on faith, storytelling, and the architecture of Zenithia are in production.
-        Be the first to receive them.
-      </p>
-      <!-- Newsletter -->
-      <div class="gs-newsletter" style="max-width:440px;margin:0 auto;">
+    </div>
+  </section>
+
+  <section class="gs-section" style="padding-top:0;">
+    <div class="gs-container">
+
+      <article class="gs-featured-post" data-cat="faith">
+        <a href="/gleamshield/chronicles/is-god-the-same-in-old-and-new-testament.html" class="gs-featured-post__link">
+          <div class="gs-featured-post__img-wrap">
+            <img src="/images/gleamshield/gs-chronicles-1.jpg" alt="Is the God of the Old Testament the Same as the New?" class="gs-featured-post__img" loading="lazy" width="800" height="450" />
+          </div>
+          <div class="gs-featured-post__body">
+            <span class="gs-featured-post__tag">Faith & Thought</span>
+            <h2 class="gs-featured-post__title">Is the God of the Old Testament the Same as the New?</h2>
+            <p class="gs-featured-post__excerpt">People often see a violent God in the Old Testament and a loving one in the New. Angel Kanu examines what Scripture actually teaches about God's unchanging character.</p>
+            <p class="gs-featured-post__meta">Angel Kanu &middot; March 1, 2026 &middot; 8 min read</p>
+          </div>
+        </a>
+      </article>
+
+      <div class="gs-grid gs-grid--2" id="gs-posts" style="margin-top:3rem;">
+        <article class="gs-post-card" data-cat="faith">
+          <a href="/gleamshield/chronicles/why-did-jesus-have-to-die.html" class="gs-post-card__link">
+            <div class="gs-post-card__img-wrap">
+              <img src="/images/gleamshield/gs-chronicles-2.jpg" alt="Why Did Jesus Have to Die?" class="gs-post-card__img" loading="lazy" width="600" height="340" />
+            </div>
+            <div class="gs-post-card__body">
+              <span class="gs-post-card__cat">Faith & Thought</span>
+              <h2 class="gs-post-card__title">Why Did Jesus Have to Die?</h2>
+              <p class="gs-post-card__excerpt">If God can do anything, why did He need to die? Angel Kanu unpacks the meaning of sin as a governing dominion, and why only the cross could break it.</p>
+              <p class="gs-post-card__meta">Angel Kanu &middot; March 3, 2026 &middot; 7 min read</p>
+            </div>
+          </a>
+        </article>
+        <article class="gs-post-card" data-cat="faith">
+          <a href="/gleamshield/chronicles/how-can-a-loving-god-send-people-to-hell.html" class="gs-post-card__link">
+            <div class="gs-post-card__img-wrap">
+              <img src="/images/gleamshield/gs-chronicles-3.jpg" alt="How Can a Loving God Send People to Hell?" class="gs-post-card__img" loading="lazy" width="600" height="340" />
+            </div>
+            <div class="gs-post-card__body">
+              <span class="gs-post-card__cat">Faith & Thought</span>
+              <h2 class="gs-post-card__title">How Can a Loving God Send People to Hell?</h2>
+              <p class="gs-post-card__excerpt">God doesn't send anyone to hell — people choose it. Angel Kanu explains what hell actually is, who it was made for, and why Jesus changed everything.</p>
+              <p class="gs-post-card__meta">Angel Kanu &middot; March 5, 2026 &middot; 6 min read</p>
+            </div>
+          </a>
+        </article>
+        <article class="gs-post-card" data-cat="story">
+          <a href="/gleamshield/chronicles/why-doesnt-god-show-himself-clearly.html" class="gs-post-card__link">
+            <div class="gs-post-card__img-wrap">
+              <img src="/images/gleamshield/gs-chronicles-1.jpg" alt="Why Doesn't God Reveal Himself Clearly?" class="gs-post-card__img" loading="lazy" width="600" height="340" />
+            </div>
+            <div class="gs-post-card__body">
+              <span class="gs-post-card__cat">Story & Meaning</span>
+              <h2 class="gs-post-card__title">Why Doesn't God Reveal Himself Clearly?</h2>
+              <p class="gs-post-card__excerpt">God already revealed Himself clearly — in Jesus. Angel Kanu examines why the revelation was rejected, and why the problem of unbelief is a matter of the heart.</p>
+              <p class="gs-post-card__meta">Angel Kanu &middot; March 8, 2026 &middot; 6 min read</p>
+            </div>
+          </a>
+        </article>
+        <article class="gs-post-card" data-cat="behind">
+          <a href="/gleamshield/chronicles/is-belief-in-god-rational-or-blind-faith.html" class="gs-post-card__link">
+            <div class="gs-post-card__img-wrap">
+              <img src="/images/gleamshield/gs-chronicles-2.jpg" alt="Is Belief in God Rational or Blind Faith?" class="gs-post-card__img" loading="lazy" width="600" height="340" />
+            </div>
+            <div class="gs-post-card__body">
+              <span class="gs-post-card__cat">Behind the Scenes</span>
+              <h2 class="gs-post-card__title">Is Belief in God Rational or Blind Faith?</h2>
+              <p class="gs-post-card__excerpt">The Greek word for faith means persuaded trust — not belief without evidence. Angel Kanu examines the fine-tuning argument and what atheism itself requires.</p>
+              <p class="gs-post-card__meta">Angel Kanu &middot; March 10, 2026 &middot; 9 min read</p>
+            </div>
+          </a>
+        </article>
+        <article class="gs-post-card" data-cat="faith">
+          <a href="/gleamshield/chronicles/if-god-is-good-why-does-evil-exist.html" class="gs-post-card__link">
+            <div class="gs-post-card__img-wrap">
+              <img src="/images/gleamshield/gs-chronicles-3.jpg" alt="If God Is Good, Why Does Evil Exist?" class="gs-post-card__img" loading="lazy" width="600" height="340" />
+            </div>
+            <div class="gs-post-card__body">
+              <span class="gs-post-card__cat">Faith & Thought</span>
+              <h2 class="gs-post-card__title">If God Is Good, Why Does Evil Exist?</h2>
+              <p class="gs-post-card__excerpt">Evil exists because free will exists — and free will is necessary for love. Angel Kanu examines the ripple effect and why the cross is God's answer to suffering.</p>
+              <p class="gs-post-card__meta">Angel Kanu &middot; March 12, 2026 &middot; 8 min read</p>
+            </div>
+          </a>
+        </article>
+        <article class="gs-post-card" data-cat="story">
+          <a href="/gleamshield/chronicles/is-god-hidden.html" class="gs-post-card__link">
+            <div class="gs-post-card__img-wrap">
+              <img src="/images/gleamshield/gs-chronicles-1.jpg" alt="Is God Hidden? Why God Feels Distant" class="gs-post-card__img" loading="lazy" width="600" height="340" />
+            </div>
+            <div class="gs-post-card__body">
+              <span class="gs-post-card__cat">Story & Meaning</span>
+              <h2 class="gs-post-card__title">Is God Hidden? Why God Feels Distant</h2>
+              <p class="gs-post-card__excerpt">God is invisible by nature — but He declared Himself fully in Christ. Angel Kanu addresses the experience of divine distance for both unbelievers and believers.</p>
+              <p class="gs-post-card__meta">Angel Kanu &middot; March 15, 2026 &middot; 7 min read</p>
+            </div>
+          </a>
+        </article>
+        <article class="gs-post-card" data-cat="behind">
+          <a href="/gleamshield/chronicles/does-evil-disprove-god.html" class="gs-post-card__link">
+            <div class="gs-post-card__img-wrap">
+              <img src="/images/gleamshield/gs-chronicles-2.jpg" alt="Does Evil Disprove God?" class="gs-post-card__img" loading="lazy" width="600" height="340" />
+            </div>
+            <div class="gs-post-card__body">
+              <span class="gs-post-card__cat">Behind the Scenes</span>
+              <h2 class="gs-post-card__title">Does Evil Disprove God?</h2>
+              <p class="gs-post-card__excerpt">The ability to identify evil requires a moral standard — and that standard requires God. Angel Kanu examines C. S. Lewis and Dawkins's own admission.</p>
+              <p class="gs-post-card__meta">Angel Kanu &middot; March 17, 2026 &middot; 7 min read</p>
+            </div>
+          </a>
+        </article>
+      </div>
+
+      <div class="gs-newsletter" style="margin-top:3rem;">
         <h3 class="gs-newsletter__title">The GleamShield Chronicle</h3>
-        <p class="gs-newsletter__desc">First to know when we publish.</p>
+        <p class="gs-newsletter__desc">Receive new articles on faith, reason, and the architecture of truth.</p>
         <form class="gs-newsletter__form" onsubmit="return false;">
           <input type="email" class="gs-newsletter__input" placeholder="your@email.com" aria-label="Email address" />
-          <button type="submit" class="gs-btn gs-btn--primary">Notify Me</button>
+          <button type="submit" class="gs-btn gs-btn--primary">Subscribe</button>
         </form>
       </div>
-      <p style="margin-top:3rem;">
-        <a href="/gleamshield/" class="gs-link" style="color:var(--gs-accent);text-decoration:none;font-size:0.9rem;letter-spacing:0.05em;">
-          &larr; Back to GleamShield
-        </a>
-      </p>
+
     </div>
   </section>
 </main>
@@ -196,6 +301,16 @@
       });
     });
   });
+</script>
+<script>
+  const filters=document.querySelectorAll('.gs-filter-btn');
+  const posts=document.querySelectorAll('#gs-posts .gs-post-card, .gs-featured-post');
+  filters.forEach(btn=>btn.addEventListener('click',()=>{
+    filters.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const cat=btn.dataset.cat;
+    posts.forEach(p=>{p.style.display=(cat==='all'||p.dataset.cat===cat)?'':'none';});
+  }));
 </script>
 </body>
 </html>
