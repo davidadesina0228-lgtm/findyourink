@@ -411,6 +411,8 @@ body.gs-page ::-webkit-scrollbar-thumb:hover { background: var(--gs-accent); }
   border: 1px solid transparent;
   transition: all var(--gs-transition);
   white-space: nowrap;
+  touch-action: manipulation;
+  min-height: 44px;
 }
 
 .gs-btn--primary {
@@ -881,6 +883,8 @@ a:hover .gs-card__title { color: var(--gs-accent); }
   border-radius: 999px;
   cursor: pointer;
   transition: all var(--gs-transition);
+  touch-action: manipulation;
+  min-height: 44px;
 }
 .gs-filter-btn:hover,
 .gs-filter-btn.active {
@@ -1341,6 +1345,33 @@ a:hover .gs-card__title { color: var(--gs-accent); }
 .gs-fade-up--2 { animation-delay: 0.2s; }
 .gs-fade-up--3 { animation-delay: 0.3s; }
 .gs-fade-up--4 { animation-delay: 0.4s; }
+
+/* ── Accessibility: Reduced Motion ───────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .gs-hero__bg,
+  .gs-hero__orb,
+  .gs-fade-up,
+  .gs-fade-up--1,
+  .gs-fade-up--2,
+  .gs-fade-up--3,
+  .gs-fade-up--4 {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .gs-reading-progress { transition: none; }
+  .gs-card,
+  .gs-char-card,
+  .gs-featured-post,
+  .gs-story-card,
+  .gs-pillar,
+  .gs-founder { transition: border-color var(--gs-transition); }
+  .gs-card__img,
+  .gs-char-card__img,
+  .gs-featured-post__img,
+  .gs-story-card__img { transition: none; transform: none !important; }
+}
 
 /* ── Utilities ────────────────────────────────────────────── */
 .gs-divider {
