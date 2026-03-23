@@ -689,13 +689,51 @@
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
 <!-- Newsletter Popup -->
-<div id="dal-popup-overlay" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.75);align-items:center;justify-content:center;padding:1.5rem;">
-  <div style="background:#16161a;border:1px solid rgba(201,169,97,0.25);border-radius:6px;padding:2rem 2rem 1.5rem;max-width:500px;width:100%;position:relative;max-height:90vh;overflow-y:auto;">
-    <button id="dal-popup-close" aria-label="Close newsletter popup" style="position:absolute;top:0.875rem;right:0.875rem;background:none;border:none;color:#94949c;cursor:pointer;font-size:1.1rem;line-height:1;padding:0.25rem;">&#x2715;</button>
-    <p style="font-family:Georgia,serif;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:#C9A961;margin:0 0 0.5rem;">The David Adesina Letter</p>
-    <h3 style="font-family:Georgia,serif;font-size:1.4rem;font-weight:600;color:#e8e8ea;margin:0 0 0.5rem;line-height:1.3;padding-right:1.5rem;">You didn't stumble here by accident.</h3>
-    <p style="font-size:0.875rem;color:#94949c;margin:0 0 1.25rem;line-height:1.6;">Revival. Healing. Apologetics. One letter, every week.</p>
+<style>
+#dal-popup-overlay{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.78);align-items:center;justify-content:center;padding:1rem;box-sizing:border-box;}
+#dal-popup-card{background:#16161a;border:1px solid rgba(201,169,97,0.25);border-radius:6px;padding:1.25rem;max-width:500px;width:100%;position:relative;max-height:88vh;overflow-y:auto;box-sizing:border-box;}
+#dal-popup-close{position:absolute;top:0.25rem;right:0.25rem;background:none;border:none;color:#94949c;cursor:pointer;font-size:1rem;min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center;border-radius:4px;touch-action:manipulation;}
+#dal-popup-close:hover,#dal-popup-close:focus{color:#e8e8ea;outline:2px solid rgba(201,169,97,0.4);}
+#dal-popup-eyebrow{font-family:Georgia,serif;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:#C9A961;margin:0 0 0.5rem;display:block;}
+#dal-popup-heading{font-family:Georgia,serif;font-size:1.15rem;font-weight:600;color:#e8e8ea;margin:0 0 0.4rem;line-height:1.3;padding-right:2.5rem;}
+#dal-popup-desc{font-size:0.85rem;color:#94949c;margin:0 0 0.75rem;line-height:1.55;}
+#dal-popup-footer{font-size:0.72rem;color:#5a5a62;margin:0.5rem 0 0;text-align:center;}
+#dal-popup-iframe{width:100%;height:180px;background:transparent;border:none;display:block;}
+@media(min-width:420px){#dal-popup-iframe{height:220px;}#dal-popup-heading{font-size:1.3rem;}#dal-popup-card{padding:1.75rem 1.5rem 1.25rem;}}
+@media(min-width:600px){#dal-popup-iframe{height:260px;}#dal-popup-heading{font-size:1.4rem;}}
+</style>
+<div id="dal-popup-overlay" role="dialog" aria-modal="true" aria-label="Subscribe to The David Adesina Letter">
+  <div id="dal-popup-card">
+    <button id="dal-popup-close" aria-label="Close newsletter popup">&#x2715;</button>
+    <span id="dal-popup-eyebrow">The David Adesina Letter</span>
+    <h3 id="dal-popup-heading">You didn't stumble here by accident.</h3>
+    <p id="dal-popup-desc">Revival. Healing. Apologetics. One letter, every week.</p>
     <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+    <iframe id="dal-popup-iframe" src="https://subscribe-forms.beehiiv.com/2466ce69-133c-465f-877b-2a2442caa5b2" frameborder="0" scrolling="no" title="Subscribe to The David Adesina Letter"></iframe>
+    <p id="dal-popup-footer">No spam. One email per week. Unsubscribe anytime.</p>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='dal_popup_v1';
+  var el=document.getElementById('dal-popup-overlay');
+  var btn=document.getElementById('dal-popup-close');
+  function isDismissed(){try{var t=localStorage.getItem(KEY);return t&&(Date.now()-+t)<604800000;}catch(e){return false;}}
+  function close(){el.style.display='none';document.body.style.overflow='';try{localStorage.setItem(KEY,Date.now());}catch(e){}}
+  function open(){el.style.display='flex';document.body.style.overflow='hidden';}
+  btn.addEventListener('click',close);
+  el.addEventListener('click',function(e){if(e.target===el)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&el.style.display==='flex')close();});
+  if(!isDismissed()){
+    var done=false;
+    window.addEventListener('scroll',function(){
+      if(done)return;
+      var pct=window.scrollY/((document.documentElement.scrollHeight-window.innerHeight)||1)*100;
+      if(pct>=50){done=true;open();}
+    },{passive:true});
+  }
+})();
+</script>
     <iframe src="https://subscribe-forms.beehiiv.com/2466ce69-133c-465f-877b-2a2442caa5b2" frameborder="0" scrolling="no" style="width:100%;max-width:100%;height:291px;background:transparent;border:none;display:block;"></iframe>
     <p style="font-size:0.75rem;color:#5a5a62;margin:0.75rem 0 0;text-align:center;">No spam. One email per week. Unsubscribe anytime.</p>
   </div>
