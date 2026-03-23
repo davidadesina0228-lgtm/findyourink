@@ -106,97 +106,52 @@
     </section>
 
     <!-- CONTACT CONTENT -->
-    <section class="contact-layout container" aria-label="Contact information and form">
+    <section class="container" style="max-width:680px;padding-top:3rem;padding-bottom:3rem;" aria-label="Contact information">
 
-      <!-- Left: Info -->
-      <div>
-        <p class="contact-info__label">Reach Out</p>
-        <h2 class="contact-info__title">
-          For speaking, collaboration,<br />or just to say it landed.
-        </h2>
+      <p class="contact-info__label">Reach Out</p>
+      <h2 class="contact-info__title">
+        For speaking, collaboration,<br />or just to say it landed.
+      </h2>
 
-        <div class="contact-info__text">
-          <span class="line">I write to reach people.</span>
-          <span class="line">If the writing reached you —</span>
-          <span class="line">if something shifted, or cracked open, or named what you couldn't name —</span>
-          <span class="line">I want to know.</span>
-        </div>
-
-        <div class="contact-links" role="list">
-          <a href="mailto:davidadesina0228@gmail.com" class="contact-link" role="listitem">
-            <div class="contact-link__icon" aria-hidden="true">✉</div>
-            <div>
-              <p class="contact-link__text">davidadesina0228@gmail.com</p>
-              <p class="contact-link__sub">For all inquiries</p>
-            </div>
-          </a>
-          <a href="https://www.instagram.com/davidsina0" class="contact-link" role="listitem" aria-label="Instagram profile" target="_blank" rel="noopener">
-            <div class="contact-link__icon" aria-hidden="true">IG</div>
-            <div>
-              <p class="contact-link__text">@davidsina0</p>
-              <p class="contact-link__sub">Instagram</p>
-            </div>
-          </a>
-          <a href="https://youtube.com/@davidadesina0" class="contact-link" role="listitem" aria-label="YouTube channel" target="_blank" rel="noopener">
-            <div class="contact-link__icon" aria-hidden="true">YT</div>
-            <div>
-              <p class="contact-link__text">@davidadesina0</p>
-              <p class="contact-link__sub">YouTube</p>
-            </div>
-          </a>
-        </div>
-
-        <!-- What I'm open to -->
-        <div style="margin-top: 2rem;">
-          <p style="font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-gold); margin-bottom: 1rem;">I'm open to</p>
-          <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem;">
-            <li style="font-size: 0.9375rem; color: var(--color-gray); display: flex; gap: 0.5rem;">
-              <span style="color: var(--color-gold);">—</span>
-              Speaking at churches, conferences, and retreats
-            </li>
-            <li style="font-size: 0.9375rem; color: var(--color-gray); display: flex; gap: 0.5rem;">
-              <span style="color: var(--color-gold);">—</span>
-              Podcast interviews and conversations
-            </li>
-            <li style="font-size: 0.9375rem; color: var(--color-gray); display: flex; gap: 0.5rem;">
-              <span style="color: var(--color-gold);">—</span>
-              Writing collaborations and guest contributions
-            </li>
-            <li style="font-size: 0.9375rem; color: var(--color-gray); display: flex; gap: 0.5rem;">
-              <span style="color: var(--color-gold);">—</span>
-              Hearing your story — just because it matters
-            </li>
-          </ul>
-        </div>
+      <div class="contact-info__text" style="margin-bottom:2.5rem;">
+        <span class="line">I write to reach people.</span>
+        <span class="line">If the writing reached you —</span>
+        <span class="line">if something shifted, or cracked open, or named what you couldn't name —</span>
+        <span class="line">I want to know.</span>
       </div>
 
-      <!-- Right: Form -->
-      <div class="contact-form" role="form" aria-label="Contact form">
-        <h2 style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--color-black); margin-bottom: 1.5rem;">
-          Send a message
-        </h2>
-        <!-- Replace action with Formspree/Netlify endpoint -->
-        <form action="#" method="POST">
-          <div class="form-group">
-            <label class="form-label" for="name">Your Name</label>
-            <input type="text" id="name" name="name" class="form-input" placeholder="What do people call you?" required autocomplete="name" />
+      <div class="contact-links" role="list">
+        <a href="mailto:davidadesina0228@gmail.com" class="contact-link" role="listitem">
+          <div class="contact-link__icon" aria-hidden="true">✉</div>
+          <div>
+            <p class="contact-link__text">davidadesina0228@gmail.com</p>
+            <p class="contact-link__sub">For all inquiries</p>
           </div>
-          <div class="form-group">
-            <label class="form-label" for="email">Email Address</label>
-            <input type="email" id="email" name="email" class="form-input" placeholder="Where can I reach you back?" required autocomplete="email" />
+        </a>
+        <a href="https://www.instagram.com/davidsina0" class="contact-link" role="listitem" aria-label="Instagram profile" target="_blank" rel="noopener">
+          <div class="contact-link__icon" aria-hidden="true">IG</div>
+          <div>
+            <p class="contact-link__text">@davidsina0</p>
+            <p class="contact-link__sub">Instagram</p>
           </div>
-          <div class="form-group">
-            <label class="form-label" for="subject">What's this about?</label>
-            <input type="text" id="subject" name="subject" class="form-input" placeholder="Speaking, collaboration, or just a word..." />
+        </a>
+        <a href="https://youtube.com/@davidadesina0" class="contact-link" role="listitem" aria-label="YouTube channel" target="_blank" rel="noopener">
+          <div class="contact-link__icon" aria-hidden="true">YT</div>
+          <div>
+            <p class="contact-link__text">@davidadesina0</p>
+            <p class="contact-link__sub">YouTube</p>
           </div>
-          <div class="form-group">
-            <label class="form-label" for="message">Your Message</label>
-            <textarea id="message" name="message" class="form-textarea" placeholder="Say what needs saying. You don't have to make it perfect." required></textarea>
-          </div>
-          <button type="submit" class="btn btn--gold" style="width: 100%; justify-content: center;">
-            Send Message <span class="arrow" aria-hidden="true">→</span>
-          </button>
-        </form>
+        </a>
+      </div>
+
+      <div style="margin-top:2.5rem;">
+        <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-gold);margin-bottom:1rem;">I'm open to</p>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.75rem;">
+          <li style="font-size:0.9375rem;color:var(--color-gray);display:flex;gap:0.5rem;"><span style="color:var(--color-gold);">—</span> Speaking at churches, conferences, and retreats</li>
+          <li style="font-size:0.9375rem;color:var(--color-gray);display:flex;gap:0.5rem;"><span style="color:var(--color-gold);">—</span> Podcast interviews and conversations</li>
+          <li style="font-size:0.9375rem;color:var(--color-gray);display:flex;gap:0.5rem;"><span style="color:var(--color-gold);">—</span> Writing collaborations and guest contributions</li>
+          <li style="font-size:0.9375rem;color:var(--color-gray);display:flex;gap:0.5rem;"><span style="color:var(--color-gold);">—</span> Hearing your story — just because it matters</li>
+        </ul>
       </div>
 
     </section>
@@ -205,7 +160,7 @@
     <section class="newsletter newsletter--dark" id="newsletter" aria-labelledby="contact-newsletter-heading">
       <div class="container">
         <div class="newsletter__inner">
-          <p class="newsletter__eyebrow">The Ink Letter</p>
+          <p class="newsletter__eyebrow">The David Adesina Letter</p>
           <h2 class="newsletter__title" id="contact-newsletter-heading">
             The quieter way to stay connected.
           </h2>
@@ -300,83 +255,5 @@
     <h3 id="dal-popup-heading">You didn't stumble here by accident.</h3>
     <p id="dal-popup-desc">Revival. Healing. Apologetics. One letter, every week.</p>
     <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
-    <iframe id="dal-popup-iframe" src="https://subscribe-forms.beehiiv.com/2466ce69-133c-465f-877b-2a2442caa5b2" frameborder="0" scrolling="no" title="Subscribe to The David Adesina Letter"></iframe>
-    <p id="dal-popup-footer">No spam. One email per week. Unsubscribe anytime.</p>
-  </div>
-</div>
-<script>
-(function(){
-  var KEY='dal_popup_v1';
-  var el=document.getElementById('dal-popup-overlay');
-  var btn=document.getElementById('dal-popup-close');
-  function isDismissed(){try{var t=localStorage.getItem(KEY);return t&&(Date.now()-+t)<604800000;}catch(e){return false;}}
-  function close(){el.style.display='none';document.body.style.overflow='';try{localStorage.setItem(KEY,Date.now());}catch(e){}}
-  function open(){el.style.display='flex';document.body.style.overflow='hidden';}
-  btn.addEventListener('click',close);
-  el.addEventListener('click',function(e){if(e.target===el)close();});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&el.style.display==='flex')close();});
-  if(!isDismissed()){
-    var done=false;
-    window.addEventListener('scroll',function(){
-      if(done)return;
-      var pct=window.scrollY/((document.documentElement.scrollHeight-window.innerHeight)||1)*100;
-      if(pct>=50){done=true;open();}
-    },{passive:true});
-  }
-})();
-</script>
-    <iframe id="dal-popup-iframe" src="https://subscribe-forms.beehiiv.com/2466ce69-133c-465f-877b-2a2442caa5b2" frameborder="0" scrolling="no" title="Subscribe to The David Adesina Letter"></iframe>
-    <p id="dal-popup-footer">No spam. One email per week. Unsubscribe anytime.</p>
-  </div>
-</div>
-<script>
-(function(){
-  var KEY='dal_popup_v1';
-  var el=document.getElementById('dal-popup-overlay');
-  var btn=document.getElementById('dal-popup-close');
-  function isDismissed(){try{var t=localStorage.getItem(KEY);return t&&(Date.now()-+t)<604800000;}catch(e){return false;}}
-  function close(){el.style.display='none';document.body.style.overflow='';try{localStorage.setItem(KEY,Date.now());}catch(e){}}
-  function open(){el.style.display='flex';document.body.style.overflow='hidden';}
-  btn.addEventListener('click',close);
-  el.addEventListener('click',function(e){if(e.target===el)close();});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&el.style.display==='flex')close();});
-  if(!isDismissed()){
-    var done=false;
-    window.addEventListener('scroll',function(){
-      if(done)return;
-      var pct=window.scrollY/((document.documentElement.scrollHeight-window.innerHeight)||1)*100;
-      if(pct>=50){done=true;open();}
-    },{passive:true});
-  }
-})();
-</script>
-    <iframe src="https://subscribe-forms.beehiiv.com/2466ce69-133c-465f-877b-2a2442caa5b2" frameborder="0" scrolling="no" style="width:100%;max-width:100%;height:291px;background:transparent;border:none;display:block;"></iframe>
-    <p style="font-size:0.75rem;color:#5a5a62;margin:0.75rem 0 0;text-align:center;">No spam. One email per week. Unsubscribe anytime.</p>
-  </div>
-</div>
-<script>
-(function(){
-  var KEY='dal_popup_v1';
-  var el=document.getElementById('dal-popup-overlay');
-  var btn=document.getElementById('dal-popup-close');
-  function isDismissed(){try{var t=localStorage.getItem(KEY);return t&&(Date.now()-+t)<604800000;}catch(e){return false;}}
-  function close(){el.style.display='none';try{localStorage.setItem(KEY,Date.now());}catch(e){}}
-  btn.addEventListener('click',close);
-  el.addEventListener('click',function(e){if(e.target===el)close();});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
-  if(!isDismissed()){
-    var done=false;
-    window.addEventListener('scroll',function(){
-      if(done)return;
-      var pct=window.scrollY/((document.documentElement.scrollHeight-window.innerHeight)||1)*100;
-      if(pct>=50){done=true;el.style.display='flex';}
-    },{passive:true});
-  }
-})();
-</script>
 </body>
 </html>
-
-
-
-
