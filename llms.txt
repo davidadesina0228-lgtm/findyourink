@@ -1,6 +1,6 @@
 # David Adesina - davidadesina.com
 
-> Official website of David Adesina. Core focus: writing (Find Your Ink), revival ministry (Cave Echoes), and current projects.
+> Official website of David Adesina. Core focus: writing (Find Your Ink), revival ministry (Cave Echoes), and faith-based cinematic storytelling (GleamShield Production).
 
 ## Canonical Domain
 
@@ -20,20 +20,32 @@
 - https://davidadesina.com/rss.xml
 - https://davidadesina.com/sitemap.xml
 
+## GleamShield Production (Faith-Based Animation)
+
+- https://davidadesina.com/gleamshield/
+- https://davidadesina.com/gleamshield/characters.html
+- https://davidadesina.com/gleamshield/characters/abimifoluwa.html
+- https://davidadesina.com/gleamshield/stories.html
+- https://davidadesina.com/gleamshield/chronicles.html
+- https://davidadesina.com/gleamshield/about.html
+- https://davidadesina.com/gleamshield/support.html
+- https://davidadesina.com/gleamshield/chronicles/preserving-integrity-of-gods-word.html
+- https://davidadesina.com/gleamshield/chronicles/animation-as-modern-apologetics.html
+- https://davidadesina.com/gleamshield/chronicles/building-the-logic-of-zenithia.html
+
 ## Key Organizations and Projects
 
 - Find Your Ink (on-site writing publication)
 - Cave Echoes (revival ministry)
+- GleamShield Production (faith-based animation universe, hosted at /gleamshield/)
 - Remshield (AI engineering business): https://remshield.solutions/
-- Gleamshield Studios (animation): https://gleamshieldstudios.org/
 
 ## Contact
 
 - https://davidadesina.com/contact.html
-- Ministry YouTube: https://youtube.com/@davidadesina0?si=oQRRDq-_5o9eDQP1
+- Ministry YouTube: https://youtube.com/@davidadesina0
 
 ## Legal
 
 - https://davidadesina.com/privacy.html
 - https://davidadesina.com/terms.html
-

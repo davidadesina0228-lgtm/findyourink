@@ -1,9 +1,9 @@
 # GEO Audit Report: David Adesina (davidadesina.com)
 
-**Audit Date:** 2026-03-20  
-**URL:** https://davidadesina.com  
-**Business Type:** Publisher / Personal Brand Hub  
-**Pages Analyzed:** 57 (local HTML audit)
+**Audit Date:** 2026-03-23 (updated — v2)
+**URL:** https://davidadesina.com
+**Business Type:** Publisher / Personal Brand Hub (Find Your Ink writing + Cave Echoes revival ministry + GleamShield animation)
+**Pages Analyzed:** 63 (51 blog posts + 7 Gleamshield pages + 5 root pages)
 
 ---
 
@@ -86,7 +86,7 @@ None found in the local codebase.
 
 ---
 
-## Quick Wins Implemented in This Pass
+## Quick Wins Implemented in This Pass (v1 — 2026-03-20)
 
 1. Added `llms.txt`.
 2. Expanded AI crawler directives in `robots.txt`.
@@ -94,32 +94,50 @@ None found in the local codebase.
 4. Generated and wired all missing OG image assets.
 5. Fixed one legacy domain mismatch in schema metadata.
 
+## Fixes Implemented — v2 (2026-03-23)
+
+1. **FAQPage schema added to 26 blog posts** — Posts with `faq-item` sections now have FAQPage JSON-LD. AI systems can surface Q&A directly in answers.
+2. **FAQPage schema added to GleamShield chronicle** — `preserving-integrity-of-gods-word.html` FAQ section now structured.
+3. **JSON-LD added to all 6 GleamShield pages** — about.html (Organization), characters.html (CollectionPage), chronicles.html (WebPage), stories.html (CollectionPage), support.html (WebPage), abimifoluwa.html (WebPage with fictional Person).
+4. **llms.txt updated** — Removed closed `gleamshieldstudios.org` reference; added full `/gleamshield/` section with 7 page URLs.
+5. **index.html meta description fixed** — Was truncated (ended with comma). Now 147 chars, complete.
+6. **terms.html meta description fixed** — Was 51 chars. Expanded to 150 chars.
+7. **blog.html title fixed** — Was 20 chars ("Blog — Find Your Ink"). Now 67 chars with keywords.
+8. **GleamShield chronicles removed** — 3 placeholder article files deleted (no live content). chronicles.html converted to coming-soon email capture page. Sitemap updated to remove 3 dead URLs.
+
 ## 30-Day Action Plan
 
 ### Week 1
-- [ ] Replace placeholder social URLs with final profile links.
-- [ ] Connect production newsletter and contact form endpoints.
+- [x] Add FAQPage schema to all posts with FAQ content *(done v2)*
+- [x] Add JSON-LD to all GleamShield pages *(done v2)*
+- [x] Fix llms.txt *(done v2)*
+- [ ] Submit sitemap to Google Search Console and Bing Webmaster Tools
+- [ ] Add `SearchAction` schema (SiteLinksSearchBox) to homepage
 
 ### Week 2
-- [ ] Add GA4 real measurement ID and validate analytics.
-- [ ] Ensure all outbound profile links are bi-directionally consistent with brand naming.
+- [ ] Add author bio block to all blog posts (one HTML partial, repeated)
+- [ ] Add plain-prose "answer paragraph" at top of 10 most-visited posts for AI extractability
+- [ ] Add external citations (research links) to 5 key posts
 
 ### Week 3
-- [ ] Publish additional topical cluster posts and cross-link them internally.
-- [ ] Add FAQ blocks (with matching schema) to top-performing pillar pages.
+- [ ] Cross-post 5 blog excerpts to Medium with canonical back-links
+- [ ] Write keyword-rich descriptions for all YouTube videos (AI models index these as text)
+- [ ] Create/claim LinkedIn profile with bio linking to davidadesina.com
 
 ### Week 4
-- [ ] Review Search Console coverage + AI citation mentions and iterate on underperforming pages.
-- [ ] Refresh feed/sitemap dates and republish priority pages.
+- [ ] Reach out to 3 faith/apologetics publications for guest post / interview opportunities
+- [ ] Review Search Console coverage report for newly added Gleamshield pages
+- [ ] Consider Wikipedia stub for David Adesina (or WikiProject Christianity request)
 
 ---
 
-## Appendix: Key Local Verification Metrics
+## Appendix: Key Verification Metrics (v2)
 
-- HTML pages checked: **57**
-- Missing core metadata fields (title/description/canonical/H1/OG/Twitter): **0**
-- Missing referenced assets: **0**
-- Broken internal refs: **0**
-- Sitemap URLs validated: **50 / 50**
-- `ads.txt`: **present**
-- `llms.txt`: **present**
+- HTML pages checked: **63**
+- Missing core metadata fields (title/description/canonical/H1/OG): **0**
+- Blog posts with FAQPage schema: **26 of 26** (those with FAQ content)
+- GleamShield pages with JSON-LD: **7 of 7**
+- Sitemap URLs: **63**
+- `ads.txt`: **present** (`pub-6207125181553910`)
+- `llms.txt`: **present and updated**
+- `robots.txt` AI crawler access: **all major bots allowed**
