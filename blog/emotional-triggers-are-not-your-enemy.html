@@ -752,5 +752,30 @@
     <h3 id="dal-popup-heading">You didn't stumble here by accident.</h3>
     <p id="dal-popup-desc">Revival. Healing. Apologetics. One letter, every week.</p>
     <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+    <iframe id="dal-popup-iframe" src="https://subscribe-forms.beehiiv.com/2466ce69-133c-465f-877b-2a2442caa5b2" frameborder="0" scrolling="no"></iframe>
+    <p id="dal-popup-footer">No spam. One email per week. Unsubscribe anytime.</p>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='dal_popup_v1';
+  var el=document.getElementById('dal-popup-overlay');
+  var btn=document.getElementById('dal-popup-close');
+  function isDismissed(){try{var t=localStorage.getItem(KEY);return t&&(Date.now()-+t)<604800000;}catch(e){return false;}}
+  function close(){el.style.display='none';document.body.style.overflow='';try{localStorage.setItem(KEY,Date.now());}catch(e){}}
+  function open(){el.style.display='flex';document.body.style.overflow='hidden';}
+  btn.addEventListener('click',close);
+  el.addEventListener('click',function(e){if(e.target===el)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&el.style.display==='flex')close();});
+  if(!isDismissed()){
+    var done=false;
+    window.addEventListener('scroll',function(){
+      if(done)return;
+      var pct=window.scrollY/((document.documentElement.scrollHeight-window.innerHeight)||1)*100;
+      if(pct>=50){done=true;open();}
+    },{passive:true});
+  }
+})();
+</script>
 </body>
 </html>
