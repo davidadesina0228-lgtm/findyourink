@@ -182,7 +182,7 @@
      Replace the action URL with your email service endpoint
      Supports: ConvertKit, Mailerlite, Beehiiv, Substack API
      ================================================================ */
-  const NEWSLETTER_COMING_SOON = true;
+  const NEWSLETTER_COMING_SOON = false;
   const newsletterForms = document.querySelectorAll('.newsletter__form');
 
   function activateNewsletterComingSoonMode() {
