@@ -715,8 +715,14 @@ a:hover .gs-card__title { color: var(--gs-accent); }
 .gs-pillar:hover { border-color: var(--gs-border-acc); }
 
 .gs-pillar__icon {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 1.25rem;
+  color: var(--gs-accent);
+}
+.gs-pillar__icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 .gs-pillar__title {
@@ -1396,6 +1402,14 @@ a:hover .gs-card__title { color: var(--gs-accent); }
   margin: 3rem 0;
 }
 
+/* ── Feature Grid (character section on landing) ─────────── */
+.gs-feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
 /* ── Responsive ───────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .gs-footer__grid { grid-template-columns: 1fr 1fr; }
@@ -1406,6 +1420,7 @@ a:hover .gs-card__title { color: var(--gs-accent); }
 }
 
 @media (max-width: 768px) {
+  .gs-feature-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .gs-section { padding: 4rem 0; }
   .gs-container { padding: 0 1.25rem; }
   .gs-grid--2,
@@ -1424,4 +1439,14 @@ a:hover .gs-card__title { color: var(--gs-accent); }
   .gs-hero__actions { flex-direction: column; align-items: stretch; }
   .gs-btn { justify-content: center; }
   .gs-newsletter { padding: 2rem 1.25rem; }
+  .gs-filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.5rem;
+    justify-content: flex-start;
+    scrollbar-width: none;
+  }
+  .gs-filters::-webkit-scrollbar { display: none; }
+  .gs-filter-btn { flex-shrink: 0; }
 }

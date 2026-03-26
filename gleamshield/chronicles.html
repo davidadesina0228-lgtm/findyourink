@@ -60,7 +60,7 @@
 <div class="gs-nav__mobile" id="gs-mobile-menu" role="dialog" aria-label="Mobile navigation">
   <a href="/gleamshield/characters.html" class="gs-nav__link">Characters</a>
   <a href="/gleamshield/stories.html" class="gs-nav__link">Stories</a>
-  <a href="/gleamshield/chronicles.html" class="gs-nav__link">Chronicles</a>
+  <a href="/gleamshield/chronicles.html" class="gs-nav__link active">Chronicles</a>
   <a href="/gleamshield/about.html" class="gs-nav__link">Manifesto</a>
   <a href="/gleamshield/support.html" class="gs-nav__link">Support</a>
   <a href="/" class="gs-nav__back">
@@ -69,7 +69,8 @@
   </a>
 </div>
 
-<main>
+<a href="#gs-main" class="gs-skip-link">Skip to content</a>
+<main id="gs-main">
   <section class="gs-page-hero gs-pt-nav">
     <div class="gs-container gs-container--narrow" style="text-align:center;">
       <span class="gs-label">The Chronicle</span>
@@ -277,7 +278,7 @@
       </div>
     </div>
     <div class="gs-footer__bottom">
-      <span class="gs-footer__copy">&copy; 2025 GleamShield Production. All rights reserved.</span>
+      <span class="gs-footer__copy">&copy; 2026 GleamShield Production. All rights reserved.</span>
       <span class="gs-footer__tagline-bottom">Stories. Characters. Truth Explored.</span>
     </div>
   </div>
@@ -309,22 +310,6 @@
       hamburger.setAttribute('aria-expanded', false);
       document.body.style.overflow = '';
     }
-  });
-</script>
-<script>
-  document.querySelectorAll('.gs-filter-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-      document.querySelectorAll('.gs-filter-btn').forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
-      const cat = this.dataset.cat;
-      document.querySelectorAll('[data-cat]').forEach(item => {
-        if (cat === 'all' || item.dataset.cat === cat) {
-          item.style.display = '';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    });
   });
 </script>
 <script>
