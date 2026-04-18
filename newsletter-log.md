@@ -14,7 +14,7 @@ Track of all newsletters written. Check this before picking new posts to avoid r
 | 4 | 2026-04-19 | Angel (Gleamshield) | Does Evil Disprove God? | /gleamshield/chronicles/does-evil-disprove-god.html |
 | 5 | 2026-04-25 | David (FYI) | The Stigma of Christian Mental Health | /blog/the-stigma-of-christian-mental-health.html |
 | 6 | 2026-04-26 | Angel (Gleamshield) | Why Did Jesus Have to Die? | /gleamshield/chronicles/why-did-jesus-have-to-die.html |
-| 7 | 2026-05-02 | David (FYI) | Decolonizing Your Faith | /blog/decolonizing-your-faith.html |
+| 7 | 2026-05-02 | David (FYI) | Prophets Without Platforms | /blog/prophets-without-platforms.html |
 | 8 | 2026-05-03 | Angel (Gleamshield) | Was Mohammed Spoken of in the Bible? | /gleamshield/chronicles/was-mohammed-spoken-of-in-the-bible.html |
 | 9 | 2026-05-09 | David (FYI) | The Anatomy of Doubt | /blog/the-anatomy-of-doubt.html |
 | 10 | 2026-05-10 | Angel (Gleamshield) | Is Belief in God Rational or Blind Faith? | /gleamshield/chronicles/is-belief-in-god-rational-or-blind-faith.html |
@@ -37,7 +37,7 @@ Track of all newsletters written. Check this before picking new posts to avoid r
 | W1 | Sat Apr 19 | Angel (Gleamshield) | Does Evil Disprove God? ✅ |
 | W2 | Fri Apr 25 | David (FYI) | The Stigma of Christian Mental Health ✅ |
 | W2 | Sat Apr 26 | Angel (Gleamshield) | Why Did Jesus Have to Die? ✅ |
-| W3 | Fri May 2 | David (FYI) | Decolonizing Your Faith ✅ |
+| W3 | Fri May 2 | David (FYI) | Prophets Without Platforms ✅ |
 | W3 | Sat May 3 | Angel (Gleamshield) | Was Mohammed Spoken of in the Bible? ✅ |
 | W4 | Fri May 9 | David (FYI) | The Anatomy of Doubt ✅ |
 | W4 | Sat May 10 | Angel (Gleamshield) | Is Belief in God Rational or Blind Faith? ✅ |
@@ -60,7 +60,7 @@ Track of all newsletters written. Check this before picking new posts to avoid r
 - Does Evil Disprove God?
 - The Stigma of Christian Mental Health
 - Why Did Jesus Have to Die?
-- Decolonizing Your Faith
+- Prophets Without Platforms
 - Was Mohammed Spoken of in the Bible?
 - The Anatomy of Doubt
 - Is Belief in God Rational or Blind Faith?
