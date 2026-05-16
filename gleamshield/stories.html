@@ -32,6 +32,48 @@
 }
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
+  <style>
+    /* ── Book card responsive overrides ──────────────────────── */
+    /* The horizontal book cards use inline grid styles that can't
+       be overridden without a scoped class + !important pairing. */
+    .gs-book-card {
+      display: grid;
+      grid-template-columns: 260px 1fr !important;
+    }
+    .gs-book-card__img-col {
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .gs-book-card__img-col img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .gs-book-card {
+        grid-template-columns: 1fr !important;
+      }
+      .gs-book-card__img-col {
+        height: 260px;
+      }
+      .gs-book-card__body {
+        padding: 1.75rem !important;
+      }
+    }
+    @media (max-width: 480px) {
+      .gs-book-card__img-col {
+        height: 220px;
+      }
+      .gs-book-card__body {
+        padding: 1.25rem !important;
+      }
+      .gs-book-card__body h2 {
+        font-size: 1.5rem !important;
+      }
+    }
+  </style>
 </head>
 <body class="gs-page">
 
@@ -86,11 +128,11 @@
       <!-- Book: Abimifoluwa Volume One -->
       <div style="max-width:960px;margin:0 auto 3rem;">
         <a href="/gleamshield/stories/abimifoluwa-volume-1.html" style="text-decoration:none;display:block;">
-          <article style="display:grid;grid-template-columns:260px 1fr;gap:0;border:1px solid rgba(212,165,116,0.35);border-radius:4px;overflow:hidden;background:var(--gs-surface);transition:border-color 250ms ease;position:relative;" onmouseover="this.style.borderColor='rgba(212,165,116,0.7)'" onmouseout="this.style.borderColor='rgba(212,165,116,0.35)'">
-            <div style="overflow:hidden;flex-shrink:0;">
-              <img src="/images/gleamshield/gs-abimifoluwa-vol1-cover.jpg" alt="Abimifoluwa: The Quest for Truth — Volume One" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;" loading="lazy" />
+          <article class="gs-book-card" style="gap:0;border:1px solid rgba(212,165,116,0.35);border-radius:4px;overflow:hidden;background:var(--gs-surface);transition:border-color 250ms ease;position:relative;" onmouseover="this.style.borderColor='rgba(212,165,116,0.7)'" onmouseout="this.style.borderColor='rgba(212,165,116,0.35)'">
+            <div class="gs-book-card__img-col">
+              <img src="/images/gleamshield/gs-abimifoluwa-vol1-cover.jpg" alt="Abimifoluwa: The Quest for Truth — Volume One" loading="lazy" />
             </div>
-            <div style="padding:2.5rem;display:flex;flex-direction:column;justify-content:center;">
+            <div class="gs-book-card__body" style="padding:2.5rem;display:flex;flex-direction:column;justify-content:center;">
               <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;flex-wrap:wrap;">
                 <span style="font-family:var(--gs-font-body);font-size:0.65rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gs-accent);">Novel &middot; Young Adult &middot; Sci-Fi Faith</span>
                 <span style="background:var(--gs-accent);color:var(--gs-bg);font-family:var(--gs-font-body);font-size:0.6rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.3rem 0.75rem;border-radius:999px;">Available Now</span>
@@ -110,11 +152,11 @@
       <!-- Book: The Mark of the Deliverer -->
       <div style="max-width:960px;margin:0 auto 3rem;">
         <a href="/gleamshield/stories/mark-of-the-deliverer.html" style="text-decoration:none;display:block;">
-          <article style="display:grid;grid-template-columns:260px 1fr;gap:0;border:1px solid rgba(212,165,116,0.35);border-radius:4px;overflow:hidden;background:var(--gs-surface);transition:border-color 250ms ease;position:relative;" onmouseover="this.style.borderColor='rgba(212,165,116,0.7)'" onmouseout="this.style.borderColor='rgba(212,165,116,0.35)'">
-            <div style="overflow:hidden;flex-shrink:0;">
-              <img src="/images/gleamshield/gs-mark-deliverer-cover.jpg" alt="The Mark of the Deliverer — a crimson spiral on a broken boy's palm" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;" loading="lazy" />
+          <article class="gs-book-card" style="gap:0;border:1px solid rgba(212,165,116,0.35);border-radius:4px;overflow:hidden;background:var(--gs-surface);transition:border-color 250ms ease;position:relative;" onmouseover="this.style.borderColor='rgba(212,165,116,0.7)'" onmouseout="this.style.borderColor='rgba(212,165,116,0.35)'">
+            <div class="gs-book-card__img-col">
+              <img src="/images/gleamshield/gs-mark-deliverer-cover.jpg" alt="The Mark of the Deliverer — a crimson spiral on a broken boy's palm" loading="lazy" />
             </div>
-            <div style="padding:2.5rem;display:flex;flex-direction:column;justify-content:center;">
+            <div class="gs-book-card__body" style="padding:2.5rem;display:flex;flex-direction:column;justify-content:center;">
               <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;flex-wrap:wrap;">
                 <span style="font-family:var(--gs-font-body);font-size:0.65rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gs-accent);">Novel &middot; Biblical Fantasy &middot; Allegory</span>
                 <span style="background:var(--gs-accent);color:var(--gs-bg);font-family:var(--gs-font-body);font-size:0.6rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.3rem 0.75rem;border-radius:999px;">Available Now</span>
