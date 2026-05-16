@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="google-site-verification" content="q4WLY516JCjVJiltjmmFL3KnG31K6yo4xnxm3GVDMcA" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Mark of the Deliverer | GleamShield Stories</title>
-  <meta name="description" content="A short story about a village that waited for a deliverer — and found someone they never expected. A tale of hope, failure, and what God sends when we are not ready." />
-  <meta property="og:title" content="The Mark of the Deliverer | GleamShield Stories" />
-  <meta property="og:description" content="A village prayed for deliverance. What came was not power — it was potential. A GleamShield short story." />
-  <meta property="og:image" content="https://davidadesina.com/images/gleamshield/gs-story-deliverer.jpg" />
-  <meta property="og:type" content="article" />
+  <title>The Mark of the Deliverer — A Novel | GleamShield Stories</title>
+  <meta name="description" content="A broken boy. A crimson spiral. Forty-three years of unanswered prayer. The deliverer was always here — Kel Vethara just wasn't ready to see him. Available now." />
+  <meta property="og:title" content="The Mark of the Deliverer — A Novel | GleamShield" />
+  <meta property="og:description" content="The village prayed for power. God sent potential. An 80-page novel of faith, calling, and the cost of raising what you did not expect." />
+  <meta property="og:image" content="https://davidadesina.com/images/gleamshield/gs-mark-deliverer-cover.jpg" />
+  <meta property="og:type" content="product" />
   <meta property="og:url" content="https://davidadesina.com/gleamshield/stories/mark-of-the-deliverer.html" />
   <link rel="canonical" href="https://davidadesina.com/gleamshield/stories/mark-of-the-deliverer.html" />
   <link rel="icon" href="/favicon.ico" />
@@ -20,23 +20,257 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ShortStory",
+    "@type": "Book",
     "name": "The Mark of the Deliverer",
     "url": "https://davidadesina.com/gleamshield/stories/mark-of-the-deliverer.html",
-    "description": "A village prays for deliverance and receives something unexpected — a broken boy with a mark on his palm and a question only they can answer.",
-    "author": { "@type": "Person", "name": "David Adesina", "url": "https://davidadesina.com/about.html" },
+    "description": "A village prays for deliverance for forty-three years. When the answer finally comes — a broken boy, chained in the Outskirts, with a crimson spiral on his palm — they must choose: raise what God sent, or bury it.",
+    "author": { "@type": "Person", "name": "David Adesina", "url": "https://davidadesina.com/" },
     "publisher": { "@type": "Organization", "name": "GleamShield Production", "url": "https://davidadesina.com/gleamshield/" },
-    "image": "https://davidadesina.com/images/gleamshield/gs-story-deliverer.jpg",
-    "genre": ["Biblical fantasy", "Allegory", "Short story"],
-    "isPartOf": { "@type": "WebPage", "url": "https://davidadesina.com/gleamshield/stories.html" }
+    "image": "https://davidadesina.com/images/gleamshield/gs-mark-deliverer-cover.jpg",
+    "genre": ["Biblical Fantasy", "Allegory", "Christian Fiction"],
+    "inLanguage": "en",
+    "numberOfPages": "80",
+    "offers": {
+      "@type": "Offer",
+      "price": "5000",
+      "priceCurrency": "NGN",
+      "availability": "https://schema.org/InStock",
+      "url": "https://selar.com/4907k9441n"
+    }
   }
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
+  <style>
+    /* Book Hero */
+    .gs-book-hero {
+      padding: calc(var(--gs-nav-h) + 5rem) 0 5rem;
+      background: var(--gs-bg);
+      position: relative;
+      overflow: hidden;
+    }
+    .gs-book-hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(212,165,116,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .gs-book-hero__grid {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .gs-book-cover-wrap {
+      position: relative;
+      flex-shrink: 0;
+    }
+    .gs-book-cover {
+      width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(212,165,116,0.15);
+      display: block;
+    }
+    .gs-book-cover-badge {
+      position: absolute;
+      top: -1rem;
+      right: -1rem;
+      background: var(--gs-accent);
+      color: var(--gs-bg);
+      font-family: var(--gs-font-body);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+    }
+    .gs-book-info__series {
+      font-family: var(--gs-font-body);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gs-accent);
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+    .gs-book-info__title {
+      font-family: var(--gs-font-display);
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 600;
+      line-height: 1.1;
+      color: var(--gs-text);
+      margin-bottom: 0.5rem;
+    }
+    .gs-book-info__subtitle {
+      font-family: var(--gs-font-display);
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--gs-accent);
+      margin-bottom: 2rem;
+    }
+    .gs-book-info__desc {
+      font-family: var(--gs-font-body);
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--gs-text-dim);
+      margin-bottom: 2.5rem;
+      max-width: 520px;
+    }
+    .gs-book-price-block {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .gs-book-price {
+      font-family: var(--gs-font-display);
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--gs-text);
+    }
+    .gs-book-price__usd {
+      font-family: var(--gs-font-body);
+      font-size: 0.85rem;
+      color: var(--gs-text-muted);
+      letter-spacing: 0.05em;
+    }
+    .gs-book-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .gs-book-meta-list {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--gs-border);
+    }
+    .gs-book-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .gs-book-meta-item__label {
+      font-family: var(--gs-font-body);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gs-text-muted);
+    }
+    .gs-book-meta-item__value {
+      font-family: var(--gs-font-display);
+      font-size: 1rem;
+      color: var(--gs-text-dim);
+    }
+
+    /* What's Inside */
+    .gs-chapter-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--gs-border);
+      border-radius: var(--gs-radius);
+      overflow: hidden;
+    }
+    .gs-chapter-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--gs-border);
+      background: var(--gs-surface);
+      transition: background var(--gs-transition);
+    }
+    .gs-chapter-item:last-child { border-bottom: none; }
+    .gs-chapter-item:hover { background: var(--gs-surface-alt); }
+    .gs-chapter-num {
+      font-family: var(--gs-font-display);
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--gs-accent);
+      opacity: 0.5;
+      min-width: 2.5rem;
+      line-height: 1;
+      padding-top: 0.2rem;
+    }
+    .gs-chapter-body {}
+    .gs-chapter-title {
+      font-family: var(--gs-font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--gs-text);
+      margin-bottom: 0.3rem;
+    }
+    .gs-chapter-desc {
+      font-family: var(--gs-font-body);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--gs-text-dim);
+    }
+
+    /* Excerpt */
+    .gs-excerpt-block {
+      background: var(--gs-surface);
+      border: 1px solid var(--gs-border);
+      border-radius: var(--gs-radius);
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .gs-excerpt-block::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 120px;
+      background: linear-gradient(to bottom, transparent, var(--gs-surface));
+      pointer-events: none;
+    }
+    .gs-excerpt-label {
+      font-family: var(--gs-font-body);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gs-accent);
+      margin-bottom: 2rem;
+      display: block;
+    }
+    .gs-excerpt-text {
+      font-family: var(--gs-font-display);
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: var(--gs-text-dim);
+    }
+    .gs-excerpt-text p { margin-bottom: 1.25rem; }
+    .gs-excerpt-text em { color: var(--gs-accent); font-style: italic; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .gs-book-hero__grid { grid-template-columns: 1fr; gap: 3rem; }
+      .gs-book-cover-wrap { max-width: 340px; margin: 0 auto; }
+      .gs-book-info__title { font-size: 2rem; }
+    }
+    @media (max-width: 600px) {
+      .gs-book-hero { padding-bottom: 3rem; }
+      .gs-excerpt-block { padding: 2rem 1.5rem; }
+      .gs-chapter-item { padding: 1.25rem; gap: 1rem; }
+      .gs-book-meta-list { gap: 1.25rem; }
+    }
+  </style>
 </head>
 <body class="gs-page">
-
-<!-- Reading progress bar -->
-<div id="gs-progress" style="position:fixed;top:0;left:0;height:3px;background:var(--gs-accent);z-index:9999;width:0%;transition:width 0.1s linear;" aria-hidden="true"></div>
 
 <nav class="gs-nav" id="gs-nav" aria-label="GleamShield navigation">
   <div class="gs-nav__inner">
@@ -74,228 +308,295 @@
 
 <main>
 
-  <!-- Story Hero -->
-  <article itemscope itemtype="https://schema.org/ShortStory">
-    <header class="gs-article-hero gs-pt-nav">
-      <div class="gs-container gs-container--narrow" style="text-align:center;padding-bottom:3rem;">
-        <nav aria-label="Breadcrumb" style="margin-bottom:1.5rem;">
-          <ol style="display:flex;justify-content:center;gap:0.5rem;list-style:none;padding:0;font-size:0.8rem;color:var(--gs-text-dim);">
-            <li><a href="/gleamshield/" style="color:var(--gs-accent);text-decoration:none;">GleamShield</a></li>
-            <li style="opacity:0.5;">/</li>
-            <li><a href="/gleamshield/stories.html" style="color:var(--gs-accent);text-decoration:none;">Stories</a></li>
-            <li style="opacity:0.5;">/</li>
-            <li style="color:var(--gs-text-dim);">The Mark of the Deliverer</li>
-          </ol>
-        </nav>
-        <span class="gs-label">Short Story &middot; Allegory</span>
-        <h1 class="gs-page-hero__title" itemprop="name" style="margin:1rem 0;">The Mark of the Deliverer</h1>
-        <p style="font-family:var(--gs-font-display);font-size:1.1rem;font-style:italic;color:var(--gs-text-dim);max-width:520px;margin:0 auto 1.5rem;">
-          A village prayed for a deliverer. What came was not power — it was potential. And a question only they could answer.
-        </p>
-        <p style="font-size:0.8rem;color:var(--gs-text-dim);letter-spacing:0.08em;text-transform:uppercase;">
-          <a href="/about.html" style="color:var(--gs-accent);text-decoration:none;">David Adesina</a> &middot; 10 min read
-        </p>
-      </div>
-    </header>
-
-    <!-- Cover Image -->
-    <div style="width:100%;max-height:520px;overflow:hidden;margin-bottom:0;">
-      <img src="/images/gleamshield/gs-story-deliverer.jpg"
-           alt="A lone figure stands in a shadowed mountain valley, a glowing spiral mark on his palm"
-           style="width:100%;height:520px;object-fit:cover;object-position:center;display:block;"
-           width="1200" height="520" loading="eager" />
+  <!-- Breadcrumb -->
+  <div style="padding-top:var(--gs-nav-h);background:var(--gs-bg);">
+    <div class="gs-container" style="padding-top:1.5rem;">
+      <nav aria-label="Breadcrumb">
+        <ol style="display:flex;gap:0.5rem;list-style:none;padding:0;font-size:0.8rem;color:var(--gs-text-dim);">
+          <li><a href="/gleamshield/" style="color:var(--gs-accent);text-decoration:none;">GleamShield</a></li>
+          <li style="opacity:0.5;">/</li>
+          <li><a href="/gleamshield/stories.html" style="color:var(--gs-accent);text-decoration:none;">Stories</a></li>
+          <li style="opacity:0.5;">/</li>
+          <li style="color:var(--gs-text-dim);">The Mark of the Deliverer</li>
+        </ol>
+      </nav>
     </div>
+  </div>
 
-    <!-- Story Body -->
-    <div class="gs-container gs-container--narrow" style="padding-top:3.5rem;padding-bottom:4rem;">
-      <div class="gs-article-content" itemprop="text" style="font-family:var(--gs-font-display);font-size:1.125rem;line-height:1.9;color:var(--gs-text);">
+  <!-- Book Hero -->
+  <section class="gs-book-hero">
+    <div class="gs-container">
+      <div class="gs-book-hero__grid">
 
-        <p>There are places where hope does not die.</p>
-        <p>It starves.</p>
-
-        <p>Beneath the shadow of the Black Mountains lay a village that had long forgotten what it meant to expect anything good. Their fields no longer argued with the seasons — they simply refused to grow. Their houses leaned like tired men. Their laughter had become a language no one remembered how to speak.</p>
-
-        <p>They still prayed.</p>
-        <p>But not with faith.</p>
-        <p>They prayed the way drowning men move their arms — out of instinct, not belief. Day after day, year after year, their voices rose thin and desperate, until even their cries lost shape and became part of the wind that passed through the valley.</p>
-        <p>And still — nothing.</p>
-        <p>Until one night, something answered.</p>
-
-        <hr style="border:none;border-top:1px solid var(--gs-border);margin:2.5rem 0;" />
-
-        <p>Elder Olam had long outlived his strength, but not his stubbornness. While others slept or surrendered to quiet despair, he climbed the same lonely rock he always had, as though height could force heaven to listen.</p>
-        <p>That night felt different. Not louder. Not brighter. Just&hellip; still. Even the wind seemed to hold its breath.</p>
-        <p>Olam lifted his eyes — not with hope, but with habit.</p>
-        <p>"Are You still listening," he whispered, "or have we been speaking to silence?"</p>
-        <p>For a moment, nothing moved.</p>
-        <p>Then a voice came — not from above, not from below, but from everywhere at once. Deep. Steady. Unavoidable. The kind of voice that does not ask to be believed.</p>
-        <p><em>It simply is.</em></p>
-
-        <div class="gs-blockquote" style="background:rgba(212,165,116,0.07);border-left:3px solid var(--gs-accent);padding:1.25rem 1.5rem;margin:2rem 0;border-radius:0 4px 4px 0;">
-          <p style="font-family:var(--gs-font-display);font-size:1.05rem;color:var(--gs-text);margin:0 0 0.75rem;font-style:italic;">"The one you seek is not coming."</p>
-          <p style="font-family:var(--gs-font-display);font-size:1.05rem;color:var(--gs-text);margin:0;font-style:italic;">"He is already here."</p>
+        <!-- Cover -->
+        <div class="gs-book-cover-wrap gs-fade-up">
+          <span class="gs-book-cover-badge">Available Now</span>
+          <img
+            src="/images/gleamshield/gs-mark-deliverer-cover.jpg"
+            alt="The Mark of the Deliverer book cover — a crimson spiral glows on a broken boy's palm against dark mountain rock"
+            class="gs-book-cover"
+            width="420"
+            loading="eager"
+          />
         </div>
 
-        <p>The words did not comfort him. They unsettled him.</p>
-        <p>"Marked upon his right palm," the voice continued, "a crimson spiral &mdash; like the turning of time."</p>
-        <p>And just as suddenly as it came — it was gone.</p>
-        <p>Olam fell to his knees, not in reverence, but in shock. His body trembled as though it had been holding something too large to contain. Then, slowly, something broke across his face.</p>
-        <p>Not fear. Not confusion.</p>
-        <p><strong>Joy.</strong></p>
-        <p>Wild, unrestrained, almost foolish joy.</p>
-        <p>"He's here," he whispered. Then louder — "He's already here!"</p>
+        <!-- Info -->
+        <div class="gs-fade-up gs-fade-up--1">
+          <span class="gs-book-info__series">GleamShield Stories &middot; A Novel</span>
+          <h1 class="gs-book-info__title">The Mark of<br />the Deliverer</h1>
+          <p class="gs-book-info__subtitle">Some are chosen before they are ready.</p>
+          <p class="gs-book-info__desc">
+            The village of Kel Vethara has prayed for forty-three years.<br /><br />
+            When the answer finally comes — not in power, not in glory, but in a broken boy chained in the Outskirts with a crimson spiral fading on his palm — the real question begins.<br /><br />
+            Not whether he is the one. But whether they will raise what God sent, or bury it.
+          </p>
 
-        <hr style="border:none;border-top:1px solid var(--gs-border);margin:2.5rem 0;" />
+          <div class="gs-book-price-block">
+            <div>
+              <div class="gs-book-price">₦5,000</div>
+              <div class="gs-book-price__usd">~$3 USD &middot; instant digital download</div>
+            </div>
+          </div>
 
-        <p>By morning, the village was no longer quiet. Olam's voice tore through the square, dragging people from their homes, from their doubts, from whatever fragments of sleep they had managed to gather.</p>
-        <p>"Good news!" he shouted, breathless, eyes burning with something they had not seen in years. "We have been heard!"</p>
-        <p>They gathered — hesitant at first, then desperate.</p>
-        <p>"What did He say?" someone asked.</p>
-        <p>Olam grinned. The kind of grin that makes people uncomfortable.</p>
-        <p>"The Deliverer lives," he said.</p>
-        <p>A ripple passed through the crowd.</p>
-        <p>"When will he come?" another voice asked, trembling with fragile hope.</p>
-        <p>Olam shook his head. "He won't."</p>
-        <p>Silence.</p>
-        <p>"Because he never left."</p>
+          <div class="gs-book-cta">
+            <a href="https://selar.com/4907k9441n" target="_blank" rel="noopener" class="gs-btn gs-btn--primary" style="font-size:0.875rem;padding:1rem 2.5rem;">
+              Get the Book &rarr;
+            </a>
+            <a href="#excerpt" class="gs-btn gs-btn--outline" style="font-size:0.875rem;">
+              Read an Excerpt
+            </a>
+          </div>
 
-        <hr style="border:none;border-top:1px solid var(--gs-border);margin:2.5rem 0;" />
-
-        <p>Hope, when starved long enough, does not return gently. It erupts.</p>
-        <p>The village dissolved into motion. People ran, called out, grabbed one another's hands, turning palms upward as though the answer might be hiding in plain sight. Children laughed as they turned it into a game. Old women argued over forgotten prophecies. A man insisted he had seen the mark on a stranger who had already left. Someone, in a moment of complete certainty, tried to examine a goat.</p>
-        <p>Desperation does not sharpen vision. It distorts it.</p>
-        <p>They were not looking for truth anymore. They were looking for relief.</p>
-
-        <hr style="border:none;border-top:1px solid var(--gs-border);margin:2.5rem 0;" />
-
-        <p>It took days before the whispers began. Not loud. Not certain. Just enough to pull attention toward the edges of the village — toward a place most had learned to ignore.</p>
-        <p>The Outskirts. Where the forgotten lived. Where the broken were kept out of sight.</p>
-        <p>That was where they found him.</p>
-
-        <hr style="border:none;border-top:1px solid var(--gs-border);margin:2.5rem 0;" />
-
-        <p>Nari was not what they expected.</p>
-        <p>He was thin in the way hunger carves a person down to their bones. His skin carried the quiet record of suffering. Chains rested on him as though they had always belonged there.</p>
-        <p>He did not look like a deliverer. He looked like someone waiting to be buried.</p>
-        <p>One of the villagers reached for his hand, almost unwillingly, as though afraid of what it might confirm. They turned his palm upward.</p>
-        <p>And there it was.</p>
-        <p>Faint, but undeniable. A crimson spiral.</p>
-        <p>The air shifted.</p>
-        <p>"It's him," someone whispered. But the words did not carry wonder. They carried doubt.</p>
-        <p>"This&hellip; is the answer?" another asked.</p>
-        <p>Even Olam said nothing. Because for the first time since the voice spoke — he did not understand.</p>
-
-        <hr style="border:none;border-top:1px solid var(--gs-border);margin:2.5rem 0;" />
-
-        <p>That night, Olam returned to the rock. But this time he did not come with quiet questions. He came with anger.</p>
-        <p>"We begged for deliverance!" he shouted into the silence. "We cried until our voices disappeared!"</p>
-        <p>His hands trembled. "And You give us a broken boy?"</p>
-        <p>The stillness returned. Then the voice. Unmoved. Unoffended.</p>
-
-        <div class="gs-blockquote" style="background:rgba(212,165,116,0.07);border-left:3px solid var(--gs-accent);padding:1.25rem 1.5rem;margin:2rem 0;border-radius:0 4px 4px 0;">
-          <p style="font-family:var(--gs-font-display);font-size:1.05rem;color:var(--gs-text);margin:0 0 0.75rem;font-style:italic;">"You asked for power. I gave you potential."</p>
-          <p style="font-family:var(--gs-font-display);font-size:1.05rem;color:var(--gs-text);margin:0;font-style:italic;">"You asked for freedom. I gave you responsibility."</p>
+          <div class="gs-book-meta-list">
+            <div class="gs-book-meta-item">
+              <span class="gs-book-meta-item__label">Format</span>
+              <span class="gs-book-meta-item__value">Digital PDF</span>
+            </div>
+            <div class="gs-book-meta-item">
+              <span class="gs-book-meta-item__label">Pages</span>
+              <span class="gs-book-meta-item__value">80</span>
+            </div>
+            <div class="gs-book-meta-item">
+              <span class="gs-book-meta-item__label">Genre</span>
+              <span class="gs-book-meta-item__value">Biblical Fantasy</span>
+            </div>
+            <div class="gs-book-meta-item">
+              <span class="gs-book-meta-item__label">Author</span>
+              <span class="gs-book-meta-item__value">David Adesina</span>
+            </div>
+          </div>
         </div>
 
-        <p>The words settled heavier than before.</p>
-        <p>"Will you raise him," the voice asked, "or bury what I sent?"</p>
-
-        <hr style="border:none;border-top:1px solid var(--gs-border);margin:2.5rem 0;" />
-
-        <p>The answer did not come easily.</p>
-        <p>Some wanted to leave Nari where they found him, convinced this was either a mistake or a cruel misunderstanding. Others, quieter but firmer, insisted that if this was truly what they had been given, then abandoning him would be no different than abandoning hope itself.</p>
-        <p>In the end, they chose. Not because they were certain. But because they had run out of alternatives.</p>
-        <p>They went back for him.</p>
-
-        <hr style="border:none;border-top:1px solid var(--gs-border);margin:2.5rem 0;" />
-
-        <p>Freedom did not arrive with glory. It came clumsy, afraid, and imperfect.</p>
-        <p>The rescue was messy — plans forgotten, mistakes made, moments where everything nearly collapsed. But desperation, when it finally finds direction, can become something close to courage.</p>
-        <p>They broke his chains. Barely. And carried him home.</p>
-
-        <hr style="border:none;border-top:1px solid var(--gs-border);margin:2.5rem 0;" />
-
-        <p>Nari did not thank them. He did not see what they saw. He only saw the same truth he had always known.</p>
-        <p>"I can't even save myself," he said one night, his voice thin but steady. "And you think I can save you?"</p>
-        <p>No one answered immediately. Because, for a moment — they believed him.</p>
-
-        <hr style="border:none;border-top:1px solid var(--gs-border);margin:2.5rem 0;" />
-
-        <p>What followed was not transformation. It was struggle.</p>
-        <p>Nari failed more than he succeeded. He stumbled through training, doubted every step, and carried a quiet resentment toward the weight they had placed on him. The villagers, too, began to fracture under the pressure. Arguments rose. Faith wavered. Regret whispered louder each day.</p>
-        <p>At one point, Nari ran. Not far. Just far enough to prove that part of him would rather disappear than become something he did not believe in.</p>
-        <p>He stared at his palm that night. The spiral was faint. Almost gone.</p>
-        <p>"I didn't ask for this," he said to no one.</p>
-        <p>And for the first time — it felt true.</p>
-
-        <hr style="border:none;border-top:1px solid var(--gs-border);margin:2.5rem 0;" />
-
-        <p>Olam found him. Not with anger. Not with disappointment. But with a kind of clarity that only comes when illusions finally die.</p>
-        <p>"You think this was given to you because you're ready?" he asked.</p>
-        <p>Nari said nothing.</p>
-        <p>"No one ever is."</p>
-        <p>"Then why me?" Nari asked, his voice breaking in a way he could no longer hide.</p>
-        <p>Olam held his gaze.</p>
-
-        <div class="gs-blockquote" style="background:rgba(212,165,116,0.07);border-left:3px solid var(--gs-accent);padding:1.25rem 1.5rem;margin:2rem 0;border-radius:0 4px 4px 0;">
-          <p style="font-family:var(--gs-font-display);font-size:1.1rem;color:var(--gs-text);margin:0;font-style:italic;">"Because you didn't believe you could. And that is exactly who must."</p>
-        </div>
-
-        <hr style="border:none;border-top:1px solid var(--gs-border);margin:2.5rem 0;" />
-
-        <p>The final confrontation did not begin with strength. It began with hesitation.</p>
-        <p>When the moment came — when everything they had hoped for stood directly in front of them — Nari almost stepped back. Almost.</p>
-        <p>The people watched him. Not with confidence. But with fragile, trembling expectation.</p>
-        <p>Nari looked at his hand. The spiral burned. Not brightly. But steadily.</p>
-        <p>And for the first time, he did not see it as a mark of destiny. He saw it as a choice.</p>
-        <p>He stepped forward.</p>
-        <p>"You waited for someone to save you," he said, his voice low but carrying.</p>
-        <p>The wind shifted.</p>
-        <p>"But you were never meant to stay weak."</p>
-
-        <p>What followed was not magic. It was awakening. Chains broke — not just the ones made of iron, but the ones they had worn inside themselves for years. And for the first time, they fought back.</p>
-
-        <hr style="border:none;border-top:1px solid var(--gs-border);margin:2.5rem 0;" />
-
-        <p>When it was over, the valley felt unfamiliar. Not because it had changed, but because they had.</p>
-        <p>Laughter returned, awkward at first, then natural. Life moved again, slowly reclaiming what had been abandoned.</p>
-        <p>Olam watched it all from a distance. Quiet. Satisfied.</p>
-        <p>"The seed&hellip;" he murmured.</p>
-        <p>And then, with a faint smile &mdash;</p>
-        <p>"&hellip;became a tree."</p>
-
-        <hr style="border:none;border-top:1px solid var(--gs-border);margin:2.5rem 0;" />
-
-        <p style="font-family:var(--gs-font-display);font-size:1.05rem;color:var(--gs-text-dim);font-style:italic;text-align:center;padding:1rem 0;">
-          Deliverance did not come the way they expected.<br />
-          It did not arrive complete, powerful, and undeniable.<br />
-          It came weak. Unfinished. Easy to reject.<br /><br />
-          And it asked a question they could not ignore:<br /><br />
-          <strong style="color:var(--gs-accent);font-style:normal;">Would they build it — or bury it?</strong>
-        </p>
-
-      </div>
-    </div>
-  </article>
-
-  <!-- Navigation between stories -->
-  <section style="background:var(--gs-surface);padding:3rem 0;border-top:1px solid var(--gs-border);">
-    <div class="gs-container gs-container--narrow">
-      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
-        <a href="/gleamshield/stories.html" class="gs-btn gs-btn--ghost" style="font-size:0.85rem;">&larr; Back to Stories</a>
-        <a href="/gleamshield/stories/man-son-and-the-field.html" class="gs-btn gs-btn--ghost" style="font-size:0.85rem;">Next: The Man, the Son, and the Field &rarr;</a>
       </div>
     </div>
   </section>
 
-  <!-- Newsletter -->
-  <section class="gs-section gs-section--alt">
+  <!-- Pull Quote -->
+  <section style="background:var(--gs-surface);border-top:1px solid var(--gs-border);border-bottom:1px solid var(--gs-border);padding:4rem 0;">
+    <div class="gs-container gs-container--narrow" style="text-align:center;">
+      <p class="gs-quote" style="border-left:none;padding-left:0;text-align:center;max-width:680px;margin:0 auto;">
+        "The seed does not know it is a tree.<br />This is the mercy and the cruelty of potential."
+      </p>
+      <p style="font-family:var(--gs-font-body);font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gs-accent);margin-top:1.5rem;">— Pre-Folding fragment, recovered from the Hollows</p>
+    </div>
+  </section>
+
+  <!-- What's Inside -->
+  <section class="gs-section">
     <div class="gs-container">
-      <div class="gs-newsletter" style="max-width:600px;margin:0 auto;">
-        <h3 class="gs-newsletter__title">More From the Archives</h3>
-        <p class="gs-newsletter__desc">Be the first to receive new stories, characters, and articles from the GleamShield universe.</p>
-        <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script><iframe src="https://subscribe-forms.beehiiv.com/2466ce69-133c-465f-877b-2a2442caa5b2" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width:100%; max-width:560px; height:291px; margin:0; border-radius:0; background-color:transparent; box-shadow:none;"></iframe>
+      <div style="max-width:820px;margin:0 auto;">
+        <div class="gs-section-header">
+          <span class="gs-label">Inside the Book</span>
+          <h2 class="gs-section-title">What's in the Novel</h2>
+          <p class="gs-section-desc">Eighty pages across a prologue, eleven chapters, and an epilogue — tracking the journey of a boy who didn't ask to be chosen, and a village that had to decide what to do with an answer they didn't expect.</p>
+        </div>
+
+        <div class="gs-chapter-list">
+          <div class="gs-chapter-item">
+            <span class="gs-chapter-num">·</span>
+            <div class="gs-chapter-body">
+              <div class="gs-chapter-title">Prologue — The Spiral at the Edge of Time</div>
+              <div class="gs-chapter-desc">A fragment recovered from the Hollows. A mark that predates the village. A warning about seeds that do not know they are trees — and the mercy and cruelty of that not-knowing.</div>
+            </div>
+          </div>
+          <div class="gs-chapter-item">
+            <span class="gs-chapter-num">I</span>
+            <div class="gs-chapter-body">
+              <div class="gs-chapter-title">Kel Vethara</div>
+              <div class="gs-chapter-desc">A village beneath the Black Mountains where hope has not died — it has only starved. Fields that refuse to grow. Houses that lean. Laughter that became a language no one remembers how to speak.</div>
+            </div>
+          </div>
+          <div class="gs-chapter-item">
+            <span class="gs-chapter-num">II</span>
+            <div class="gs-chapter-body">
+              <div class="gs-chapter-title">Forty-Three Years</div>
+              <div class="gs-chapter-desc">Elder Olam climbs the same rock he always has. Not with faith — with habit. And on one still night, something answers. "The one you seek is not coming. He is already here."</div>
+            </div>
+          </div>
+          <div class="gs-chapter-item">
+            <span class="gs-chapter-num">III</span>
+            <div class="gs-chapter-body">
+              <div class="gs-chapter-title">What Hope Does</div>
+              <div class="gs-chapter-desc">Desperation does not sharpen vision. It distorts it. The village erupts — turning palms upward, examining strangers, arguing over prophecies. They are not looking for truth. They are looking for relief.</div>
+            </div>
+          </div>
+          <div class="gs-chapter-item">
+            <span class="gs-chapter-num">IV</span>
+            <div class="gs-chapter-body">
+              <div class="gs-chapter-title">The Outskirts</div>
+              <div class="gs-chapter-desc">Where the forgotten live. Where the broken are kept out of sight. The whispers pull attention there — to a place most had learned to ignore. That is where they find him.</div>
+            </div>
+          </div>
+          <div class="gs-chapter-item">
+            <span class="gs-chapter-num">V</span>
+            <div class="gs-chapter-body">
+              <div class="gs-chapter-title">The Mark</div>
+              <div class="gs-chapter-desc">Nari is thin in the way hunger carves a person down to their bones. Chains rest on him as though they have always belonged there. Then someone turns his palm upward. A crimson spiral — faint but undeniable. 7.5 turns of 8.</div>
+            </div>
+          </div>
+          <div class="gs-chapter-item">
+            <span class="gs-chapter-num">VI</span>
+            <div class="gs-chapter-body">
+              <div class="gs-chapter-title">This Is the Answer?</div>
+              <div class="gs-chapter-desc">Even Olam says nothing — because for the first time since the voice spoke, he does not understand. The village faces the gap between what they prayed for and what arrived.</div>
+            </div>
+          </div>
+          <div class="gs-chapter-item">
+            <span class="gs-chapter-num">VII</span>
+            <div class="gs-chapter-body">
+              <div class="gs-chapter-title">You Asked for Power</div>
+              <div class="gs-chapter-desc">Olam returns to the rock. Not with questions — with anger. "We cried until our voices disappeared. And You give us a broken boy?" The voice returns, unmoved: "You asked for power. I gave you potential."</div>
+            </div>
+          </div>
+          <div class="gs-chapter-item">
+            <span class="gs-chapter-num">VIII</span>
+            <div class="gs-chapter-body">
+              <div class="gs-chapter-title">Nari</div>
+              <div class="gs-chapter-desc">Who he is, and who he isn't. His history with the Keepers. The Hollow chamber in the Black Mountains. What the spiral actually means — and the weight of being found when you were not looking to be found.</div>
+            </div>
+          </div>
+          <div class="gs-chapter-item">
+            <span class="gs-chapter-num">IX</span>
+            <div class="gs-chapter-body">
+              <div class="gs-chapter-title">The Keepers</div>
+              <div class="gs-chapter-desc">The institutional power that imprisoned him. Their logic, their language, their fear of what a marked boy represents. The confrontation the village never anticipated — and was never prepared for.</div>
+            </div>
+          </div>
+          <div class="gs-chapter-item">
+            <span class="gs-chapter-num">X</span>
+            <div class="gs-chapter-body">
+              <div class="gs-chapter-title">No One Ever Is</div>
+              <div class="gs-chapter-desc">Nari runs. Not far. Just far enough to prove he would rather disappear than become something he does not believe in. Olam finds him. "You think this was given to you because you're ready? No one ever is."</div>
+            </div>
+          </div>
+          <div class="gs-chapter-item">
+            <span class="gs-chapter-num">XI</span>
+            <div class="gs-chapter-body">
+              <div class="gs-chapter-title">The Choice</div>
+              <div class="gs-chapter-desc">The final confrontation does not begin with strength. It begins with hesitation. Nari looks at his hand. The spiral burns — not brightly, but steadily. And for the first time, he does not see it as a mark of destiny. He sees it as a choice.</div>
+            </div>
+          </div>
+          <div class="gs-chapter-item">
+            <span class="gs-chapter-num">·</span>
+            <div class="gs-chapter-body">
+              <div class="gs-chapter-title">Epilogue — The Seed Became a Tree</div>
+              <div class="gs-chapter-desc">When it was over, the valley felt unfamiliar. Not because it had changed, but because they had. Olam watches from a distance. Quiet. And then, with a faint smile — something he has waited forty-three years to say.</div>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Excerpt -->
+  <section class="gs-section gs-section--alt" id="excerpt">
+    <div class="gs-container">
+      <div style="max-width:820px;margin:0 auto;">
+        <div class="gs-section-header">
+          <span class="gs-label">Read First</span>
+          <h2 class="gs-section-title">From the Opening</h2>
+        </div>
+
+        <div class="gs-excerpt-block">
+          <span class="gs-excerpt-label">Chapter I &mdash; Kel Vethara</span>
+          <div class="gs-excerpt-text">
+            <p>There are places where hope does not die.</p>
+            <p>It starves.</p>
+            <p>Beneath the shadow of the Black Mountains lay a village that had long forgotten what it meant to expect anything good. Their fields no longer argued with the seasons — they simply refused to grow. Their houses leaned like tired men. Their laughter had become a language no one remembered how to speak.</p>
+            <p>They still prayed.</p>
+            <p>But not with faith.</p>
+            <p>They prayed the way drowning men move their arms — out of instinct, not belief. Day after day, year after year, their voices rose thin and desperate, until even their cries lost shape and became part of the wind that passed through the valley.</p>
+            <p>And still &mdash; nothing.</p>
+            <p><em>Until one night, something answered.</em></p>
+          </div>
+        </div>
+
+        <div style="text-align:center;margin-top:3rem;">
+          <p style="font-family:var(--gs-font-display);font-size:1.05rem;font-style:italic;color:var(--gs-text-dim);margin-bottom:2rem;">The rest of the story is waiting for you.</p>
+          <a href="https://selar.com/4907k9441n" target="_blank" rel="noopener" class="gs-btn gs-btn--primary" style="font-size:0.875rem;padding:1rem 2.5rem;">
+            Get the Book — ₦5,000 &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Author Note -->
+  <section class="gs-section">
+    <div class="gs-container">
+      <div style="max-width:820px;margin:0 auto;">
+        <div class="gs-feature-grid" style="gap:3rem;align-items:start;">
+          <div>
+            <span class="gs-label">A Note from David</span>
+            <h2 class="gs-section-title" style="font-size:clamp(1.6rem,3vw,2.2rem);">I Wrote This for Everyone Who Didn't Feel Ready</h2>
+            <p style="font-family:var(--gs-font-body);font-size:0.975rem;line-height:1.85;color:var(--gs-text-dim);margin-bottom:1.25rem;">
+              The hardest thing about calling is that it arrives before you do.
+            </p>
+            <p style="font-family:var(--gs-font-body);font-size:0.975rem;line-height:1.85;color:var(--gs-text-dim);margin-bottom:1.25rem;">
+              Nari is not the hero anyone expected. He does not feel like one. He does not act like one. He runs from it. And I think that is the most honest thing I have ever written — because I have been him. And I suspect many of you reading this have too.
+            </p>
+            <p style="font-family:var(--gs-font-body);font-size:0.975rem;line-height:1.85;color:var(--gs-text-dim);margin-bottom:1.25rem;">
+              But the question at the center of this book is not really about Nari. It is about the village. About what we do when God sends something we were not expecting. When the answer to our forty-three years of prayer looks broken, chained, and entirely wrong.
+            </p>
+            <blockquote style="border-left:2px solid var(--gs-accent);padding:0.75rem 0 0.75rem 1.5rem;font-family:var(--gs-font-display);font-size:1.2rem;font-style:italic;color:var(--gs-gleam);margin:1.5rem 0;">
+              "Will you raise him — or bury what I sent?"
+            </blockquote>
+            <p style="font-family:var(--gs-font-body);font-size:0.975rem;line-height:1.85;color:var(--gs-text-dim);">
+              That question does not belong only to Kel Vethara. It belongs to every person who has ever looked at what God placed in their hands and thought: this cannot be it.
+            </p>
+          </div>
+          <div style="text-align:center;">
+            <img
+              src="/images/david-adesina-photo.png"
+              alt="David Adesina"
+              style="width:160px;height:160px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid var(--gs-border-acc);filter:grayscale(20%);margin:0 auto 1.25rem;"
+            />
+            <p style="font-family:var(--gs-font-display);font-size:1.2rem;font-weight:600;color:var(--gs-text);margin-bottom:0.25rem;">David Adesina</p>
+            <p style="font-family:var(--gs-font-body);font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gs-accent);margin-bottom:1rem;">Founder, GleamShield Production</p>
+            <p style="font-family:var(--gs-font-display);font-size:0.9rem;font-style:italic;color:var(--gs-text-dim);line-height:1.65;">
+              "Some broke and bled.<br />I broke and wrote.<br />Now Christ holds the pen."
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="gs-cta-band">
+    <div class="gs-container">
+      <span class="gs-label" style="display:block;margin-bottom:1rem;">Available Now</span>
+      <h2 class="gs-cta-band__title">The mark was always on his hand.<br />The question was always yours.</h2>
+      <p class="gs-cta-band__sub">Download instantly. Read today. Pass it to someone who is afraid of what God placed in them.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="https://selar.com/4907k9441n" target="_blank" rel="noopener" class="gs-btn gs-btn--primary" style="font-size:0.875rem;padding:1rem 2.5rem;">
+          Get the Book — ₦5,000
+        </a>
+        <a href="/gleamshield/stories.html" class="gs-btn gs-btn--outline">
+          Browse All Stories
+        </a>
+      </div>
+      <p style="font-family:var(--gs-font-body);font-size:0.75rem;color:var(--gs-text-muted);margin-top:1.5rem;">Instant digital download &middot; Delivered via Selar &middot; Pay in Naira or USD</p>
     </div>
   </section>
 
@@ -342,24 +643,15 @@
       </div>
     </div>
     <div class="gs-footer__bottom">
-      <span class="gs-footer__copy">&copy; 2025 GleamShield Production. All rights reserved.</span>
+      <span class="gs-footer__copy">&copy; 2026 GleamShield Production. All rights reserved.</span>
       <span class="gs-footer__tagline-bottom">Stories. Characters. Truth Explored.</span>
     </div>
   </div>
 </footer>
 
 <script>
-  // Reading progress
-  window.addEventListener('scroll', () => {
-    const el = document.getElementById('gs-progress');
-    const h = document.documentElement;
-    const pct = (h.scrollTop || document.body.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
-    if (el) el.style.width = Math.min(pct, 100) + '%';
-  });
-  // Nav scroll
   const nav = document.getElementById('gs-nav');
   window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
-  // Mobile menu
   const hamburger = document.getElementById('gs-hamburger');
   const mobileMenu = document.getElementById('gs-mobile-menu');
   hamburger.addEventListener('click', () => {
