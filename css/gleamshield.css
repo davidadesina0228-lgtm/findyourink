@@ -32,7 +32,11 @@
 /* ── Reset & Base ─────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
+}
 
 body.gs-page {
   background-color: var(--gs-bg);
@@ -41,6 +45,7 @@ body.gs-page {
   font-size: 1rem;
   line-height: 1.7;
   overflow-x: hidden;
+  max-width: 100%;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -976,6 +981,8 @@ a:hover .gs-card__title { color: var(--gs-accent); }
 .gs-article-content {
   font-family: var(--gs-font-body);
   max-width: 720px;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .gs-article-content h2 {
