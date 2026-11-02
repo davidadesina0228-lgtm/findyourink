@@ -13,10 +13,12 @@
   <meta name="google-site-verification" content="q4WLY516JCjVJiltjmmFL3KnG31K6yo4xnxm3GVDMcA" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>David Adesina — Faith, Healing &amp; Mind Renewal</title>
+  <script>document.documentElement.classList.add('js')</script>
 
   <meta name="description" content="Official website of David Adesina — revival ministry (Cave Echoes), faith-based writing (Find Your Ink), and cinematic faith storytelling (GleamShield Production)." />
   <meta name="author" content="David Adesina" />
   <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0b0a08" />
 
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://davidadesina.com/" />
@@ -35,11 +37,11 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="images/cinema/david-gold.webp" fetchpriority="high" />
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/editorial.css" />
-  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/da.css" />
+  <link rel="stylesheet" href="css/da-home.css" />
 
   <meta name="google-adsense-account" content="ca-pub-6207125181553910" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6207125181553910" crossorigin="anonymous"></script>
@@ -116,75 +118,262 @@
   <link rel="apple-touch-icon" sizes="180x180" href="images/logo.png" />
   <script defer src="/_vercel/insights/script.js"></script>
 </head>
-<body class="hub-page atelier-home">
+<body class="da-dark da-home">
   <a class="skip-link" href="#main">Skip to content</a>
-  <nav class="nav atelier-nav" aria-label="Main navigation">
-    <div class="container"><div class="nav__inner">
-      <a href="index.html" class="atelier-brand" aria-label="David Adesina home"><span class="atelier-brand__mark"><img src="images/david-adesina-logo.png" alt="" width="76" height="48" /></span><span>David<br />Adesina<span class="atelier-brand__period">.</span></span></a>
-      <ul class="nav__links" role="list">
-        <li><a href="about.html" class="nav__link">The story</a></li>
-        <li><a href="blog.html" class="nav__link">Find Your Ink</a></li>
-        <li><a href="#cave-echoes" class="nav__link">Cave Echoes</a></li>
-        <li><a href="gleamshield/" class="nav__link">GleamShield <span aria-hidden="true">↗</span></a></li>
-      </ul>
-      <a href="contact.html" class="atelier-nav__contact">Let’s connect <span aria-hidden="true">↗</span></a>
-      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
-    </div></div>
-  </nav>
-  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-    <a href="index.html" class="mobile-menu__link">Home</a><a href="about.html" class="mobile-menu__link">The story</a><a href="blog.html" class="mobile-menu__link">Find Your Ink</a><a href="#cave-echoes" class="mobile-menu__link">Cave Echoes</a><a href="gleamshield/" class="mobile-menu__link">GleamShield</a><a href="contact.html" class="mobile-menu__link">Let’s connect</a>
-  </div>
-  <main id="main">
-    <section class="atelier-hero" id="home" aria-labelledby="hero-heading">
-      <div class="atelier-hero__copy">
-        <p class="atelier-kicker atelier-enter"><span class="atelier-dot" aria-hidden="true"></span> Revival. Healing. Truth.</p>
-        <h1 id="hero-heading" class="atelier-hero__title atelier-enter">Revival first.<br />Minds <em>renewed.</em></h1>
-        <p class="atelier-hero__declaration atelier-enter">A generation awakened.</p>
-        <div class="atelier-hero__intro atelier-enter"><span class="atelier-small-number" aria-hidden="true">01 /</span><p>I’m David Adesina. A revivalist, a writer, and a believer that the fire of revival must also heal the mind.</p></div>
-        <div class="atelier-hero__actions atelier-enter"><a class="atelier-button" href="blog.html">Find your next read <span aria-hidden="true">↗</span></a><a class="atelier-text-link" href="about.html">My story <span aria-hidden="true">↗</span></a></div>
-        <a href="#the-work" class="atelier-scroll">Scroll to explore <span aria-hidden="true">↓</span></a>
+
+  <header class="nav da-nav" data-autohide>
+    <div class="da-nav__bar">
+      <a href="index.html" class="da-brand" aria-label="David Adesina, home">
+        <img class="da-brand__mark da-brand__mark--ink" src="images/brand/da-mark-ink.png" alt="" width="22" height="34" />
+        <img class="da-brand__mark da-brand__mark--gold" src="images/brand/da-mark-gold.png" alt="" width="22" height="34" />
+        <span class="da-brand__word">David Adesina<i>.</i></span>
+      </a>
+      <nav class="da-nav__links" aria-label="Main navigation">
+        <a href="about.html" class="nav__link">The Story</a><a href="blog.html" class="nav__link">Find Your Ink</a><a href="index.html#cave-echoes" class="nav__link">Cave Echoes</a><a href="gleamshield/" class="nav__link">GleamShield <span aria-hidden="true">↗</span></a><a href="resources.html" class="nav__link">Resources</a><a href="contact.html" class="nav__link">Contact</a>
+      </nav>
+      <div class="da-nav__end">
+        <a href="contact.html#newsletter" class="da-nav__cta"><span class="da-nav__cta-dot" aria-hidden="true"></span>The Letter</a>
+        <button class="nav__toggle da-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span class="da-burger__label">Menu</span><i class="da-burger__lines" aria-hidden="true"></i></button>
       </div>
-      <figure class="atelier-hero__portrait atelier-enter">
-        <img src="images/david-adesina-photo.jpg" alt="David Adesina, revival minister and writer" width="720" height="1152" fetchpriority="high" />
-        <div class="atelier-portrait__corner" aria-hidden="true">DA /</div>
-        <figcaption><span>Faith that reaches<br />the whole person.</span><span class="atelier-portrait__caption-small">THE PERSON<br />BEHIND THE WORDS ↗</span></figcaption>
-      </figure>
+    </div>
+  </header>
+  <div class="mobile-menu da-menu" id="mobile-menu" aria-hidden="true" role="dialog" aria-label="Site menu">
+    <div class="da-menu__inner">
+      <nav class="da-menu__nav" aria-label="Menu">
+        <a href="index.html" class="mobile-menu__link" aria-current="page"><span class="da-menu__no">01</span>Home<span class="da-menu__arrow" aria-hidden="true">↗</span></a><a href="about.html" class="mobile-menu__link"><span class="da-menu__no">02</span>The Story<span class="da-menu__arrow" aria-hidden="true">↗</span></a><a href="blog.html" class="mobile-menu__link"><span class="da-menu__no">03</span>Find Your Ink<span class="da-menu__arrow" aria-hidden="true">↗</span></a><a href="index.html#cave-echoes" class="mobile-menu__link"><span class="da-menu__no">04</span>Cave Echoes<span class="da-menu__arrow" aria-hidden="true">↗</span></a><a href="gleamshield/" class="mobile-menu__link"><span class="da-menu__no">05</span>GleamShield<span class="da-menu__arrow" aria-hidden="true">↗</span></a><a href="resources.html" class="mobile-menu__link"><span class="da-menu__no">06</span>Resources<span class="da-menu__arrow" aria-hidden="true">↗</span></a><a href="contact.html" class="mobile-menu__link"><span class="da-menu__no">07</span>Contact<span class="da-menu__arrow" aria-hidden="true">↗</span></a>
+      </nav>
+      <div class="da-menu__foot">
+        <p class="da-menu__tag">Some broke and bled. I broke and wrote.<br /><em>Now Christ holds the pen.</em></p>
+        <div class="da-menu__social"><a href="https://youtube.com/@davidadesina0" target="_blank" rel="noopener">YouTube ↗</a><a href="https://www.instagram.com/davidsina0" target="_blank" rel="noopener">Instagram ↗</a><a href="contact.html#newsletter">The Letter ↗</a></div>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="h-hero" id="home" aria-labelledby="hero-heading" data-atmosphere="gold" data-focus="0.7">
+      <canvas class="atmo-canvas" aria-hidden="true"></canvas>
+      <div class="h-hero__portrait" aria-hidden="true">
+        <img src="images/cinema/david-gold.webp" alt="" width="720" height="1060" fetchpriority="high" decoding="async" />
+      </div>
+      <div class="h-hero__veil" aria-hidden="true"></div>
+      <div class="h-hero__flash" aria-hidden="true"></div>
+
+      <div class="h-hero__frame"><span>The work of David Adesina</span><span>Revivalist · Writer · Apologist</span><span>Est. in the secret place</span></div>
+
+      <div class="h-hero__content">
+        <p class="h-hero__eyebrow"><span class="da-dot" aria-hidden="true"></span> From the secret place. Into the world.</p>
+        <h1 class="h-hero__title" id="hero-heading" data-lines>
+          <span class="line"><span>Revival first.</span></span>
+          <span class="line"><span>Minds <em class="gilded">renewed.</em></span></span>
+        </h1>
+        <p class="h-hero__sub">A generation awakened.</p>
+        <div class="h-hero__actions">
+          <a class="da-btn da-btn--gold" href="blog.html" data-magnetic=".22">Read the journal <span class="da-btn__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span></a>
+          <a class="da-link" href="about.html">My story <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></a>
+        </div>
+      </div>
+
+      <div class="h-hero__seal" aria-hidden="true">
+        <svg viewBox="0 0 120 120"><defs><path id="seal-path" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0" /></defs><text><textPath href="#seal-path">REVIVAL · HEALING · TRUTH · REVIVAL · </textPath></text></svg>
+        <span>✳</span>
+      </div>
+
+      <div class="h-hero__bottom">
+        <p class="h-hero__intro"><b>01 /</b> I’m David. I write, preach, and create for the places where faith meets real life.</p>
+        <a href="#story" class="h-hero__scroll"><span>Scroll</span><i aria-hidden="true"></i></a>
+      </div>
     </section>
-    <section class="atelier-paths" id="the-work" aria-label="Explore the three expressions of the work">
-      <div class="atelier-paths__intro"><span class="atelier-kicker">Three expressions.</span><span>One calling.</span></div>
-      <a href="#find-your-ink"><span class="atelier-small-number">01 / HEALING</span><span>Find Your Ink <i aria-hidden="true">↗</i></span></a>
-      <a href="#cave-echoes"><span class="atelier-small-number">02 / REVIVAL</span><span>Cave Echoes <i aria-hidden="true">↗</i></span></a>
-      <a href="#gleamshield"><span class="atelier-small-number">03 / DEFENSE OF FAITH</span><span>GleamShield <i aria-hidden="true">↗</i></span></a>
-    </section>
-    <section class="atelier-section atelier-statement" id="about-david" aria-labelledby="about-heading">
-      <div class="atelier-section-label js-fade"><span>THE HEART BEHIND IT</span><span>01 —</span></div>
-      <div class="atelier-statement__body js-fade"><h2 id="about-heading">The fire is only<br /><em>the beginning.</em></h2><div class="atelier-statement__columns"><p>I was an atheist. Then an agnostic. Then, in 2016, in Ryazan, Russia, I encountered God — and everything changed.</p><div><p>Today I pastor, write, and create for a generation that needs more than a moment of fire. Real revival heals what the fire exposes, and equips us to stand in truth.</p><a class="atelier-text-link" href="about.html">Read the full story <span aria-hidden="true">↗</span></a></div></div></div>
-    </section>
-    <section class="atelier-section atelier-journal" id="find-your-ink" aria-labelledby="journal-heading">
-      <div class="atelier-section-label js-fade"><span>01 / FIND YOUR INK</span><span>THE WRITING</span></div>
-      <div class="atelier-section-heading js-fade"><h2 id="journal-heading">Words for the work<br /><em>happening within.</em></h2><div><p>Honest reflections on faith, healing, and the slow work of being remade.</p><a class="atelier-text-link" href="blog.html">Explore the journal <span aria-hidden="true">↗</span></a></div></div>
-      <div class="atelier-essays">
-        <a class="atelier-essay atelier-essay--featured js-fade" href="blog/healing-is-not-linear.html"><div class="atelier-essay__art" aria-hidden="true"><span>NOT A<br />STRAIGHT<br /><em>line.</em></span><span class="atelier-essay__art-foot">NOTES ON BECOMING / FIND YOUR INK</span></div><div class="atelier-essay__meta">HEALING &amp; TRAUMA <span>ESSAY 01</span></div><h3>Healing Is Not Linear</h3><p>For the days when moving forward feels a lot like starting over.</p><span class="atelier-read">Read the essay <span aria-hidden="true">↗</span></span></a>
-        <div class="atelier-essay-list">
-          <a href="blog/rewiring-the-renewing-of-your-mind.html" class="atelier-essay-row js-fade"><span class="atelier-small-number">02</span><div><span class="atelier-kicker">MIND RENEWAL</span><h3>Rewiring the Renewing<br />of Your Mind</h3><p>Where faith and the way we think meet.</p></div><span aria-hidden="true">↗</span></a>
-          <a href="blog/boundaries-are-not-betrayal.html" class="atelier-essay-row js-fade"><span class="atelier-small-number">03</span><div><span class="atelier-kicker">HEALING &amp; IDENTITY</span><h3>Boundaries Are<br />Not Betrayal</h3><p>Making room for wholeness, without guilt.</p></div><span aria-hidden="true">↗</span></a>
-          <a href="blog/lament-as-worship.html" class="atelier-essay-row js-fade"><span class="atelier-small-number">04</span><div><span class="atelier-kicker">FAITH &amp; DOUBT</span><h3>Lament as Worship</h3><p>There is room for your grief in the presence of God.</p></div><span aria-hidden="true">↗</span></a>
+
+    <!-- MARQUEE -->
+    <div class="h-marquee da-marquee" aria-hidden="true">
+      <div class="da-marquee__track">
+        <span>Revival <i>✳</i> Healing <i>✳</i> Truth <i>✳</i> Prayer <i>✳</i> Consecration <i>✳</i> Revival <i>✳</i> Healing <i>✳</i> Truth <i>✳</i> Prayer <i>✳</i> Consecration <i>✳</i></span>
+        <span>Revival <i>✳</i> Healing <i>✳</i> Truth <i>✳</i> Prayer <i>✳</i> Consecration <i>✳</i> Revival <i>✳</i> Healing <i>✳</i> Truth <i>✳</i> Prayer <i>✳</i> Consecration <i>✳</i></span>
+      </div>
+    </div>
+
+    <!-- MANIFESTO -->
+    <section class="h-manifesto" id="story" aria-labelledby="manifesto-heading">
+      <div class="da-wrap h-manifesto__grid">
+        <div class="h-manifesto__side">
+          <p class="da-label">The heart behind it</p>
+          <figure class="h-manifesto__photo" data-reveal>
+            <img src="images/cinema/david-mono.webp" alt="David Adesina" width="720" height="1060" loading="lazy" decoding="async" />
+            <figcaption>David Adesina</figcaption>
+          </figure>
+        </div>
+        <div>
+          <h2 class="h-manifesto__title" id="manifesto-heading" data-lines>
+            <span class="line"><span>The fire is only</span></span>
+            <span class="line"><span><em>the beginning.</em></span></span>
+          </h2>
+          <p class="h-manifesto__text" data-scrub>I was an atheist. Then an agnostic. Then, in 2016, in Ryazan, Russia, I <em>encountered God</em> — and everything changed. Today I pastor, write, and create for a generation that needs more than a moment of fire. Real revival <em>heals what the fire exposes,</em> and equips us to stand in truth.</p>
+          <a class="da-btn da-btn--ghost" href="about.html" data-magnetic=".2">Read the full story <span class="da-btn__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span></a>
         </div>
       </div>
     </section>
-    <section class="atelier-revival" id="cave-echoes" aria-labelledby="revival-heading">
-      <div class="atelier-section-label js-fade"><span>02 / CAVE ECHOES</span><span>THE MINISTRY</span></div>
-      <div class="atelier-revival__main"><div class="js-fade"><p class="atelier-kicker">From the secret place. To the ends of the earth.</p><h2 id="revival-heading">Let the<br /><em>fire remain.</em></h2></div><div class="atelier-revival__copy js-fade"><span class="atelier-revival__asterisk" aria-hidden="true">✳</span><p>Revival is a people encountering God and being unable to remain the same.</p><p>Cave Echoes exists to awaken hunger, restore reverence for truth, and call us into a life of prayer, repentance, and consecration. Chayah revival meetings began in Tbilisi, Georgia. The mandate reaches beyond it.</p><a href="contact.html" class="atelier-button atelier-button--light">Connect with the ministry <span aria-hidden="true">↗</span></a></div></div>
-      <div class="atelier-revival__foot"><span>PRAYER</span><span>TRUTH</span><span>CONSECRATION</span><a href="https://youtube.com/@davidadesina0" target="_blank" rel="noopener">Watch the teachings ↗</a></div>
+
+    <!-- THE THREE FRONTS -->
+    <section class="h-fronts" id="the-work" aria-labelledby="fronts-heading">
+      <header class="h-fronts__head da-wrap">
+        <div>
+          <p class="da-label">The work</p>
+          <h2 id="fronts-heading" data-lines style="margin-top:24px">
+            <span class="line"><span>Three fronts.</span></span>
+            <span class="line"><span><em>One calling.</em></span></span>
+          </h2>
+        </div>
+        <nav class="h-fronts__index" aria-label="The three fronts" data-stagger=".08">
+          <a href="#find-your-ink" data-reveal><b>01</b><span>Find Your Ink</span><small>Healing</small></a>
+          <a href="#cave-echoes" data-reveal><b>02</b><span>Cave Echoes</span><small>Revival</small></a>
+          <a href="#gleamshield" data-reveal><b>03</b><span>GleamShield</span><small>Defense of faith</small></a>
+        </nav>
+      </header>
+
+      <div class="h-stack" data-stack>
+
+        <!-- 01 FIND YOUR INK -->
+        <article class="front front--ink" id="find-your-ink" data-stack-item aria-labelledby="fyi-title">
+          <div class="front__art" aria-hidden="true" data-parallax="0.05"><span class="card__plate" data-plate data-bare data-slug="find-your-ink-the-journal" data-cat="spiritual-formation"></span></div>
+          <div class="front__inner">
+            <div class="front__meta"><span>01 / Healing</span><span>Find Your Ink</span><span>The journal</span></div>
+            <div class="front__grid">
+              <div class="front__copy" data-reveal>
+                <h3 class="front__title" id="fyi-title">Find your <em>Ink.</em></h3>
+                <p class="front__lede" style="margin-top:28px">Words for the work happening within.</p>
+                <p>Honest reflections on faith, healing, and the slow work of being remade. Written from scars, not theory.</p>
+                <a class="da-btn da-btn--ink" href="blog.html" data-magnetic=".2">Explore the journal <span class="da-btn__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span></a>
+              </div>
+              <div class="front-essays" data-stagger=".1">
+                <p class="da-label">Latest essays</p>
+                <a class="front-essay" href="blog/revival-healing-and-defense-of-faith.html" data-reveal>
+                  <span class="card__plate" data-plate data-slug="revival-healing-and-defense-of-faith" data-cat="spiritual-formation" aria-hidden="true"></span>
+                  <span><span class="front-essay__cat">Spiritual Formation</span><span class="front-essay__title">Revival, Healing the Mind, and the Defense of Faith</span></span>
+                  <span class="front-essay__arrow" aria-hidden="true">↗</span>
+                </a>
+                <a class="front-essay" href="blog/the-anatomy-of-doubt.html" data-reveal>
+                  <span class="card__plate" data-plate data-slug="the-anatomy-of-doubt" data-cat="faith-doubt" aria-hidden="true"></span>
+                  <span><span class="front-essay__cat">Faith &amp; Doubt</span><span class="front-essay__title">The Anatomy of Doubt</span></span>
+                  <span class="front-essay__arrow" aria-hidden="true">↗</span>
+                </a>
+                <a class="front-essay" href="blog/when-thinking-dies.html" data-reveal>
+                  <span class="card__plate" data-plate data-slug="when-thinking-dies" data-cat="faith-doubt" aria-hidden="true"></span>
+                  <span><span class="front-essay__cat">Faith &amp; Doubt</span><span class="front-essay__title">When Thinking Dies</span></span>
+                  <span class="front-essay__arrow" aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="front__shade" aria-hidden="true"></div>
+        </article>
+
+        <!-- 02 CAVE ECHOES -->
+        <article class="front front--fire" id="cave-echoes" data-stack-item data-atmosphere="embers" aria-labelledby="ce-title">
+          <img class="front__bg" src="images/cinema/home-dawn.webp" alt="" width="1672" height="941" loading="lazy" decoding="async" data-parallax="-0.06" />
+          <div class="front__veil" aria-hidden="true"></div>
+          <canvas class="atmo-canvas" aria-hidden="true"></canvas>
+          <div class="front__inner">
+            <div class="front__meta"><span>02 / Revival</span><span>Cave Echoes</span><span>The ministry</span></div>
+            <div class="front__grid">
+              <div data-reveal>
+                <p class="front__kicker">From the secret place. To the ends of the earth.</p>
+                <h3 class="front__title front__title--xl" id="ce-title">Let the <em class="gilded">fire remain.</em></h3>
+              </div>
+              <div class="front__copy" data-reveal style="--d:.12s">
+                <p class="front__lede">Revival is a people encountering God and being unable to remain the same.</p>
+                <p>Cave Echoes exists to awaken hunger, restore reverence for truth, and call us into a life of prayer, repentance, and consecration. Chayah revival meetings began in Tbilisi, Georgia. The mandate reaches beyond it.</p>
+                <ul class="front__pillars" aria-label="Marks of the ministry"><li>Prayer</li><li>Truth</li><li>Consecration</li></ul>
+                <div class="front__actions">
+                  <a class="da-btn da-btn--gold" href="https://youtube.com/@davidadesina0" target="_blank" rel="noopener" data-magnetic=".2">Watch the teachings <span class="da-btn__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span></a>
+                  <a class="da-link" href="contact.html">Connect with the ministry <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="front__shade" aria-hidden="true"></div>
+        </article>
+
+        <!-- 03 GLEAMSHIELD -->
+        <article class="front front--studio" id="gleamshield" data-stack-item aria-labelledby="gs-title">
+          <img class="front__bg" src="images/cinema/zenithia.webp" alt="The imagined city of Zenithia from the GleamShield story universe" width="1672" height="941" loading="lazy" decoding="async" data-parallax="-0.06" />
+          <div class="front__veil" aria-hidden="true"></div>
+          <div class="front__letterbox" aria-hidden="true"></div>
+          <div class="front__inner">
+            <div class="front__meta"><span>03 / Defense of faith</span><span>GleamShield</span><span>The studio</span></div>
+            <div class="front__grid">
+              <div data-reveal>
+                <p class="front__kicker">Apologetics. Animation. A world of possibility.</p>
+                <h3 class="front__title front__title--xl" id="gs-title">Truth worth <em>seeing.</em></h3>
+              </div>
+              <div class="front__copy" data-reveal style="--d:.12s">
+                <p class="front__lede">Stories that make you feel.<br />Questions that make you think.<br />Faith you can give a reason for.</p>
+                <div class="front__doors">
+                  <a href="gleamshield/characters.html"><b>01</b><span>Characters</span></a>
+                  <a href="gleamshield/stories.html"><b>02</b><span>Stories</span></a>
+                  <a href="gleamshield/chronicles.html"><b>03</b><span>Chronicles</span></a>
+                </div>
+                <a class="da-btn da-btn--light" href="gleamshield/" data-magnetic=".2">Enter GleamShield <span class="da-btn__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span></a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
     </section>
-    <section class="atelier-studio" id="gleamshield" aria-labelledby="studio-heading">
-      <img class="atelier-studio__image" src="images/gleamshield/gs-zenithia-hero.jpg" alt="The imagined city of Zenithia from the GleamShield story universe" loading="lazy" width="1600" height="679" />
-      <div class="atelier-studio__overlay"></div>
-      <div class="atelier-studio__content"><div class="atelier-section-label"><span>03 / GLEAMSHIELD</span><span>THE STUDIO ↗</span></div><div class="atelier-studio__bottom js-fade"><div><p class="atelier-kicker">Apologetics. Animation. A world of possibility.</p><h2 id="studio-heading">Truth worth<br /><em>seeing.</em></h2></div><div><p>Stories that make you feel.<br />Questions that make you think.<br />Faith you can give a reason for.</p><a class="atelier-button atelier-button--light" href="gleamshield/">Enter GleamShield <span aria-hidden="true">↗</span></a></div></div></div>
+
+    <!-- CLOSING VERSE -->
+    <section class="h-verse" aria-labelledby="verse-heading">
+      <p class="da-label" id="verse-heading">Find Your Ink</p>
+      <p class="h-verse__text" data-split>Some broke and bled. I broke and wrote. <em>Now Christ holds the pen.</em></p>
+      <p class="h-verse__sig" data-reveal style="--d:.6s">— David Adesina</p>
     </section>
-    <section class="atelier-section atelier-letter" id="contact" aria-labelledby="letter-heading"><div class="atelier-section-label js-fade"><span>STAY IN THE CONVERSATION</span><span>A LETTER FROM DAVID</span></div><div class="atelier-letter__inner js-fade"><h2 id="letter-heading">A little clarity.<br /><em>In your inbox.</em></h2><div><p>Revival. Healing. Apologetics. One letter, every week — for the work God is doing in you.</p><a class="atelier-button" href="contact.html#newsletter">Receive the letter <span aria-hidden="true">↗</span></a><span class="atelier-letter__note">No noise. Unsubscribe anytime.</span></div></div></section>
+
   </main>
-  <footer class="atelier-footer" aria-label="Site footer"><div class="atelier-footer__top"><a href="index.html" class="atelier-footer__name">David Adesina<span>.</span></a><p>Revival first. Minds renewed.<br />A generation awakened.</p></div><div class="atelier-footer__links"><nav aria-label="Explore the website"><a href="about.html">The story</a><a href="blog.html">Find Your Ink</a><a href="#cave-echoes">Cave Echoes</a><a href="gleamshield/">GleamShield</a><a href="resources.html">Resources</a><a href="contact.html">Contact</a></nav><nav aria-label="Elsewhere"><a href="https://youtube.com/@davidadesina0" target="_blank" rel="noopener">YouTube ↗</a><a href="https://remshield.solutions/" target="_blank" rel="noopener">Remshield ↗</a><a href="rss.xml">RSS ↗</a></nav></div><div class="atelier-footer__bottom"><span>© <span id="year"></span> David Adesina</span><span>Rooted in Christ. Written with purpose.</span><nav aria-label="Legal links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="#home" aria-label="Back to top">↑</a></nav></div></footer>
+
+  <footer class="da-footer" aria-label="Site footer">
+    <div class="da-wrap">
+      <div class="da-footer__top">
+        <div class="da-footer__letter" data-reveal>
+          <p class="da-label">The David Adesina Letter</p>
+          <h2>A little clarity.<br /><em>In your inbox.</em></h2>
+        </div>
+        <div class="da-footer__letter-cta" data-reveal style="--d:.1s">
+          <p>Revival. Healing. Apologetics. One letter, every week, for the work God is doing in you.</p>
+          <a class="da-btn da-btn--gold" href="contact.html#newsletter" data-magnetic=".2">Receive the letter <span class="da-btn__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span></a>
+        </div>
+      </div>
+      <div class="da-footer__grid">
+        <div class="da-footer__brand">
+          <img src="images/brand/da-mark-gold.png" alt="" width="34" height="52" loading="lazy" />
+          <p class="da-footer__quote">Some broke and bled.<br />I broke and wrote.<br /><em>Now Christ holds the pen.</em></p>
+        </div>
+        <nav aria-label="Explore the website">
+          <p class="da-footer__head">Explore</p>
+          <a href="index.html">Home</a><a href="about.html">The Story</a><a href="blog.html">Find Your Ink</a><a href="index.html#cave-echoes">Cave Echoes</a><a href="resources.html">Resources</a><a href="contact.html">Contact</a>
+        </nav>
+        <nav aria-label="Essay topics">
+          <p class="da-footer__head">Topics</p>
+          <a href="blog.html?category=faith-doubt">Faith &amp; Doubt</a><a href="blog.html?category=trauma-healing">Trauma &amp; Healing</a><a href="blog.html?category=emotional-intelligence">Emotional Intelligence</a><a href="blog.html?category=identity-in-christ">Identity in Christ</a><a href="blog.html?category=mind-neuroscience">Mind &amp; Neuroscience</a>
+        </nav>
+        <nav aria-label="Elsewhere">
+          <p class="da-footer__head">Elsewhere</p>
+          <a href="gleamshield/">GleamShield ↗</a><a href="https://youtube.com/@davidadesina0" target="_blank" rel="noopener">YouTube ↗</a><a href="https://www.instagram.com/davidsina0" target="_blank" rel="noopener">Instagram ↗</a><a href="https://remshield.solutions/" target="_blank" rel="noopener">Remshield ↗</a><a href="rss.xml">RSS feed</a>
+        </nav>
+      </div>
+    </div>
+    <div class="da-footer__word" aria-hidden="true">David Adesina<span>.</span></div>
+    <div class="da-wrap">
+      <div class="da-footer__bottom">
+        <span>&copy; <span id="year"></span> David Adesina · Find Your Ink</span>
+        <span>Rooted in Christ. Written with purpose.</span>
+        <nav aria-label="Legal links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
+        <a href="#main" class="da-footer__top-link" aria-label="Back to top">↑</a>
+      </div>
+    </div>
+  </footer>
+
   <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
     <div class="container">
       <div class="cookie-banner__inner">
@@ -201,9 +390,9 @@
   </div>
 
   <script src="js/main.js"></script>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script src="js/ink.js" defer></script>
+  <script src="js/motion.js" defer></script>
+  <script src="js/atmosphere.js" defer></script>
 
 <!-- Newsletter Popup -->
 <style>

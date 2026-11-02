@@ -13,6 +13,8 @@
   <meta name="google-site-verification" content="q4WLY516JCjVJiltjmmFL3KnG31K6yo4xnxm3GVDMcA" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Page Not Found — Find Your Ink</title>
+  <script>document.documentElement.classList.add('js')</script>
+  <meta name="theme-color" content="#0b0a08" />
 
   <meta name="description" content="The page you're looking for isn't here. But you are — and that's enough to start." />
   <meta name="robots" content="noindex, nofollow" />
@@ -27,26 +29,45 @@
   <meta name="twitter:image" content="https://davidadesina.com/images/og-home.jpg" />
   <link rel="canonical" href="https://davidadesina.com/404.html" />
   <meta name="google-adsense-account" content="ca-pub-6207125181553910" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/editorial.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/da.css" />
   <script defer src="/_vercel/insights/script.js"></script>
 </head>
-<body>
+<body class="da-dark">
 
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Minimal Nav -->
-  <nav class="nav nav--transparent" aria-label="Main navigation">
-    <div class="container">
-      <div class="nav__inner">
-        <a href="index.html" class="nav__logo">Find Your <span>Ink</span></a>
+  <header class="nav da-nav" data-autohide>
+    <div class="da-nav__bar">
+      <a href="/index.html" class="da-brand" aria-label="David Adesina, home">
+        <img class="da-brand__mark da-brand__mark--ink" src="/images/brand/da-mark-ink.png" alt="" width="22" height="34" />
+        <img class="da-brand__mark da-brand__mark--gold" src="/images/brand/da-mark-gold.png" alt="" width="22" height="34" />
+        <span class="da-brand__word">David Adesina<i>.</i></span>
+      </a>
+      <nav class="da-nav__links" aria-label="Main navigation">
+        <a href="/about.html" class="nav__link">The Story</a><a href="/blog.html" class="nav__link">Find Your Ink</a><a href="/index.html#cave-echoes" class="nav__link">Cave Echoes</a><a href="/gleamshield/" class="nav__link">GleamShield <span aria-hidden="true">↗</span></a><a href="/resources.html" class="nav__link">Resources</a><a href="/contact.html" class="nav__link">Contact</a>
+      </nav>
+      <div class="da-nav__end">
+        <a href="/contact.html#newsletter" class="da-nav__cta"><span class="da-nav__cta-dot" aria-hidden="true"></span>The Letter</a>
+        <button class="nav__toggle da-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span class="da-burger__label">Menu</span><i class="da-burger__lines" aria-hidden="true"></i></button>
       </div>
     </div>
-  </nav>
+  </header>
+
+  <div class="mobile-menu da-menu" id="mobile-menu" aria-hidden="true" role="dialog" aria-label="Site menu">
+    <div class="da-menu__inner">
+      <nav class="da-menu__nav" aria-label="Menu">
+        <a href="/index.html" class="mobile-menu__link"><span class="da-menu__no">01</span>Home<span class="da-menu__arrow" aria-hidden="true">↗</span></a><a href="/about.html" class="mobile-menu__link"><span class="da-menu__no">02</span>The Story<span class="da-menu__arrow" aria-hidden="true">↗</span></a><a href="/blog.html" class="mobile-menu__link"><span class="da-menu__no">03</span>Find Your Ink<span class="da-menu__arrow" aria-hidden="true">↗</span></a><a href="/index.html#cave-echoes" class="mobile-menu__link"><span class="da-menu__no">04</span>Cave Echoes<span class="da-menu__arrow" aria-hidden="true">↗</span></a><a href="/gleamshield/" class="mobile-menu__link"><span class="da-menu__no">05</span>GleamShield<span class="da-menu__arrow" aria-hidden="true">↗</span></a><a href="/resources.html" class="mobile-menu__link"><span class="da-menu__no">06</span>Resources<span class="da-menu__arrow" aria-hidden="true">↗</span></a><a href="/contact.html" class="mobile-menu__link"><span class="da-menu__no">07</span>Contact<span class="da-menu__arrow" aria-hidden="true">↗</span></a>
+      </nav>
+      <div class="da-menu__foot">
+        <p class="da-menu__tag">Some broke and bled. I broke and wrote.<br /><em>Now Christ holds the pen.</em></p>
+        <div class="da-menu__social"><a href="https://youtube.com/@davidadesina0" target="_blank" rel="noopener">YouTube ↗</a><a href="https://www.instagram.com/davidsina0" target="_blank" rel="noopener">Instagram ↗</a><a href="/contact.html#newsletter">The Letter ↗</a></div>
+      </div>
+    </div>
+  </div>
 
   <main id="main">
     <div class="not-found">
@@ -64,10 +85,10 @@
         </p>
 
         <div class="not-found__links">
-          <a href="index.html" class="btn btn--gold">
+          <a href="/" class="btn btn--gold">
             Go Home <span class="arrow" aria-hidden="true">→</span>
           </a>
-          <a href="blog.html" class="btn btn--outline-cream">
+          <a href="/blog.html" class="btn btn--outline-cream">
             Read the Blog
           </a>
         </div>
@@ -80,7 +101,50 @@
     </div>
   </main>
 
-  <script src="js/main.js"></script>
+  <footer class="da-footer" aria-label="Site footer">
+    <div class="da-wrap">
+      <div class="da-footer__top">
+        <div class="da-footer__letter" data-reveal>
+          <p class="da-label">The David Adesina Letter</p>
+          <h2>A little clarity.<br /><em>In your inbox.</em></h2>
+        </div>
+        <div class="da-footer__letter-cta" data-reveal style="--d:.1s">
+          <p>Revival. Healing. Apologetics. One letter, every week, for the work God is doing in you.</p>
+          <a class="da-btn da-btn--gold" href="/contact.html#newsletter" data-magnetic=".2">Receive the letter <span class="da-btn__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span></a>
+        </div>
+      </div>
+      <div class="da-footer__grid">
+        <div class="da-footer__brand">
+          <img src="/images/brand/da-mark-gold.png" alt="" width="34" height="52" loading="lazy" />
+          <p class="da-footer__quote">Some broke and bled.<br />I broke and wrote.<br /><em>Now Christ holds the pen.</em></p>
+        </div>
+        <nav aria-label="Explore the website">
+          <p class="da-footer__head">Explore</p>
+          <a href="/index.html">Home</a><a href="/about.html">The Story</a><a href="/blog.html">Find Your Ink</a><a href="/index.html#cave-echoes">Cave Echoes</a><a href="/resources.html">Resources</a><a href="/contact.html">Contact</a>
+        </nav>
+        <nav aria-label="Essay topics">
+          <p class="da-footer__head">Topics</p>
+          <a href="/blog.html?category=faith-doubt">Faith &amp; Doubt</a><a href="/blog.html?category=trauma-healing">Trauma &amp; Healing</a><a href="/blog.html?category=emotional-intelligence">Emotional Intelligence</a><a href="/blog.html?category=identity-in-christ">Identity in Christ</a><a href="/blog.html?category=mind-neuroscience">Mind &amp; Neuroscience</a>
+        </nav>
+        <nav aria-label="Elsewhere">
+          <p class="da-footer__head">Elsewhere</p>
+          <a href="/gleamshield/">GleamShield ↗</a><a href="https://youtube.com/@davidadesina0" target="_blank" rel="noopener">YouTube ↗</a><a href="https://www.instagram.com/davidsina0" target="_blank" rel="noopener">Instagram ↗</a><a href="https://remshield.solutions/" target="_blank" rel="noopener">Remshield ↗</a><a href="/rss.xml">RSS feed</a>
+        </nav>
+      </div>
+    </div>
+    <div class="da-footer__word" aria-hidden="true">David Adesina<span>.</span></div>
+    <div class="da-wrap">
+      <div class="da-footer__bottom">
+        <span>&copy; <span id="year"></span> David Adesina · Find Your Ink</span>
+        <span>Rooted in Christ. Written with purpose.</span>
+        <nav aria-label="Legal links"><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav>
+        <a href="#main" class="da-footer__top-link" aria-label="Back to top">↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/motion.js" defer></script>
 
 <!-- Newsletter Popup -->
 <style>

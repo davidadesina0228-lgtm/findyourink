@@ -5,6 +5,8 @@
   <meta name="google-site-verification" content="q4WLY516JCjVJiltjmmFL3KnG31K6yo4xnxm3GVDMcA" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GleamShield Production | Stories. Characters. Truth Explored.</title>
+  <script>document.documentElement.classList.add('js')</script>
+  <meta name="theme-color" content="#07070b" />
   <meta name="description" content="A cinematic universe for faith-based storytelling. Exploring truth through original characters, immersive worlds, and stories that take both faith and doubt seriously." />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="GleamShield Production | Stories. Characters. Truth Explored." />
@@ -22,6 +24,10 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6207125181553910" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="/css/gleamshield.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/gs-luxe.css" />
+  <link rel="preload" as="image" href="/images/cinema/zenithia.webp" fetchpriority="high" />
 
   <script type="application/ld+json">
   {
@@ -39,7 +45,7 @@
   <a href="#gs-main" class="gs-skip-link">Skip to content</a>
 
   <!-- NAV -->
-  <nav class="gs-nav" id="gs-nav" aria-label="GleamShield navigation">
+  <nav class="gs-nav" id="gs-nav" data-autohide aria-label="GleamShield navigation">
     <div class="gs-nav__inner">
       <a href="/gleamshield/" class="gs-nav__brand" aria-label="GleamShield home">
         <img src="/images/gleamshield/gs-logo.png" alt="GleamShield logo" class="gs-nav__logo" />
@@ -77,163 +83,179 @@
 
   <main id="gs-main">
 
-    <!-- HERO -->
-    <section class="gs-hero" aria-labelledby="gs-hero-title">
-      <div class="gs-hero__bg" style="background-image: url('/images/gleamshield/gs-zenithia-hero.jpg');" role="presentation"></div>
-      <div class="gs-hero__overlay" role="presentation"></div>
-      <div class="gs-hero__frame" aria-hidden="true"></div>
-      <div class="gs-hero__topline">
-        <span>Independent animation &amp; apologetics</span>
+    <!-- OPENING TITLE -->
+    <section class="gx-hero" aria-labelledby="gs-hero-title" data-atmosphere="zenith">
+      <div class="gx-hero__plate" aria-hidden="true" data-parallax="0.12"><img src="/images/cinema/zenithia.webp" alt="" width="1672" height="941" fetchpriority="high" /></div>
+      <div class="gx-hero__rays" aria-hidden="true"></div>
+      <div class="gx-hero__shade" aria-hidden="true"></div>
+      <canvas class="atmo-canvas" aria-hidden="true"></canvas>
+      <div class="gx-viewfinder" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <div class="gx-slate" aria-hidden="true"><span class="gx-slate__rec">Zenithia</span><span>Independent animation &amp; apologetics</span><span data-timecode>00:00:00:00</span></div>
+
+      <div class="gx-hero__copy">
+        <p class="gx-presents">GleamShield Production presents</p>
+        <h1 class="gx-hero__title" id="gs-hero-title" data-lines style="--d:.9s">
+          <span class="line"><span>Where stories</span></span>
+          <span class="line"><span>meet <em class="gx-shine">truth.</em></span></span>
+        </h1>
+        <p class="gx-hero__sub">We are currently in production of our first flagship animation. Help us build the world of Zenithia and fund the journey of Abimifoluwa.</p>
+        <div class="gx-hero__actions">
+          <a href="/gleamshield/support.html" class="gx-btn" data-magnetic=".2">Fund the animation <span class="gx-btn__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span></a>
+          <a href="/gleamshield/characters/abimifoluwa.html" class="gx-btn gx-btn--ghost">Meet the Seeker <span class="gx-btn__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span></a>
+        </div>
+      </div>
+
+      <a class="gx-hero__card" href="/gleamshield/characters/abimifoluwa.html" data-tilt="10" aria-label="Meet Abimifoluwa, the Seeker">
+        <img src="/images/cinema/seeker.webp" alt="" width="1360" height="768" />
+        <span><b>Character 001</b><b>In development</b></span>
+        <strong>Abimifoluwa</strong>
+      </a>
+
+      <div class="gx-hero__foot">
+        <a href="#gs-flagship"><b aria-hidden="true"></b>Enter the world</a>
+        <span>Stories · Characters · Truth explored</span>
         <span>Faith. Frame by frame.</span>
       </div>
-      <div class="gs-hero__content">
-        <span class="gs-hero__eyebrow gs-fade-up">Stories. Characters. Truth Explored.</span>
-        <h1 id="gs-hero-title" class="gs-hero__title gs-fade-up gs-fade-up--1">Where stories<br>meet <em>truth.</em></h1>
-        <div class="gs-hero__bottom">
-          <div class="gs-hero__actions gs-fade-up gs-fade-up--3">
-            <a href="/gleamshield/support.html" class="gs-btn gs-btn--primary">Fund the Animation <span aria-hidden="true">↗</span></a>
-            <a href="/gleamshield/characters/abimifoluwa.html" class="gs-btn gs-btn--outline">Meet the Seeker <span aria-hidden="true">→</span></a>
-          </div>
-          <p class="gs-hero__sub gs-fade-up gs-fade-up--2">
-            We are currently in production of our first flagship animation.
-            Help us build the world of Zenithia and fund the journey of Abimifoluwa.
-          </p>
-        </div>
-      </div>
-      <div class="gs-hero__footnote">
-        <a href="#gs-flagship">Explore the world <span aria-hidden="true">↓</span></a>
-        <span>Zenithia / The world of Abimifoluwa</span>
-        <span>01 — In development</span>
-      </div>
+      <div class="gx-letterbox" aria-hidden="true"></div>
     </section>
 
-    <div class="gs-studio-index" aria-label="Explore GleamShield">
-      <a href="/gleamshield/characters.html"><span>01 / The people</span>Characters <span aria-hidden="true">↗</span></a>
-      <a href="/gleamshield/stories.html"><span>02 / The worlds</span>Stories <span aria-hidden="true">↗</span></a>
-      <a href="/gleamshield/chronicles.html"><span>03 / The questions</span>Chronicles <span aria-hidden="true">↗</span></a>
+    <div class="gs-marquee" aria-hidden="true">
+      <div class="gs-marquee__track">
+        <span>Stories <i>✦</i> Characters <i>✦</i> <em>Truth explored</em> <i>✦</i> Zenithia <i>✦</i> <em>Faith, frame by frame</em> <i>✦</i> Stories <i>✦</i> Characters <i>✦</i> <em>Truth explored</em> <i>✦</i> Zenithia <i>✦</i> <em>Faith, frame by frame</em> <i>✦</i></span>
+        <span>Stories <i>✦</i> Characters <i>✦</i> <em>Truth explored</em> <i>✦</i> Zenithia <i>✦</i> <em>Faith, frame by frame</em> <i>✦</i> Stories <i>✦</i> Characters <i>✦</i> <em>Truth explored</em> <i>✦</i> Zenithia <i>✦</i> <em>Faith, frame by frame</em> <i>✦</i></span>
+      </div>
     </div>
 
-    <!-- FEATURED CHARACTER -->
-    <section class="gs-section gs-flagship" id="gs-flagship" aria-labelledby="gs-character-heading">
-      <div class="gs-container">
-        <div class="gs-feature-grid">
-          <div>
-            <span class="gs-label">01 / Flagship Project</span>
-            <h2 id="gs-character-heading" class="gs-section-title">Abimifoluwa:<br>The Animation</h2>
-            <p style="font-family:var(--gs-font-display);font-size:1.1rem;font-style:italic;color:var(--gs-text-dim);margin-bottom:1.5rem;">A journey from Igbajo to the peak of the stars.</p>
-            <p style="font-family:var(--gs-font-body);font-size:0.95rem;line-height:1.75;color:var(--gs-text-dim);margin-bottom:2rem;">
-              Abimifoluwa didn't grow up doubting God. She grew up asking questions no one seemed willing to sit with.
-              Her journey from the streets of Igbajo to the mystical realm of Zenithia becomes a mirror for every seeker
-              wrestling with the intersection of faith, logic, and the hunger for truth.
-            </p>
-            <div style="margin-bottom:2rem;display:inline-block;border:1px solid var(--gs-accent);border-radius:4px;padding:0.4rem 1rem;">
-              <span style="font-family:var(--gs-font-body);font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gs-accent);">Funding Opens Soon</span>
-            </div>
-            <div style="display:flex;gap:1rem;flex-wrap:wrap;">
-              <a href="/gleamshield/support.html" class="gs-btn gs-btn--primary">Join the Waitlist</a>
-              <a href="/gleamshield/characters/abimifoluwa.html" class="gs-btn gs-btn--outline">Full Profile</a>
-            </div>
-          </div>
-          <div class="gs-character-portrait">
-            <img
-              src="/images/gleamshield/gs-abimifoluwa-avatar.jpg"
-              alt="Abimifoluwa — The Seeker"
-              width="640" height="640" loading="lazy"
-            />
-            <div style="position:absolute;bottom:1.5rem;left:1.5rem;background:rgba(10,10,11,0.85);backdrop-filter:blur(8px);padding:1rem 1.5rem;border-left:2px solid var(--gs-accent);border-radius:2px;">
-              <p style="font-family:var(--gs-font-body);font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gs-accent);margin-bottom:0.25rem;">The Seeker</p>
-              <p style="font-family:var(--gs-font-display);font-size:1.25rem;color:var(--gs-text);">Abimifoluwa</p>
-            </div>
+    <!-- THE SEEKER -->
+    <section class="gx-section gx-seeker" id="gs-flagship" aria-labelledby="gs-character-heading">
+      <div class="gx-wrap gx-seeker__grid">
+        <figure class="gx-seeker__frame" data-reveal="scale">
+          <img src="/images/cinema/seeker.webp" alt="Abimifoluwa beneath the stars of Zenithia" width="1360" height="768" loading="lazy" decoding="async" />
+          <figcaption><span><b>The Seeker</b><span>Abimifoluwa</span></span><small>Character 001<br />Zenithia</small></figcaption>
+        </figure>
+        <div class="gx-seeker__copy">
+          <p class="gx-kicker">01 / Flagship project</p>
+          <h2 class="gx-title" id="gs-character-heading" data-lines><span class="line"><span>Abimifoluwa:</span></span><span class="line"><span><em>The Animation</em></span></span></h2>
+          <p class="gx-lede" data-reveal>A journey from Igbajo to the peak of the stars.</p>
+          <p class="gx-body" data-reveal>Abimifoluwa didn't grow up doubting God. She grew up asking questions no one seemed willing to sit with. Her journey from the streets of Igbajo to the mystical realm of Zenithia becomes a mirror for every seeker wrestling with the intersection of faith, logic, and the hunger for truth.</p>
+          <dl class="gx-facts" data-reveal>
+            <div><dt>Origin</dt><dd>Igbajo, Nigeria</dd></div>
+            <div><dt>Her name</dt><dd>“Born for God”</dd></div>
+            <div><dt>The world</dt><dd>Zenithia</dd></div>
+          </dl>
+          <span class="gx-status" data-reveal>Funding opens soon</span>
+          <div class="gx-actions" data-reveal>
+            <a href="/gleamshield/support.html" class="gx-btn" data-magnetic=".2">Join the waitlist <span class="gx-btn__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span></a>
+            <a href="/gleamshield/characters/abimifoluwa.html" class="gx-btn gx-btn--ghost">Full profile <span class="gx-btn__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span></a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 4 PILLARS -->
-    <section class="gs-section gs-section--alt gs-craft" aria-labelledby="gs-pillars-heading">
-      <div class="gs-container">
-        <div class="gs-section-header gs-section-header--center">
-          <span class="gs-label">02 / Our Craft</span>
-          <h2 id="gs-pillars-heading" class="gs-section-title">How We Build Truth</h2>
-          <p class="gs-section-desc">Every frame, every character, every world is built with one question: does this help a seeker encounter the real?</p>
+    <!-- STUDIO DOORS -->
+    <section class="gx-section" aria-labelledby="gs-doors-heading" style="padding-top:0">
+      <div class="gx-wrap">
+        <div class="gx-head">
+          <div>
+            <p class="gx-kicker">02 / The studio</p>
+            <h2 class="gx-title" id="gs-doors-heading" data-lines style="margin-top:22px"><span class="line"><span>Three doors into</span></span><span class="line"><span><em>one world.</em></span></span></h2>
+          </div>
+          <p class="gx-body" data-reveal>Faith, imagination, and honest questioning coexist here. Heroes confront real doubts. Fantasy illuminates truth.</p>
         </div>
-        <div class="gs-grid gs-grid--4">
-          <div class="gs-pillar">
-            <div class="gs-pillar__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-            </div>
-            <h3 class="gs-pillar__title">Storyboarding</h3>
-            <p class="gs-pillar__desc">Nothing is accidental. Every frame asks a question the viewer didn't know they were carrying.</p>
+        <div class="gx-doors" data-stagger=".1">
+          <a class="gx-door" href="/gleamshield/characters.html" data-reveal>
+            <img src="/images/cinema/seeker-portrait.webp" alt="" width="900" height="506" loading="lazy" decoding="async" />
+            <span class="gx-door__no">01</span><span class="gx-door__go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span>
+            <h3>Characters</h3>
+            <p>Every great story begins with a soul willing to ask the questions others are afraid to voice.</p>
+          </a>
+          <a class="gx-door" href="/gleamshield/stories.html" data-reveal>
+            <img src="/images/cinema/field.webp" alt="" width="1280" height="720" loading="lazy" decoding="async" />
+            <span class="gx-door__no">02</span><span class="gx-door__go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span>
+            <h3>Stories</h3>
+            <p>Short stories, allegories, and reflections from the world of Zenithia.</p>
+          </a>
+          <a class="gx-door" href="/gleamshield/chronicles.html" data-reveal>
+            <img src="/images/cinema/chronicles.webp" alt="" width="1200" height="800" loading="lazy" decoding="async" />
+            <span class="gx-door__no">03</span><span class="gx-door__go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span>
+            <h3>Chronicles</h3>
+            <p>Insights at the intersection of cinematic storytelling, ancient faith, and the next generation’s search for meaning.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CRAFT -->
+    <section class="gx-section gx-craft" aria-labelledby="gs-pillars-heading">
+      <div class="gx-wrap">
+        <div class="gx-head">
+          <div>
+            <p class="gx-kicker">03 / Our craft</p>
+            <h2 class="gx-title" id="gs-pillars-heading" data-lines style="margin-top:22px"><span class="line"><span>How we build</span></span><span class="line"><span><em>truth.</em></span></span></h2>
           </div>
-          <div class="gs-pillar">
-            <div class="gs-pillar__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-            </div>
-            <h3 class="gs-pillar__title">Cinematography</h3>
-            <p class="gs-pillar__desc">Light and shadow do what arguments cannot — they make the wrestle between doubt and certainty felt.</p>
-          </div>
-          <div class="gs-pillar">
-            <div class="gs-pillar__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            </div>
-            <h3 class="gs-pillar__title">Deep Logic</h3>
-            <p class="gs-pillar__desc">Apologetics woven into character — not added on top, but built into the bones of every world.</p>
-          </div>
-          <div class="gs-pillar">
-            <div class="gs-pillar__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h3 class="gs-pillar__title">Community Funding</h3>
-            <p class="gs-pillar__desc">This is independent work. It lives because people who believe in the mission choose to fund it.</p>
+          <p class="gx-body" data-reveal>Every frame, every character, every world is built with one question: does this help a seeker encounter the real?</p>
+        </div>
+        <div class="gx-pillars" data-stagger=".08">
+          <div class="gx-pillar" data-reveal><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg><h3>Storyboarding</h3><p>Nothing is accidental. Every frame asks a question the viewer didn’t know they were carrying.</p></div>
+          <div class="gx-pillar" data-reveal><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg><h3>Cinematography</h3><p>Light and shadow do what arguments cannot — they make the wrestle between doubt and certainty felt.</p></div>
+          <div class="gx-pillar" data-reveal><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><h3>Deep Logic</h3><p>Apologetics woven into character — not added on top, but built into the bones of every world.</p></div>
+          <div class="gx-pillar" data-reveal><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><h3>Community Funding</h3><p>This is independent work. It lives because people who believe in the mission choose to fund it.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY INTERLUDE -->
+    <section class="gx-interlude" aria-labelledby="gs-interlude-title" data-atmosphere="embers">
+      <img src="/images/cinema/deliverer-scene.webp" alt="A boy with a glowing crimson spiral on his palm stands in a burned valley, from The Mark of the Deliverer" width="1280" height="542" loading="lazy" decoding="async" data-parallax="-0.08" />
+      <canvas class="atmo-canvas" aria-hidden="true"></canvas>
+      <div class="gx-wrap gx-interlude__copy">
+        <div>
+          <p class="gx-kicker">A GleamShield story · Available now</p>
+          <h2 class="gx-title" id="gs-interlude-title" data-lines style="margin-top:22px"><span class="line"><span>The Mark of</span></span><span class="line"><span><em>the Deliverer.</em></span></span></h2>
+        </div>
+        <div style="display:grid;gap:22px">
+          <p class="gx-interlude__q" data-reveal>Will you build it… or bury it?</p>
+          <p class="gx-body" data-reveal>A broken boy. A crimson spiral. Forty-three years of unanswered prayer. The deliverer was always here — Kel Vethara just wasn’t ready to see him.</p>
+          <div class="gx-actions" data-reveal><a class="gx-btn" href="/gleamshield/stories/mark-of-the-deliverer.html" data-magnetic=".2">Read the story <span class="gx-btn__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span></a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE BOOK -->
+    <section class="gx-section gx-book" aria-labelledby="gs-book-heading">
+      <div class="gx-wrap gx-book__grid">
+        <div class="gx-book__stage" data-reveal="scale">
+          <a class="gx-book__cover" href="/gleamshield/stories/abimifoluwa-volume-1.html" data-tilt="14" aria-label="Abimifoluwa: The Quest for Truth, Volume One">
+            <img src="/images/cinema/book-vol1.webp" alt="Abimifoluwa: The Quest for Truth — Volume One" width="522" height="742" loading="lazy" decoding="async" />
+            <span class="gx-book__badge">Available now</span>
+          </a>
+        </div>
+        <div class="gx-seeker__copy">
+          <p class="gx-kicker">04 / New release</p>
+          <h2 class="gx-title" id="gs-book-heading" data-lines><span class="line"><span>The book</span></span><span class="line"><span><em>is here.</em></span></span></h2>
+          <p class="gx-lede" data-reveal>A city that forgot God. A girl who refused to.</p>
+          <p class="gx-body" data-reveal>While the animation is in production, the story has already begun. <em>Abimifoluwa: The Quest for Truth — Volume One</em> is a faith-based sci-fi novel for young readers and every adult still asking honest questions about God. Available now as an instant digital download.</p>
+          <div class="gx-price" data-reveal><strong>₦5,000</strong><span>~$3 USD · instant PDF download</span></div>
+          <div class="gx-actions" data-reveal>
+            <a href="https://selar.com/19o979717h" target="_blank" rel="noopener" class="gx-btn" data-magnetic=".2">Get the book <span class="gx-btn__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span></a>
+            <a href="/gleamshield/stories/abimifoluwa-volume-1.html" class="gx-btn gx-btn--ghost">See full details <span class="gx-btn__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span></a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- BOOK RELEASE -->
-    <section class="gs-section gs-section--alt gs-book" aria-labelledby="gs-book-heading">
-      <div class="gs-container">
-        <div class="gs-feature-grid" style="gap:4rem;align-items:center;">
-          <div style="position:relative;max-width:380px;">
-            <a href="/gleamshield/stories/abimifoluwa-volume-1.html">
-              <img
-                src="/images/gleamshield/gs-abimifoluwa-vol1-cover.jpg"
-                alt="Abimifoluwa: The Quest for Truth — Volume One"
-                style="width:100%;border-radius:6px;box-shadow:0 40px 80px rgba(0,0,0,0.7),0 0 0 1px rgba(212,165,116,0.15);display:block;"
-                loading="lazy"
-              />
-            </a>
-            <div style="position:absolute;top:-0.75rem;right:-0.75rem;background:var(--gs-accent);color:var(--gs-bg);font-family:var(--gs-font-body);font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:0.4rem 0.9rem;border-radius:999px;">Available Now</div>
-          </div>
+    <!-- LATEST CHRONICLES -->
+    <section class="gx-section gx-latest" aria-labelledby="gs-chronicles-heading">
+      <div class="gx-wrap">
+        <div class="gx-head">
           <div>
-            <span class="gs-label">03 / New Release</span>
-            <h2 id="gs-book-heading" class="gs-section-title">The Book is Here</h2>
-            <p style="font-family:var(--gs-font-display);font-size:1.1rem;font-style:italic;color:var(--gs-text-dim);margin-bottom:1.5rem;">A city that forgot God. A girl who refused to.</p>
-            <p style="font-family:var(--gs-font-body);font-size:0.975rem;line-height:1.85;color:var(--gs-text-dim);margin-bottom:2rem;">
-              While the animation is in production, the story has already begun. <em style="color:var(--gs-accent);">Abimifoluwa: The Quest for Truth — Volume One</em> is a faith-based sci-fi novel for young readers and every adult still asking honest questions about God. Available now as an instant digital download.
-            </p>
-            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:2rem;flex-wrap:wrap;">
-              <span style="font-family:var(--gs-font-display);font-size:1.75rem;font-weight:600;color:var(--gs-text);">₦5,000</span>
-              <span style="font-family:var(--gs-font-body);font-size:0.8rem;color:var(--gs-text-muted);">~$3 USD &middot; instant PDF download</span>
-            </div>
-            <div style="display:flex;gap:1rem;flex-wrap:wrap;">
-              <a href="https://selar.com/19o979717h" target="_blank" rel="noopener" class="gs-btn gs-btn--primary">Get the Book</a>
-              <a href="/gleamshield/stories/abimifoluwa-volume-1.html" class="gs-btn gs-btn--outline">See Full Details</a>
-            </div>
+            <p class="gx-kicker">05 / The Chronicle</p>
+            <h2 class="gx-title" id="gs-chronicles-heading" data-lines style="margin-top:22px"><span class="line"><span>Latest</span></span><span class="line"><span><em>insights.</em></span></span></h2>
           </div>
-        </div>
-      </div>
-    </section>
-
-        <!-- LATEST CHRONICLES -->
-    <section class="gs-section" aria-labelledby="gs-chronicles-heading">
-      <div class="gs-container">
-        <div class="gs-section-header" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;">
-          <div>
-            <span class="gs-label">04 / The Chronicle</span>
-            <h2 id="gs-chronicles-heading" class="gs-section-title" style="margin-bottom:0;">Latest Insights</h2>
+          <div style="display:grid;gap:22px;justify-items:start">
+            <p class="gx-body" data-reveal>Faith, reason, and the architecture of truth. Written by Angel Kanu.</p>
+            <a href="/gleamshield/chronicles.html" class="gx-btn gx-btn--ghost" data-reveal>See all articles <span class="gx-btn__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span></a>
           </div>
-          <a href="/gleamshield/chronicles.html" class="gs-btn gs-btn--ghost">See Articles &rarr;</a>
         </div>
         <div class="gs-grid gs-grid--3" id="gs-latest-grid">
           <a href="/gleamshield/chronicles/is-the-quran-a-scientific-book.html" style="display:block;text-decoration:none;">
@@ -288,14 +310,16 @@
       </div>
     </section>
 
-    <!-- COMMUNITY CTA -->
-    <section class="gs-cta-band" aria-label="Support the mission">
-      <div class="gs-container">
-        <h2 class="gs-cta-band__title">Will you help us render the truth?</h2>
-        <p class="gs-cta-band__sub">Be part of the funding team for the Abimifoluwa animation project.</p>
-        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-          <a href="/gleamshield/support.html" class="gs-btn gs-btn--primary">Support the Project</a>
-          <a href="/gleamshield/about.html" class="gs-btn gs-btn--outline">Read the Manifesto</a>
+    <!-- CALL -->
+    <section class="gx-cta" aria-labelledby="gs-cta-title" data-atmosphere="embers">
+      <canvas class="atmo-canvas" aria-hidden="true"></canvas>
+      <div class="gx-wrap">
+        <p class="gx-kicker gx-kicker--plain">Support the mission</p>
+        <h2 id="gs-cta-title" data-split>Will you help us <em>render the truth?</em></h2>
+        <p data-reveal>Be part of the funding team for the Abimifoluwa animation project.</p>
+        <div class="gx-actions" data-reveal>
+          <a href="/gleamshield/support.html" class="gx-btn" data-magnetic=".2">Support the project <span class="gx-btn__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span></a>
+          <a href="/gleamshield/about.html" class="gx-btn gx-btn--ghost">Read the manifesto <span class="gx-btn__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span></a>
         </div>
       </div>
     </section>
@@ -318,7 +342,7 @@
           </nav>
         </div>
         <div class="gs-footer__col">
-          <h4>Explore</h4>
+          <p class="gs-footer__h">Explore</p>
           <ul>
             <li><a href="/gleamshield/characters.html">Characters</a></li>
             <li><a href="/gleamshield/stories.html">Stories</a></li>
@@ -327,7 +351,7 @@
           </ul>
         </div>
         <div class="gs-footer__col">
-          <h4>David Adesina</h4>
+          <p class="gs-footer__h">David Adesina</p>
           <ul>
             <li><a href="/">Hub</a></li>
             <li><a href="/about.html">About David</a></li>
@@ -336,7 +360,7 @@
           </ul>
         </div>
         <div class="gs-footer__col">
-          <h4>Legal</h4>
+          <p class="gs-footer__h">Legal</p>
           <ul>
             <li><a href="/privacy.html">Privacy Policy</a></li>
             <li><a href="/terms.html">Terms of Use</a></li>
@@ -432,5 +456,8 @@
 </script>
 <script src="/js/gleamshield-design.js" defer></script>
 <script src="/js/gleamshield-latest.js" defer></script>
+<script src="/js/gs.js" defer></script>
+<script src="/js/motion.js" defer></script>
+<script src="/js/atmosphere.js" defer></script>
 </body>
 </html>

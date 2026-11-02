@@ -5,6 +5,8 @@
   <meta name="google-site-verification" content="q4WLY516JCjVJiltjmmFL3KnG31K6yo4xnxm3GVDMcA" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chronicles | GleamShield Production</title>
+  <script>document.documentElement.classList.add('js')</script>
+  <meta name="theme-color" content="#07070b" />
   <meta name="description" content="The GleamShield Chronicle — insights at the intersection of cinematic storytelling, ancient faith, and the next generation's search for meaning." />
   <meta property="og:title" content="Chronicles | GleamShield Production" />
   <meta property="og:description" content="The GleamShield Chronicle — insights at the intersection of cinematic storytelling, ancient faith, and the next generation's search for meaning." />
@@ -14,6 +16,9 @@
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-M5E5ZSB38X');</script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6207125181553910" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="/css/gleamshield.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/gs-luxe.css" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://davidadesina.com/gleamshield/chronicles.html" />
   <link rel="canonical" href="https://davidadesina.com/gleamshield/chronicles.html" />
@@ -33,9 +38,9 @@
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
 </head>
-<body class="gs-page">
+<body class="gs-page gs-chronicles-page">
 
-<nav class="gs-nav" id="gs-nav" aria-label="GleamShield navigation">
+<nav class="gs-nav" id="gs-nav" data-autohide aria-label="GleamShield navigation">
   <div class="gs-nav__inner">
     <a href="/gleamshield/" class="gs-nav__brand" aria-label="GleamShield home">
       <img src="/images/gleamshield/gs-logo.png" alt="GleamShield logo" class="gs-nav__logo" />
@@ -71,11 +76,22 @@
 
 <a href="#gs-main" class="gs-skip-link">Skip to content</a>
 <main id="gs-main">
-  <section class="gs-page-hero gs-pt-nav">
-    <div class="gs-container gs-container--narrow" style="text-align:center;">
-      <span class="gs-label">The Chronicle</span>
-      <h1 class="gs-page-hero__title">Insights &amp; Truth</h1>
-      <p class="gs-page-hero__desc">Exploring the intersection of cinematic storytelling, ancient faith, and the next generation's search for meaning.</p>
+  <section class="gx-chron-hero" aria-labelledby="gs-chronicle-title" data-atmosphere="zenith">
+    <img src="/images/cinema/chronicles.webp" alt="" width="1200" height="800" fetchpriority="high" data-parallax="0.1" />
+    <canvas class="atmo-canvas" aria-hidden="true"></canvas>
+    <div class="gx-wrap gx-chron-hero__grid">
+      <div>
+        <p class="gx-kicker">The GleamShield Chronicle</p>
+        <h1 id="gs-chronicle-title" data-lines><span class="line"><span>Insights &amp;</span></span><span class="line"><span><em class="gx-shine">truth.</em></span></span></h1>
+      </div>
+      <div class="gx-chron-hero__aside">
+        <p data-reveal>Exploring the intersection of cinematic storytelling, ancient faith, and the next generation's search for meaning.</p>
+        <div class="gx-stats" data-reveal>
+          <div><b data-count-posts>25</b><span>Chronicles</span></div>
+          <div><b>3</b><span>Series</span></div>
+          <div><b style="font-style:italic">Angel Kanu</b><span>Writer</span></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -457,7 +473,7 @@
         </nav>
       </div>
       <div class="gs-footer__col">
-        <h4>Explore</h4>
+        <p class="gs-footer__h">Explore</p>
         <ul>
           <li><a href="/gleamshield/characters.html">Characters</a></li>
           <li><a href="/gleamshield/stories.html">Stories</a></li>
@@ -466,7 +482,7 @@
         </ul>
       </div>
       <div class="gs-footer__col">
-        <h4>David Adesina</h4>
+        <p class="gs-footer__h">David Adesina</p>
         <ul>
           <li><a href="/">Hub</a></li>
           <li><a href="/about.html">About David</a></li>
@@ -475,7 +491,7 @@
         </ul>
       </div>
       <div class="gs-footer__col">
-        <h4>Legal</h4>
+        <p class="gs-footer__h">Legal</p>
         <ul>
           <li><a href="/privacy.html">Privacy Policy</a></li>
           <li><a href="/terms.html">Terms of Use</a></li>
@@ -576,5 +592,8 @@
 </script>
   <script src="/js/gleamshield-design.js" defer></script>
   <script src="/js/gleamshield-latest.js" defer></script>
+<script src="/js/gs.js" defer></script>
+<script src="/js/motion.js" defer></script>
+<script src="/js/atmosphere.js" defer></script>
 </body>
 </html>

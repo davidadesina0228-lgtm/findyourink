@@ -67,6 +67,9 @@
     fresh.forEach((p) => {
       const clone = p.node.cloneNode(true);
       clone.removeAttribute('data-cat');   // keep the category filter from touching these copies
+      // The original may already carry a pending scroll-reveal state; copies must start visible.
+      clone.classList.remove('gs-reveal--pending');
+      clone.style.removeProperty('--gs-reveal-delay');
       clone.querySelectorAll('img').forEach((i) => i.setAttribute('loading', 'lazy'));
       newGrid.append(clone);
     });
