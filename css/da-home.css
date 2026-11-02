@@ -22,7 +22,7 @@
   mask-composite: intersect;
   animation: h-portrait 2.6s .1s var(--ease-out) both;
 }
-@keyframes h-portrait { from { opacity: 0; transform: scale(1.1); filter: blur(14px) brightness(.4); } to { opacity: .92; transform: none; filter: none; } }
+@keyframes h-portrait { from { opacity: 0; transform: scale(1.1); } to { opacity: .92; transform: none; } }
 @keyframes h-fade { to { opacity: 1; } }
 .h-hero__veil { position: absolute; inset: 0; z-index: 2; pointer-events: none; background: linear-gradient(180deg, rgba(11,10,8,.55) 0%, transparent 22%, transparent 62%, rgba(11,10,8,.9) 100%); }
 .h-hero__flash { position: absolute; z-index: 3; left: 0; right: 0; top: 54%; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-hi), transparent); transform: scaleX(0); opacity: 0; animation: h-flash 2.2s .35s var(--ease-in-out) forwards; pointer-events: none; }
@@ -67,7 +67,7 @@
 .h-hero__scroll { display: inline-flex; align-items: center; gap: 14px; min-height: 44px; font: 600 10.5px/1 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--on-dark-2); text-decoration: none; flex-shrink: 0; }
 .h-hero__scroll i { position: relative; width: 1px; height: 44px; background: var(--line-d); overflow: hidden; }
 .h-hero__scroll i::after { content: ''; position: absolute; left: 0; top: -40%; width: 1px; height: 40%; background: var(--gold); animation: h-scroll 2.2s var(--ease-in-out) infinite; }
-@keyframes h-scroll { to { top: 100%; } }
+@keyframes h-scroll { to { transform: translateY(350%); } } /* = top:-40% → 100%, without layout */
 
 @media (min-width: 760px) { .h-hero__seal { display: block; } }
 @media (min-width: 1040px) { .h-hero__frame span:nth-child(2), .h-hero__frame span:nth-child(3) { display: inline; } }
@@ -126,12 +126,12 @@
   min-height: 100svh; display: flex; flex-direction: column;
   --p: 0;
 }
-.front__shade { position: absolute; inset: 0; z-index: 8; background: #000; opacity: calc(var(--p) * .62); pointer-events: none; }
+.front__shade { position: absolute; inset: 0; z-index: 8; background: #000; opacity: 0; pointer-events: none; }
 .front__inner {
   position: relative; z-index: 5; flex: 1; width: 100%; max-width: var(--max); margin: 0 auto;
   padding: calc(var(--nav-h) + 24px) var(--gutter) clamp(40px, 6vh, 72px);
   display: flex; flex-direction: column; gap: clamp(32px, 5vh, 56px);
-  transform: scale(calc(1 - var(--p) * .05)); transform-origin: 50% 0;
+  transform-origin: 50% 0;
 }
 .front__meta { display: flex; gap: 12px 24px; flex-wrap: wrap; padding-bottom: 16px; border-bottom: 1px solid currentColor; border-color: inherit; font: 600 10.5px/1.4 var(--sans); letter-spacing: .22em; text-transform: uppercase; }
 .front__meta span:first-child { color: var(--gold); }
@@ -149,6 +149,24 @@
 @media (min-width: 960px) {
   .front { position: sticky; top: 0; height: 100svh; }
   .front__grid { grid-template-columns: 1.2fr 1fr; align-items: end; gap: clamp(40px, 6vw, 112px); }
+  /* Each panel recedes and dims as the next one slides over it. motion.js drives this
+     with transform/opacity where scroll-driven animations aren't supported. */
+  .front__inner, .front__shade { will-change: transform, opacity; }
+}
+@keyframes front-recede { to { transform: scale(.95); } }
+@keyframes front-dim { to { opacity: .62; } }
+@media (min-width: 960px) and (prefers-reduced-motion: no-preference) {
+  .sda .h-stack { timeline-scope: --front-2, --front-3; }
+  .sda #find-your-ink { view-timeline: --px block; }
+  .sda #cave-echoes { view-timeline: --px block, --front-2 block; }
+  .sda #gleamshield { view-timeline: --px block, --front-3 block; }
+  .sda #find-your-ink :is(.front__inner, .front__shade) { animation-timeline: --front-2; }
+  .sda #cave-echoes :is(.front__inner, .front__shade) { animation-timeline: --front-3; }
+  .sda :is(#find-your-ink, #cave-echoes) .front__inner { animation-name: front-recede; }
+  .sda :is(#find-your-ink, #cave-echoes) .front__shade { animation-name: front-dim; }
+  .sda :is(#find-your-ink, #cave-echoes) :is(.front__inner, .front__shade) {
+    animation-duration: auto; animation-timing-function: linear; animation-fill-mode: both; animation-range: entry 0% entry 100%;
+  }
 }
 
 /* 01 — Find Your Ink (paper) */
@@ -218,4 +236,5 @@
   .h-hero__portrait img { opacity: .92; }
   .h-hero__flash { display: none; }
   .front__inner { transform: none !important; }
+  .front__shade { opacity: 0 !important; }
 }

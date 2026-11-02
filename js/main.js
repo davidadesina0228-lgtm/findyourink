@@ -12,20 +12,27 @@
      NAVIGATION — Transparent → Scrolled state
      ================================================================ */
   const nav = document.querySelector('.nav');
+  let navScrolled = null;
 
   function handleNavScroll() {
     if (!nav) return;
-    if (window.scrollY > 60) {
-      nav.classList.add('nav--scrolled');
-    } else {
-      nav.classList.remove('nav--scrolled');
-    }
+    const scrolled = window.scrollY > 60;
+    if (scrolled === navScrolled) return; // only touch the DOM when the state flips
+    navScrolled = scrolled;
+    nav.classList.toggle('nav--scrolled', scrolled);
   }
 
-  if (nav) {
-    window.addEventListener('scroll', handleNavScroll, { passive: true });
-    handleNavScroll(); // run once on load
+  // One handler per frame for everything that follows the scroll.
+  let scrollFrame = 0;
+  function onScrollFrame() {
+    scrollFrame = 0;
+    handleNavScroll();
+    updateReadingProgress();
   }
+  window.addEventListener('scroll', () => {
+    if (!scrollFrame) scrollFrame = requestAnimationFrame(onScrollFrame);
+  }, { passive: true });
+  handleNavScroll(); // run once on load
 
   /* ================================================================
      ACTIVE NAV LINK — highlight current page
@@ -124,23 +131,29 @@
      ================================================================ */
   const progressBar = document.querySelector('.reading-progress');
   const articleBody = document.querySelector('.article-wrapper');
+  let lastProgress = -1;
+  let lastProgressLabel = '';
 
   function updateReadingProgress() {
     if (!progressBar || !articleBody) return;
-    const articleTop = articleBody.getBoundingClientRect().top + window.scrollY;
-    const articleHeight = articleBody.offsetHeight;
-    const scrolled = window.scrollY - articleTop;
-    const windowHeight = window.innerHeight;
-    const readable = articleHeight - windowHeight;
+    const rect = articleBody.getBoundingClientRect();
+    const readable = rect.height - window.innerHeight;
     const progress = readable > 0
-      ? Math.min(Math.max((scrolled / readable) * 100, 0), 100)
-      : (scrolled >= 0 ? 100 : 0);
-    progressBar.style.width = progress + '%';
-    progressBar.setAttribute('aria-valuenow', String(Math.round(progress)));
+      ? Math.min(Math.max((-rect.top / readable) * 100, 0), 100)
+      : (rect.top <= 0 ? 100 : 0);
+    const rounded = Math.round(progress * 10) / 10;
+    if (rounded !== lastProgress) {
+      lastProgress = rounded;
+      progressBar.style.transform = `scaleX(${(rounded / 100).toFixed(4)})`; // scale, not width: no layout
+    }
+    const label = String(Math.round(progress));
+    if (label !== lastProgressLabel) {
+      lastProgressLabel = label;
+      progressBar.setAttribute('aria-valuenow', label);
+    }
   }
 
   if (progressBar) {
-    window.addEventListener('scroll', updateReadingProgress, { passive: true });
     window.addEventListener('resize', updateReadingProgress);
     window.addEventListener('load', updateReadingProgress);
     updateReadingProgress();

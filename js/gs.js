@@ -35,19 +35,43 @@
       sidebar.prepend(rail);
       const links = [...rail.querySelectorAll('a'), ...toc.querySelectorAll('a[href^="#"]')];
       const targets = [...ol.querySelectorAll('a')].map((a) => document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)))).filter(Boolean);
-      let ticking = false;
+      let lastP = '';
+      let lastId = null;
       const update = () => {
-        ticking = false;
+        // Read first, write only what changed.
         const r = content.getBoundingClientRect();
-        rail.style.setProperty('--rail-p', clamp((-r.top + innerHeight * 0.35) / Math.max(r.height, 1), 0, 1).toFixed(3));
+        const line = innerHeight * 0.4;
         let current = -1;
-        targets.forEach((t, i) => { if (t.getBoundingClientRect().top < innerHeight * 0.4) current = i; });
+        targets.forEach((t, i) => { if (t.getBoundingClientRect().top < line) current = i; });
+        const p = clamp((-r.top + innerHeight * 0.35) / Math.max(r.height, 1), 0, 1).toFixed(3);
+        if (p !== lastP) { lastP = p; rail.style.setProperty('--rail-p', p); }
         const id = current >= 0 ? `#${targets[current].id}` : '';
-        links.forEach((a) => a.classList.toggle('is-current', !!id && decodeURIComponent(a.getAttribute('href')) === id));
+        if (id !== lastId) {
+          lastId = id;
+          links.forEach((a) => a.classList.toggle('is-current', !!id && decodeURIComponent(a.getAttribute('href')) === id));
+        }
       };
-      addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
-      update();
+      onScrollFrame(update);
     }
+  }
+
+  // Reading progress: scaled on the compositor (CSS pins its width), updated once per frame.
+  const bar = document.querySelector('.gs-reading-progress');
+  if (bar) {
+    let last = '';
+    onScrollFrame(() => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      const p = (max > 0 ? clamp(scrollY / max, 0, 1) : 0).toFixed(4);
+      if (p !== last) { last = p; bar.style.transform = `scaleX(${p})`; }
+    });
+  }
+
+  function onScrollFrame(fn) {
+    let ticking = false;
+    const run = () => { ticking = false; fn(); };
+    addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(run); } }, { passive: true });
+    addEventListener('resize', () => { if (!ticking) { ticking = true; requestAnimationFrame(run); } }, { passive: true });
+    fn();
   }
 
   // Chronicles index: count the archive so the number never goes stale.

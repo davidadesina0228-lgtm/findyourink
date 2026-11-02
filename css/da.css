@@ -129,8 +129,12 @@ body:not(.da-dark)::after {
 .da-dark .da-label, .da-on-dark .da-label { color: var(--gold); }
 .da-label::before { content: ''; width: 28px; height: 1px; background: currentColor; opacity: .7; }
 .da-label--plain::before { display: none; }
-.da-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 0 rgba(201,169,97,.6); animation: da-pulse 2.6s var(--ease-soft) infinite; display: inline-block; }
-@keyframes da-pulse { 0% { box-shadow: 0 0 0 0 rgba(201,169,97,.55); } 70%, 100% { box-shadow: 0 0 0 12px rgba(201,169,97,0); } }
+.da-dot { position: relative; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); display: inline-block; }
+/* The pulse is a scaled ring (GPU-only), not an animated box-shadow (a repaint every frame). */
+.da-dot::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: rgba(201,169,97,.55); animation: da-pulse 2.6s var(--ease-soft) infinite; }
+@keyframes da-pulse { 0% { transform: scale(1); opacity: .9; } 70%, 100% { transform: scale(5); opacity: 0; } }
+/* Endless loops sleep while they're off-screen (motion.js toggles this). */
+.is-asleep, .is-asleep *, .is-asleep::before, .is-asleep::after, .is-asleep *::before, .is-asleep *::after { animation-play-state: paused !important; }
 .da-serif { font-family: var(--serif); }
 .gilded {
   font-style: italic;
@@ -273,7 +277,8 @@ body:not(.da-dark)::after {
   top: 0; height: 2px; z-index: 1002;
   background: linear-gradient(90deg, var(--gold-lo), var(--gold), var(--gold-hi));
   box-shadow: 0 0 12px rgba(201,169,97,.6);
-  transition: width .12s linear;
+  /* Scaled, not resized: no layout while you read. */
+  width: 100% !important; transform: scaleX(0); transform-origin: 0 50%; transition: none; will-change: transform;
 }
 
 /* ---------------------------------------------------------------------
@@ -355,14 +360,27 @@ body:not(.da-dark)::after {
 .js [data-split] .w > span { display: inline-block; transform: translate3d(0, 105%, 0); transition: transform 1.1s var(--ease-out); transition-delay: calc(var(--i, 0) * .045s + var(--d, 0s)); }
 .js [data-split].is-in .w > span { transform: none; }
 
-[data-scrub] .sw { opacity: .16; transition: opacity .35s linear, color .35s; }
-[data-scrub] .sw.on { opacity: 1; }
+/* Scroll-lit words fade by colour, not opacity: opacity would give every word its own GPU layer. */
+[data-scrub] .sw { color: color-mix(in srgb, currentColor 16%, transparent); transition: color .35s linear; }
+[data-scrub] .sw.on { color: inherit; }
 [data-scrub] .sw.gold.on { color: var(--gold); }
 
 .da-marquee { overflow: hidden; white-space: nowrap; user-select: none; }
 .da-marquee__track { display: inline-flex; animation: da-marquee var(--marquee-dur, 40s) linear infinite; will-change: transform; }
 .da-marquee__track > * { flex-shrink: 0; }
 @keyframes da-marquee { to { transform: translate3d(-50%, 0, 0); } }
+
+/* Parallax. Where the browser supports scroll-driven animations (html.sda, set by motion.js)
+   it runs on the compositor, locked to the scroll; elsewhere motion.js moves it. The host
+   names the timeline because overflow:hidden hosts would otherwise capture view(). */
+@keyframes da-parallax {
+  from { translate: 0 calc(var(--px, .1) * (100vh + 100%) * -.5); }
+  to { translate: 0 calc(var(--px, .1) * (100vh + 100%) * .5); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sda :has(> [data-parallax]) { view-timeline: --px block; }
+  .sda [data-parallax] { animation: da-parallax linear both; animation-timeline: --px; animation-range: cover; }
+}
 
 .atmo-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; display: block; }
 
@@ -466,21 +484,28 @@ body:not(.da-dark)::after {
 .card__plate svg, .da-plate svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 .plate-dark { background: var(--ink-1); }
 .plate-dark::after { box-shadow: inset 0 0 0 1px rgba(242,235,221,.06); }
-.plate .p-bloom, .plate .p-wash, .plate .p-halo, .plate .p-dots { transform-box: fill-box; transform-origin: center; }
-.plate .p-bloom { transition: transform 1.6s var(--ease-out), opacity 1.2s var(--ease-out); }
-.plate .p-wash { transition: transform 2.2s var(--ease-out), opacity 1.6s var(--ease-out); }
-.plate .p-halo { transition: transform 1.8s var(--ease-out), opacity 1.2s var(--ease-out); }
-.plate .p-dots { transition: opacity 1s .6s var(--ease-out), transform 1.4s .4s var(--ease-out); }
+/* The filtered ink is two pre-rendered images, so every motion below is a
+   GPU transform/opacity: no filter is ever recomputed while you scroll. */
+.plate__back, .plate__front {
+  position: absolute; inset: 0; width: 100%; height: 100%; display: block;
+  object-fit: cover; pointer-events: none; user-select: none;
+  transform-origin: var(--ox, 50%) var(--oy, 55%);
+}
+.plate__back { transition: transform 2s var(--ease-out), opacity 1.4s var(--ease-out); }
+.plate__front { transition: transform 1.6s var(--ease-out), opacity 1.1s var(--ease-out); }
+.plate .p-dots { transition: opacity 1s .6s var(--ease-out); }
 .plate .p-stroke { stroke-dasharray: 1; stroke-dashoffset: 0; transition: stroke-dashoffset 1.8s var(--ease-in-out); }
-.js .plate:not(.is-in) .p-bloom { transform: scale(.55); opacity: 0; }
-.js .plate:not(.is-in) .p-wash { transform: scale(.4); opacity: 0; }
-.js .plate:not(.is-in) .p-halo { transform: scale(.7) translateY(12%); opacity: 0; }
-.js .plate:not(.is-in) .p-dots { opacity: 0; transform: scale(.6); }
+.js .plate:not(.is-in) .plate__back { transform: scale(.72); opacity: 0; }
+.js .plate:not(.is-in) .plate__front { transform: scale(.55); opacity: 0; }
+.js .plate:not(.is-in) .p-dots { opacity: 0; }
 .js .plate:not(.is-in) .p-stroke { stroke-dashoffset: 1; }
 .plate .p-stroke:nth-of-type(2) { transition-delay: .25s; }
 .plate .p-stroke:nth-of-type(3) { transition-delay: .5s; }
-.card:hover .plate.is-in .p-halo, .da-card:hover .plate.is-in .p-halo, .front-essay:hover .plate.is-in .p-halo { transform: translate(6%, -8%); }
-.card:hover .plate.is-in .p-bloom, .da-card:hover .plate.is-in .p-bloom, .front-essay:hover .plate.is-in .p-bloom { transform: scale(1.05) rotate(-3deg); }
+.plate__img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; transform-origin: 50% 52%; transition: transform 1.6s var(--ease-out), opacity 1.1s var(--ease-out); }
+.js .plate:not(.is-in) .plate__img { opacity: 0; transform: scale(1.1); }
+.card:hover .plate.is-in .plate__img, .da-card:hover .plate.is-in .plate__img, .front-essay:hover .plate.is-in .plate__img { transform: scale(1.045); }
+.card:hover .plate.is-in .plate__back, .da-card:hover .plate.is-in .plate__back, .front-essay:hover .plate.is-in .plate__back { transform: translate(1.4%, -2%); }
+.card:hover .plate.is-in .plate__front, .da-card:hover .plate.is-in .plate__front, .front-essay:hover .plate.is-in .plate__front { transform: scale(1.05) rotate(-3deg); }
 @media (min-width: 1100px) {
   .journal-page .posts-grid > .card:nth-child(3n+2) { --d: .08s; }
   .journal-page .posts-grid > .card:nth-child(3n) { --d: .16s; }
@@ -496,7 +521,7 @@ body:not(.da-dark)::after {
   padding: calc(var(--nav-h) + 28px) 0 40px;
   display: flex; flex-direction: column;
 }
-.ink-hero .atmo-canvas { z-index: -1; mix-blend-mode: multiply; }
+.ink-hero .atmo-canvas { z-index: -1; }
 .ink-hero__inner { flex: 1; display: flex; flex-direction: column; width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
 .ink-hero__top {
   display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px;
@@ -512,6 +537,7 @@ body:not(.da-dark)::after {
 .ink-hero__title .line:first-child { padding-left: .03em; }
 .ink-word { position: relative; display: inline-block; font-style: italic; padding-right: .08em; }
 .ink-word__text { display: inline-block; filter: url(#ink-settle); }
+.ink-word__text.is-settled { filter: none; } /* drop the noise filter once the ink has settled */
 .ink-word__swash { position: absolute; left: -3%; bottom: -.17em; width: 108%; height: .2em; overflow: visible; color: var(--gold); }
 .ink-word__swash path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: da-draw 1.8s 1.2s var(--ease-in-out) forwards; }
 @keyframes da-draw { to { stroke-dashoffset: 0; } }
@@ -566,12 +592,13 @@ body:not(.da-dark)::after {
 @media (min-width: 900px) { .journal-index__head { grid-template-columns: 1fr auto; align-items: end; } }
 
 .journal-bar {
-  position: sticky; top: var(--nav-offset, var(--nav-h)); z-index: 20;
+  position: sticky; top: var(--nav-h); z-index: 20;
   background: rgba(244, 239, 230, .9);
   -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
   border-block: 1px solid var(--line);
   transition: top .7s var(--ease-out);
 }
+.da-nav-hidden .journal-bar { top: 0; } /* header slid away: the filter bar takes its place */
 .journal-page .blog-search { padding: 0; border: 0; background: transparent; }
 .journal-page .blog-search .container, .journal-page .blog-filters .container { max-width: var(--max); }
 .journal-page .blog-search__inner { display: flex; flex-direction: row; align-items: center; gap: 16px; padding: 14px 0 6px; }
@@ -953,8 +980,9 @@ html body #dal-popup-eyebrow { font-family: var(--sans); color: var(--gold); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; transition-delay: 0s !important; scroll-behavior: auto !important; }
   .js [data-reveal], .js [data-lines] .line > span, .js [data-split] .w > span, .js .final-words p { opacity: 1 !important; transform: none !important; }
-  [data-scrub] .sw { opacity: 1 !important; }
-  .js .plate:not(.is-in) .p-bloom, .js .plate:not(.is-in) .p-wash, .js .plate:not(.is-in) .p-halo, .js .plate:not(.is-in) .p-dots { opacity: 1 !important; transform: none !important; }
+  [data-scrub] .sw:not(.gold) { color: inherit !important; }
+  [data-scrub] .sw.gold { color: var(--gold) !important; }
+  .js .plate:not(.is-in) .plate__back, .js .plate:not(.is-in) .plate__front, .js .plate:not(.is-in) .plate__img, .js .plate:not(.is-in) .p-dots { opacity: 1 !important; transform: none !important; }
   .js .plate:not(.is-in) .p-stroke { stroke-dashoffset: 0 !important; }
   .da-marquee__track { animation: none !important; }
   .ink-word__swash path { stroke-dashoffset: 0 !important; }

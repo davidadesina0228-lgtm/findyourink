@@ -29,6 +29,19 @@ Copy any `blog/*.html` file. The header, menu and footer markup is shared. The h
 `N` is the next plate number in date order (the newest essay currently holds Nº 50). In `blog.html`, give the new card
 `<span class="card__plate" data-plate data-no="N" aria-hidden="true"></span>` in place of an image.
 
+Then run `node scripts/make-images.mjs --only=SLUG` (or no flag to redo everything). It bakes:
+- `images/plates/SLUG.jpg`: the card plate. Archive cards load this image instead of drawing SVG filters live. Until it exists, the card draws the plate live, so nothing breaks.
+- `images/share/SLUG.jpg`: the 1200×630 link preview (WhatsApp, X, LinkedIn). The script also points the essay's `og:image`, `twitter:image` and JSON-LD image at it.
+
+Platforms cache previews. To refresh one that was already shared, paste the URL into the Facebook Sharing Debugger or LinkedIn Post Inspector.
+
+## Keeping it smooth (measured on Intel UHD graphics, CPU slowed 4×)
+- Animate only `transform` and `opacity` (colour for small text). Never animate `top`, `width`, `box-shadow`, `background-position` or `filter: blur()` in a loop.
+- Scroll-linked motion (parallax, the homepage panel stack) runs as CSS scroll-driven animations where supported (`html.sda`). `motion.js` is the fallback: it reads all positions first, then writes, and only when a value changes.
+- Never set a CSS variable on `<html>` from a scroll handler: it restyles the whole page. Toggle a class instead.
+- Endless loops get `.is-asleep` when off-screen (see the list in `motion.js`).
+- No `mix-blend-mode` on full-screen fixed layers.
+
 ## Checks
 `node scripts/check-site.mjs --compare` reports 0 errors and 0 heading warnings. Pages were checked at 320, 768, 1024 and 1440px: no horizontal overflow, broken images or script errors. Reduced motion shows all content immediately.
 

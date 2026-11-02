@@ -112,16 +112,23 @@
     const links = $$('a', rail);
     const timeLabel = rail.querySelector('[data-rail-time]');
     let ticking = false;
+    let lastP = '', lastLabel = '', lastCurrent = -2;
     const update = () => {
       ticking = false;
+      // Read everything first…
       const rect = body.getBoundingClientRect();
-      const p = clamp((-rect.top + innerHeight * 0.35) / Math.max(rect.height, 1), 0, 1);
-      rail.style.setProperty('--rail-p', p.toFixed(3));
-      const left = Math.ceil((words * (1 - p)) / 230);
-      timeLabel.textContent = p > 0.02 ? (left > 0 ? `${left} min left` : 'Finished') : `${Math.max(1, Math.round(words / 230))} min read`;
+      const line = innerHeight * 0.4;
       let current = 0;
-      heads.forEach((h, i) => { if (h.getBoundingClientRect().top < innerHeight * 0.4) current = i; });
-      links.forEach((a, i) => a.classList.toggle('is-current', i === current && p > 0));
+      heads.forEach((h, i) => { if (h.getBoundingClientRect().top < line) current = i; });
+      // …then write only what changed.
+      const p = clamp((-rect.top + innerHeight * 0.35) / Math.max(rect.height, 1), 0, 1);
+      const pText = p.toFixed(3);
+      if (pText !== lastP) { lastP = pText; rail.style.setProperty('--rail-p', pText); }
+      const left = Math.ceil((words * (1 - p)) / 230);
+      const label = p > 0.02 ? (left > 0 ? `${left} min left` : 'Finished') : `${Math.max(1, Math.round(words / 230))} min read`;
+      if (label !== lastLabel) { lastLabel = label; timeLabel.textContent = label; }
+      const cur = p > 0 ? current : -1;
+      if (cur !== lastCurrent) { lastCurrent = cur; links.forEach((a, i) => a.classList.toggle('is-current', i === cur)); }
     };
     addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
     update();
@@ -157,20 +164,48 @@
   const scrubs = $$('[data-scrub]').map((el) => {
     const words = splitWords(el, 'sw');
     words.forEach((w) => { if (w.closest('em')) w.classList.add('gold'); });
-    return { el, words };
+    return { el, words, lit: 0, r: null };
   });
   if (reduce.matches) scrubs.forEach((s) => s.words.forEach((w) => w.classList.add('on')));
 
-  /* ---------- Header: hide on the way down, return on the way up ---------- */
+  /* ---------- Scroll-linked effects ----------
+     Smoothness rules: every frame reads all positions first and writes after,
+     writes happen only when a value changes, and only transform/opacity/colour
+     are touched. Where the browser supports scroll-driven animations (html.sda)
+     parallax and the stacked panels run in CSS on the compositor instead. */
+  const scrollDriven = !!(window.CSS && CSS.supports('animation-timeline: view()') && CSS.supports('timeline-scope: --a'));
+  if (scrollDriven) root.classList.add('sda');
+
   const header = document.querySelector('[data-autohide]');
+  const toggles = $$('.nav__toggle, .gs-nav__hamburger');
+  const menuOpen = () => toggles.some((t) => t.classList.contains('active') || t.classList.contains('open'));
   let lastY = scrollY;
   let navH = header ? header.offsetHeight : 0;
+  let navHidden = false;
+  // A class, not a CSS variable: a variable on <html> would restyle every element on the
+  // page each time the header moves; a class only touches rules that name it (.journal-bar).
+  const syncNavOffset = () => { root.classList.toggle('da-nav-hidden', navHidden); };
 
-  /* ---------- Parallax, stacks, marquees ---------- */
-  const parallax = $$('[data-parallax]').map((el) => ({ el, speed: parseFloat(el.dataset.parallax) || 0.15 }));
-  const stacks = $$('[data-stack]').map((el) => $$(':scope > [data-stack-item]', el));
+  const parallax = $$('[data-parallax]').map((el) => {
+    const speed = parseFloat(el.dataset.parallax) || 0.15;
+    el.style.setProperty('--px', speed);
+    // Measure the host, not the moving element, so the effect never chases its own offset.
+    return { el, speed, host: el.parentElement || el, last: null, r: null };
+  });
+  const desktopStack = window.matchMedia('(min-width: 960px)');
+  const stacks = $$('[data-stack]').map((el) => $$(':scope > [data-stack-item]', el).map((item) => ({
+    item, inner: item.querySelector('.front__inner'), shade: item.querySelector('.front__shade'), last: -1, nt: null,
+  })));
+  const resetStacks = () => stacks.forEach((items) => items.forEach((s) => {
+    if (s.last === -1) return;
+    s.last = -1;
+    if (s.inner) s.inner.style.transform = '';
+    if (s.shade) s.shade.style.opacity = '';
+  }));
+  desktopStack.addEventListener('change', resetStacks);
   const marquees = $$('.da-marquee__track, .gs-marquee__track');
-  const progressEls = $$('[data-progress]');
+  let marqueeAnims = null;
+  let marqueeRate = 1;
   let velocity = 0;
   let frame = 0;
 
@@ -178,61 +213,85 @@
     frame = 0;
     const y = scrollY;
     const dy = y - lastY;
-    velocity = velocity * 0.82 + Math.abs(dy) * 0.18;
-
-    if (header && !document.querySelector('.nav__toggle.active, .gs-nav__hamburger.open')) {
-      const hide = dy > 4 && y > Math.max(navH * 4, 360);
-      const show = dy < -4 || y < navH * 2;
-      if (hide) header.classList.add('is-hidden');
-      else if (show) header.classList.remove('is-hidden');
-      root.style.setProperty('--nav-offset', header.classList.contains('is-hidden') ? '0px' : `${navH}px`);
-    }
     lastY = y;
+    velocity = velocity * 0.82 + Math.abs(dy) * 0.18;
+    const vh = innerHeight;
+    const live = !reduce.matches;
+    const jsParallax = live && !scrollDriven;
+    const jsStack = live && !scrollDriven && desktopStack.matches;
 
-    if (!reduce.matches) {
-      const vh = innerHeight;
-      parallax.forEach(({ el, speed }) => {
-        const r = el.getBoundingClientRect();
-        if (r.bottom < -200 || r.top > vh + 200) return;
-        const offset = (r.top + r.height / 2 - vh / 2) * speed * -1;
-        el.style.transform = `translate3d(0, ${offset.toFixed(1)}px, 0)`;
-      });
+    // 1 — Read.
+    if (jsParallax) parallax.forEach((p) => { p.r = p.host.getBoundingClientRect(); });
+    if (jsStack) stacks.forEach((items) => items.forEach((s, i) => { s.nt = items[i + 1] ? items[i + 1].item.getBoundingClientRect().top : null; }));
+    if (live) scrubs.forEach((s) => { s.r = s.el.getBoundingClientRect(); });
 
-      scrubs.forEach(({ el, words }) => {
-        const r = el.getBoundingClientRect();
-        if (r.bottom < 0 || r.top > vh) return;
-        const p = clamp((vh * 0.82 - r.top) / (r.height + vh * 0.32), 0, 1);
-        const lit = Math.round(p * words.length * 1.04);
-        words.forEach((w, i) => w.classList.toggle('on', i < lit));
-      });
-
-      stacks.forEach((items) => {
-        items.forEach((item, i) => {
-          const next = items[i + 1];
-          if (!next) { item.style.setProperty('--p', '0'); return; }
-          const nt = next.getBoundingClientRect().top;
-          item.style.setProperty('--p', clamp(1 - nt / vh, 0, 1).toFixed(3));
-        });
-      });
-
-      const rate = 1 + Math.min(velocity / 14, 4);
-      marquees.forEach((track) => {
-        const anim = track.getAnimations ? track.getAnimations()[0] : null;
-        if (anim) anim.playbackRate = rate;
-      });
+    // 2 — Write.
+    if (header && !menuOpen()) {
+      let hidden = navHidden;
+      if (dy > 4 && y > Math.max(navH * 4, 360)) hidden = true;
+      else if (dy < -4 || y < navH * 2) hidden = false;
+      if (hidden !== navHidden) {
+        navHidden = hidden;
+        header.classList.toggle('is-hidden', hidden);
+        syncNavOffset();
+      }
     }
 
-    progressEls.forEach((el) => {
-      const r = el.getBoundingClientRect();
-      el.style.setProperty('--sp', clamp(-r.top / Math.max(r.height - innerHeight, 1), 0, 1).toFixed(3));
+    if (jsParallax) parallax.forEach((p) => {
+      const r = p.r;
+      if (r.bottom < -200 || r.top > vh + 200) return;
+      const off = Math.round((r.top + r.height / 2 - vh / 2) * -p.speed * 2) / 2;
+      if (off !== p.last) { p.last = off; p.el.style.translate = `0 ${off}px`; }
     });
 
-    if (velocity > 0.2 && !reduce.matches) request();
+    if (jsStack) stacks.forEach((items) => items.forEach((s) => {
+      const p = s.nt === null ? 0 : Math.round(clamp(1 - s.nt / vh, 0, 1) * 400) / 400;
+      if (p === s.last) return;
+      s.last = p;
+      if (s.inner) s.inner.style.transform = p ? `scale(${(1 - p * 0.05).toFixed(4)})` : '';
+      if (s.shade) s.shade.style.opacity = p ? (p * 0.62).toFixed(3) : '';
+    }));
+
+    if (live) scrubs.forEach((s) => {
+      const r = s.r;
+      if (r.bottom < 0 || r.top > vh) return;
+      const p = clamp((vh * 0.82 - r.top) / (r.height + vh * 0.32), 0, 1);
+      const lit = Math.min(s.words.length, Math.round(p * s.words.length * 1.04));
+      if (lit === s.lit) return;
+      // Touch only the words whose state flips.
+      for (let i = Math.min(lit, s.lit); i < Math.max(lit, s.lit); i++) s.words[i].classList.toggle('on', i < lit);
+      s.lit = lit;
+    });
+
+    if (live && marquees.length) {
+      // Speed up with the scroll, in coarse steps so the compositor isn't re-synced every frame.
+      const rate = Math.round((1 + Math.min(velocity / 14, 4)) * 4) / 4;
+      if (rate !== marqueeRate) {
+        if (!marqueeAnims) marqueeAnims = marquees.map((t) => (t.getAnimations ? t.getAnimations()[0] : null)).filter(Boolean);
+        marqueeRate = rate;
+        marqueeAnims.forEach((a) => { if (a.updatePlaybackRate) a.updatePlaybackRate(rate); else a.playbackRate = rate; });
+      }
+    }
+
+    if (velocity > 0.2 && live) request();
   }
   function request() { if (!frame) frame = requestAnimationFrame(onFrame); }
   addEventListener('scroll', request, { passive: true });
-  addEventListener('resize', () => { navH = header ? header.offsetHeight : 0; request(); }, { passive: true });
+  addEventListener('resize', () => { navH = header ? header.offsetHeight : 0; syncNavOffset(); request(); }, { passive: true });
   request();
+
+  /* ---------- Endless loops sleep while off-screen ---------- */
+  if ('IntersectionObserver' in window) {
+    const sleepers = $$('.gilded, .gx-shine, .da-dot, .h-hero__seal, .ink-hero__seal, .h-hero__scroll, .ink-hero__drop, .gx-hero__rays, .gx-hero__foot, .gx-slate, .gx-status, .gx-book__cover, .da-marquee, .gs-marquee');
+    const so = new IntersectionObserver((entries) => {
+      entries.forEach(({ target, isIntersecting }) => target.classList.toggle('is-asleep', !isIntersecting));
+    }, { rootMargin: '120px 0px' });
+    sleepers.forEach((el) => so.observe(el));
+  }
+
+  /* ---------- Blog hero: drop the noise filter once the ink has settled ---------- */
+  const settle = document.querySelector('.ink-word__text');
+  if (settle) setTimeout(() => settle.classList.add('is-settled'), reduce.matches ? 0 : 3300);
 
   /* ---------- Magnetic buttons & tilt cards (fine pointers only) ---------- */
   if (finePointer.matches && !reduce.matches) {
@@ -288,10 +347,13 @@
     const start = performance.now();
     const pad = (n) => String(n).padStart(2, '0');
     const tick = () => {
+      if (!el.isConnected) return;
+      // Off-screen or in a background tab: check back later instead of re-laying out text 24×/s.
+      if (document.hidden || el.closest('.is-asleep')) { setTimeout(tick, 500); return; }
       const t = (performance.now() - start) / 1000;
       const f = Math.floor((t % 1) * 24);
       el.textContent = `00:${pad(Math.floor(t / 60) % 60)}:${pad(Math.floor(t) % 60)}:${pad(f)}`;
-      if (el.isConnected) setTimeout(tick, 1000 / 24);
+      setTimeout(tick, 1000 / 24);
     };
     tick();
   });

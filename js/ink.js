@@ -66,8 +66,11 @@
     return d + 'Z';
   }
 
+  // Every plate is drawn from the same parts. On the page the filtered ink
+  // (noise + blur) is rasterised once as two images, so reveals and hovers
+  // only move bitmaps on the GPU; the light lines stay live SVG so they can draw.
   let uid = 0;
-  function plateSVG({ slug, cat, dark, no, bare }) {
+  function design({ slug, cat, dark, no }) {
     const r = rng(hash(slug || 'find-your-ink'));
     const id = `ip${++uid}`;
     const accent = CATS[cat] || '#c9a961';
@@ -107,22 +110,42 @@
 
     const label = no ? `<text x="18" y="284" font-family="Playfair Display, Georgia, serif" font-style="italic" font-size="13" fill="${dark ? '#c9a961' : '#15130f'}" fill-opacity="${dark ? 0.85 : 0.55}">Nº ${no}</text>` : '';
 
-    return `<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-<defs>
-<filter id="${id}e" x="-25%" y="-25%" width="150%" height="150%"><feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="3" seed="${Math.floor(r() * 999)}"/><feDisplacementMap in="SourceGraphic" scale="${(10 + r() * 10).toFixed(0)}" xChannelSelector="R" yChannelSelector="G"/></filter>
-<filter id="${id}b" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="9"/></filter>
-<radialGradient id="${id}g" cx="0.4" cy="0.35" r="0.75"><stop offset="0" stop-color="${halo}" stop-opacity="1"/><stop offset="1" stop-color="${halo}" stop-opacity="${dark ? 0.55 : 0.78}"/></radialGradient>
-</defs>
-${bare ? '' : `<rect width="400" height="300" fill="${bg}"/>`}
-<path class="p-wash" d="${wash}" fill="${dark ? '#c9a961' : '#15130f'}" fill-opacity="${dark ? 0.09 : 0.08}" filter="url(#${id}b)"/>
-<circle class="p-halo" cx="${hx.toFixed(1)}" cy="${hy.toFixed(1)}" r="${hr.toFixed(1)}" fill="url(#${id}g)"/>
-<g class="p-bloom" filter="url(#${id}e)"><path d="${bloom}" fill="${ink}" fill-opacity="${dark ? 0.9 : 0.93}"/><path d="${core}" fill="${dark ? '#fff8e6' : '#000'}" fill-opacity="${dark ? 0.5 : 0.35}"/></g>
-<path class="p-stroke" d="${s1}" pathLength="1" fill="none" stroke="${ink}" stroke-width="${(2.2 + r() * 3).toFixed(1)}" stroke-linecap="round" stroke-opacity="${dark ? 0.75 : 0.85}"/>
-<path class="p-stroke" d="${s2}" pathLength="1" fill="none" stroke="${line}" stroke-width="1" stroke-linecap="round" stroke-opacity=".9"/>
-<path class="p-stroke" d="${s3}" pathLength="1" fill="none" stroke="${line}" stroke-width="1.1" stroke-linecap="round" stroke-opacity=".85"/>
-<g class="p-dots" fill="${ink}" fill-opacity="${dark ? 0.7 : 0.85}">${dots}</g>
-${label}
-</svg>`;
+    // Keep the order of random draws identical to the original single-SVG plate.
+    const seed = Math.floor(r() * 999);
+    const disp = (10 + r() * 10).toFixed(0);
+    const sw = (2.2 + r() * 3).toFixed(1);
+    return {
+      bg,
+      origin: [(bx / 400) * 100, (by / 300) * 100],
+      back: `<defs><filter id="${id}b" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="9"/></filter><radialGradient id="${id}g" cx="0.4" cy="0.35" r="0.75"><stop offset="0" stop-color="${halo}" stop-opacity="1"/><stop offset="1" stop-color="${halo}" stop-opacity="${dark ? 0.55 : 0.78}"/></radialGradient></defs>`
+        + `<path d="${wash}" fill="${dark ? '#c9a961' : '#15130f'}" fill-opacity="${dark ? 0.09 : 0.08}" filter="url(#${id}b)"/>`
+        + `<circle cx="${hx.toFixed(1)}" cy="${hy.toFixed(1)}" r="${hr.toFixed(1)}" fill="url(#${id}g)"/>`,
+      front: `<defs><filter id="${id}e" x="-25%" y="-25%" width="150%" height="150%"><feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="3" seed="${seed}"/><feDisplacementMap in="SourceGraphic" scale="${disp}" xChannelSelector="R" yChannelSelector="G"/></filter></defs>`
+        + `<g filter="url(#${id}e)"><path d="${bloom}" fill="${ink}" fill-opacity="${dark ? 0.9 : 0.93}"/><path d="${core}" fill="${dark ? '#fff8e6' : '#000'}" fill-opacity="${dark ? 0.5 : 0.35}"/></g>`,
+      lines: `<path class="p-stroke" d="${s1}" pathLength="1" fill="none" stroke="${ink}" stroke-width="${sw}" stroke-linecap="round" stroke-opacity="${dark ? 0.75 : 0.85}"/>`
+        + `<path class="p-stroke" d="${s2}" pathLength="1" fill="none" stroke="${line}" stroke-width="1" stroke-linecap="round" stroke-opacity=".9"/>`
+        + `<path class="p-stroke" d="${s3}" pathLength="1" fill="none" stroke="${line}" stroke-width="1.1" stroke-linecap="round" stroke-opacity=".85"/>`
+        + `<g class="p-dots" fill="${ink}" fill-opacity="${dark ? 0.7 : 0.85}">${dots}</g>${label}`,
+    };
+  }
+
+  const SVG_OPEN = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" preserveAspectRatio="xMidYMid slice"';
+  const asImage = (body, cls) => `<img class="${cls}" alt="" decoding="async" draggable="false" src="data:image/svg+xml;charset=utf-8,${encodeURIComponent(`${SVG_OPEN}>${body}</svg>`)}">`;
+
+  // One self-contained SVG (used for share images and anywhere a single file is handier).
+  function plateSVG(opts) {
+    const d = design(opts);
+    return `${SVG_OPEN} aria-hidden="true" focusable="false">${opts.bare ? '' : `<rect width="400" height="300" fill="${d.bg}"/>`}${d.back}${d.front}${d.lines}</svg>`;
+  }
+
+  // The live, layered plate used on pages.
+  function plateLayers(el, opts) {
+    const d = design(opts);
+    if (!opts.bare) el.style.backgroundColor = d.bg;
+    el.style.setProperty('--ox', `${d.origin[0].toFixed(1)}%`);
+    el.style.setProperty('--oy', `${d.origin[1].toFixed(1)}%`);
+    el.innerHTML = asImage(d.back, 'plate__back') + asImage(d.front, 'plate__front')
+      + `${SVG_OPEN} class="plate__lines" aria-hidden="true" focusable="false">${d.lines}</svg>`;
   }
 
   function resolve(el) {
@@ -149,8 +172,27 @@ ${label}
   plates.forEach((el) => {
     el.classList.add('plate', 'is-drawn');
     if (el.dataset.variant === 'dark') el.classList.add('plate-dark');
-    el.innerHTML = plateSVG(resolve(el));
+    const opts = resolve(el);
+    // Archive cards use the plate baked by scripts/make-images.mjs: a plain image the browser
+    // decodes off the main thread. If an essay hasn't been baked yet, draw it live instead.
+    if (el.classList.contains('card__plate') && !opts.dark && !opts.bare && opts.slug) {
+      el.classList.add('plate--baked');
+      el.style.backgroundColor = '#ece5d8';
+      const img = new Image();
+      img.className = 'plate__img';
+      img.alt = '';
+      img.decoding = 'async';
+      img.loading = 'lazy';
+      img.draggable = false;
+      img.onerror = () => { el.classList.remove('plate--baked'); plateLayers(el, opts); };
+      img.src = `/images/plates/${opts.slug}.jpg`;
+      el.replaceChildren(img);
+      return;
+    }
+    plateLayers(el, opts);
   });
+
+  window.InkPlate = { svg: plateSVG };
 
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduce || !('IntersectionObserver' in window)) {
@@ -165,6 +207,4 @@ ${label}
     });
   }, { threshold: 0.18 });
   plates.forEach((el) => io.observe(el));
-
-  window.InkPlate = { svg: plateSVG };
 })();

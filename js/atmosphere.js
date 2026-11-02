@@ -25,7 +25,7 @@ float h(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
 float n(vec2 p){ vec2 i = floor(p), f = fract(p); vec2 u = f*f*(3.0-2.0*f);
   return mix(mix(h(i), h(i+vec2(1.,0.)), u.x), mix(h(i+vec2(0.,1.)), h(i+vec2(1.,1.)), u.x), u.y); }
 float fbm(vec2 p){ float v = 0.0, a = 0.5; mat2 r = mat2(0.8, 0.6, -0.6, 0.8);
-  for (int i = 0; i < 5; i++){ v += a * n(p); p = r * p * 2.02 + 3.1; a *= 0.5; } return v; }
+  for (int i = 0; i < 4; i++){ v += a * n(p); p = r * p * 2.02 + 3.1; a *= 0.5; } return v + a * 0.5; }
 void main(){
   vec2 uv = gl_FragCoord.xy / u_res;
   vec2 p = (gl_FragCoord.xy - 0.5 * u_res) / u_res.y;
@@ -51,23 +51,34 @@ void main(){
   function goldScene(host, canvas) {
     const gl = canvas.getContext('webgl', { antialias: false, alpha: false, powerPreference: 'low-power', preserveDrawingBuffer: false });
     if (!gl) { host.classList.add('atmo-fallback'); return null; }
-    const sh = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return gl.getShaderParameter(s, gl.COMPILE_STATUS) ? s : null; };
+    const sh = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; };
     const vs = sh(gl.VERTEX_SHADER, VERT), fs = sh(gl.FRAGMENT_SHADER, FRAG);
-    if (!vs || !fs) { host.classList.add('atmo-fallback'); return null; }
     const prog = gl.createProgram();
     gl.attachShader(prog, vs); gl.attachShader(prog, fs); gl.linkProgram(prog);
-    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) { host.classList.add('atmo-fallback'); return null; }
-    gl.useProgram(prog);
-    const buf = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]), gl.STATIC_DRAW);
-    const loc = gl.getAttribLocation(prog, 'a');
-    gl.enableVertexAttribArray(loc);
-    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
-    const uRes = gl.getUniformLocation(prog, 'u_res');
-    const uT = gl.getUniformLocation(prog, 'u_t');
-    const uM = gl.getUniformLocation(prog, 'u_m');
-    const uF = gl.getUniformLocation(prog, 'u_focus');
+    // Compile in the background where the GPU driver allows it, so opening the page never stalls.
+    const parallel = gl.getExtension('KHR_parallel_shader_compile');
+    let ready = false, failed = false, uRes, uT, uM, uF;
+    const finish = () => {
+      if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) { failed = true; host.classList.add('atmo-fallback'); return; }
+      gl.useProgram(prog);
+      const buf = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]), gl.STATIC_DRAW);
+      const loc = gl.getAttribLocation(prog, 'a');
+      gl.enableVertexAttribArray(loc);
+      gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+      uRes = gl.getUniformLocation(prog, 'u_res');
+      uT = gl.getUniformLocation(prog, 'u_t');
+      uM = gl.getUniformLocation(prog, 'u_m');
+      uF = gl.getUniformLocation(prog, 'u_focus');
+      ready = true;
+      if (reduce.matches) scene.draw(12); // reduced motion: one still frame
+    };
+    const poll = () => {
+      if (gl.isContextLost()) return;
+      if (!parallel || gl.getProgramParameter(prog, parallel.COMPLETION_STATUS_KHR)) finish();
+      else requestAnimationFrame(poll);
+    };
     const focus = parseFloat(host.dataset.focus || '0.66');
     let mx = 0.5, my = 0.5, tx = 0.5, ty = 0.5;
     host.addEventListener('pointermove', (e) => {
@@ -77,10 +88,12 @@ void main(){
     }, { passive: true });
     canvas.addEventListener('webglcontextlost', (e) => { e.preventDefault(); host.classList.add('atmo-fallback'); }, { once: true });
     host.classList.add('atmo-live');
-    return {
-      scale: coarse ? 0.5 : 0.6,
-      fps: coarse ? 24 : 40,
+    const scene = {
+      scale: coarse ? 0.45 : 0.5,
+      fps: coarse ? 24 : 30,
+      calmOnScroll: true,
       draw(t) {
+        if (!ready || failed) return;
         mx += (tx - mx) * 0.04; my += (ty - my) * 0.04;
         gl.viewport(0, 0, canvas.width, canvas.height);
         gl.uniform2f(uRes, canvas.width, canvas.height);
@@ -90,6 +103,9 @@ void main(){
         gl.drawArrays(gl.TRIANGLES, 0, 6);
       },
     };
+    // Runs after the runner has sized the canvas (it calls size() right after creating scenes).
+    requestAnimationFrame(poll);
+    return scene;
   }
 
   /* ------------------------------------------------------------------ */
@@ -118,8 +134,10 @@ void main(){
 
   function inkScene(host, canvas) {
     const ctx = canvas.getContext('2d');
-    const black = [1, 2, 3, 4, 5, 6].map((i) => blotSprite(i, '21,19,15'));
-    const gold = [7, 8, 9].map((i) => blotSprite(i, '176,138,62'));
+    // Colours are pre-multiplied by the paper tone, so plain blending looks like the
+    // old "multiply" blend without making the GPU blend the whole hero every frame.
+    const black = [1, 2, 3, 4, 5, 6].map((i) => blotSprite(i, '20,18,14'));
+    const gold = [7, 8, 9].map((i) => blotSprite(i, '168,129,56'));
     const blooms = [];
     let last = 0, px = -1, py = -1;
     const add = (x, y, big, isGold) => {
@@ -140,8 +158,8 @@ void main(){
     }, { passive: true });
     let scaleX = 1, scaleY = 1, nextDrop = 0;
     return {
-      scale: 1,
-      fps: 40,
+      scale: coarse ? 0.75 : 1,
+      fps: 30,
       resize(w, h, cw, ch) { scaleX = cw / w; scaleY = ch / h; },
       draw(t, now) {
         const w = canvas.width, h = canvas.height;
@@ -212,7 +230,7 @@ void main(){
     let ready = false;
     return {
       scale: coarse ? 0.75 : 1,
-      fps: coarse ? 30 : 48,
+      fps: coarse ? 30 : 40,
       resize(w, h, cw, ch) {
         parts.length = 0; stars.length = 0;
         for (let i = 0; i < count; i++) { const p = {}; spawn(p, cw, ch, true); parts.push(p); }
@@ -280,14 +298,21 @@ void main(){
 
   let raf = 0;
   const t0 = performance.now();
+  // While the reader is actively scrolling, scenes give the GPU back to the scroll:
+  // the heavy shader holds its frame, the particle scenes drop to a gentle 20fps.
+  let lastScroll = -1e9;
+  addEventListener('scroll', () => { lastScroll = performance.now(); }, { passive: true });
   function loop(now) {
     raf = 0;
     if (document.hidden || reduce.matches) return;
+    const scrolling = now - lastScroll < 140;
     let any = false;
     scenes.forEach((s) => {
       if (!s.visible) return;
       any = true;
-      if (now - s.lastDraw < 1000 / s.scene.fps) return;
+      if (scrolling && s.scene.calmOnScroll) return;
+      const fps = scrolling ? Math.min(s.scene.fps, 20) : s.scene.fps;
+      if (now - s.lastDraw < 1000 / fps) return;
       s.lastDraw = now;
       s.scene.draw((now - t0) / 1000, now);
     });
