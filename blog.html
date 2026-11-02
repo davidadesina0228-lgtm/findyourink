@@ -39,6 +39,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/editorial.css" />
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
@@ -57,7 +58,7 @@
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
 </head>
-<body>
+<body class="journal-page">
 
   <a class="skip-link" href="#main">Skip to content</a>
 
@@ -69,8 +70,9 @@
         <ul class="nav__links" role="list">
           <li><a href="index.html" class="nav__link">Home</a></li>
           <li><a href="about.html" class="nav__link">About</a></li>
-          <li><a href="blog.html" class="nav__link active">Blog</a></li>
+          <li><a href="blog.html" class="nav__link active">Find Your Ink</a></li>
           <li><a href="resources.html" class="nav__link">Resources</a></li>
+          <li><a href="gleamshield/" class="nav__link">GleamShield ↗</a></li>
           <li><a href="contact.html" class="nav__link">Contact</a></li>
         </ul>
         <a href="contact.html#newsletter" class="btn btn--gold nav__cta">Subscribe</a>
@@ -85,8 +87,9 @@
     <a href="index.html" class="mobile-menu__link">Home</a>
     <div class="mobile-menu__divider"></div>
     <a href="about.html" class="mobile-menu__link">About</a>
-    <a href="blog.html" class="mobile-menu__link">Blog</a>
+    <a href="blog.html" class="mobile-menu__link">Find Your Ink</a>
     <a href="resources.html" class="mobile-menu__link">Resources</a>
+    <a href="gleamshield/" class="mobile-menu__link">GleamShield ↗</a>
     <a href="contact.html" class="mobile-menu__link">Contact</a>
     <div class="mobile-menu__divider"></div>
     <a href="contact.html#newsletter" class="mobile-menu__link" style="font-size:1.5rem; color: var(--color-gold);">Subscribe →</a>
@@ -94,19 +97,47 @@
 
   <main id="main">
 
-    <!-- PAGE HERO -->
-    <section class="page-hero" aria-labelledby="blog-page-heading">
-      <div class="container container--narrow">
-        <p class="page-hero__label">The Blog</p>
-        <h1 class="page-hero__title" id="blog-page-heading">
-          Words That Cost Something
-        </h1>
-        <p class="page-hero__subtitle">
-          <em>Not inspiration. A reckoning.</em><br />
-          Blogs on healing, faith, and the slow work of being remade.
-        </p>
+    <section class="journal-hero" aria-labelledby="blog-page-heading">
+      <div class="container">
+        <div class="journal-hero__edition"><span>A journal by David Adesina</span><span>Faith. Healing. Becoming.</span></div>
+        <h1 class="journal-hero__title" id="blog-page-heading">Find your <em>Ink.</em></h1>
+        <div class="journal-hero__bottom">
+          <p>Words for the places we don't talk about.<br />Essays on faith, healing, and the slow work of being remade.</p>
+          <p class="journal-hero__note">Written from scars, not theory.</p>
+        </div>
       </div>
     </section>
+
+    <div class="journal-feature"><div class="container">
+            <!-- Featured Post -->
+            <article class="card card--featured" data-category="emotional-intelligence">
+              <div class="card__image">
+                  <img src="images/david-adesina-photo.jpg" alt="David Adesina, author of Find Your Ink" fetchpriority="high" width="720" height="1152" />
+                  <span class="journal-feature__caption"><span>From David's desk</span><span>The featured essay</span></span>
+                </div>
+              <div class="card__body">
+                <span class="card__category">Emotional Intelligence · Featured</span>
+                <h2 class="card__title">
+                  <a href="blog/why-smart-christians-struggle-to-feel.html">
+                    Why Smart Christians Struggle to Feel Their Feelings
+                  </a>
+                </h2>
+                <p class="card__excerpt">
+                  We were taught to think our way to God. To reason through the pain. But feelings don't respond to arguments &mdash; and the part of you that needs healing isn't the part that reads commentaries.
+                </p>
+                <div class="card__meta">
+                  <span>7 min read</span>
+                  <span class="card__meta-dot" aria-hidden="true"></span>
+                  <time datetime="2025-05-01">May 1, 2025</time>
+                </div>
+                <a href="blog/why-smart-christians-struggle-to-feel.html" class="card__link">
+                  Read the full essay <span class="arrow" aria-hidden="true">→</span>
+                </a>
+              </div>
+            </article>
+    </div></div>
+
+    <div class="container journal-archive-heading"><h2>The collected essays</h2><span>Explore the archive</span></div>
 
     <!-- SEARCH -->
     <div class="blog-search" role="search" aria-label="Search blog posts">
@@ -117,10 +148,10 @@
             <span class="blog-search__icon" aria-hidden="true">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
             </span>
-            <input type="search" id="blog-search-input" class="blog-search__input" placeholder="Search posts — try 'doubt', 'trauma', 'healing'…" autocomplete="off" />
+            <input type="search" id="blog-search-input" class="blog-search__input" placeholder="Find words for what you're carrying…" autocomplete="off" />
             <button class="blog-search__clear" id="blog-search-clear" type="button" aria-label="Clear search" hidden>✕</button>
           </div>
-          <p class="blog-search__count" id="blog-search-count" aria-live="polite" hidden></p>
+          <p class="blog-search__count" id="blog-search-count" aria-live="polite">51 essays in the archive</p>
         </div>
       </div>
     </div>
@@ -129,15 +160,15 @@
     <div class="blog-filters" role="navigation" aria-label="Filter by category">
       <div class="container">
         <div class="blog-filters__inner">
-          <button class="category-pill active" data-category="all">All Posts</button>
-          <button class="category-pill" data-category="faith-doubt">Faith &amp; Doubt</button>
-          <button class="category-pill" data-category="trauma-healing">Trauma &amp; Healing</button>
-          <button class="category-pill" data-category="emotional-intelligence">Emotional Intelligence</button>
-          <button class="category-pill" data-category="cultural-commentary">Cultural Commentary</button>
-          <button class="category-pill" data-category="spiritual-formation">Spiritual Formation</button>
-          <button class="category-pill" data-category="identity-in-christ">Identity in Christ</button>
-          <button class="category-pill" data-category="generational-patterns">Generational Patterns</button>
-          <button class="category-pill" data-category="mind-neuroscience">Mind &amp; Neuroscience</button>
+          <button class="category-pill active" data-category="all" aria-pressed="true">All essays</button>
+          <button class="category-pill" data-category="faith-doubt" aria-pressed="false">Faith &amp; Doubt</button>
+          <button class="category-pill" data-category="trauma-healing" aria-pressed="false">Trauma &amp; Healing</button>
+          <button class="category-pill" data-category="emotional-intelligence" aria-pressed="false">Emotional Intelligence</button>
+          <button class="category-pill" data-category="cultural-commentary" aria-pressed="false">Cultural Commentary</button>
+          <button class="category-pill" data-category="spiritual-formation" aria-pressed="false">Spiritual Formation</button>
+          <button class="category-pill" data-category="identity-in-christ" aria-pressed="false">Identity in Christ</button>
+          <button class="category-pill" data-category="generational-patterns" aria-pressed="false">Generational Patterns</button>
+          <button class="category-pill" data-category="mind-neuroscience" aria-pressed="false">Mind &amp; Neuroscience</button>
         </div>
       </div>
     </div>
@@ -150,35 +181,7 @@
           <!-- Posts -->
           <section aria-label="Blog posts">
 
-            <!-- Featured Post -->
-            <article class="card card--featured" data-category="emotional-intelligence" style="margin-bottom: 2.5rem;">
-              <div class="card__image">
-                  <img src="images/og-post-01.jpg" alt="Why Smart Christians Struggle to Feel Their Feelings — Find Your Ink" loading="lazy" width="800" height="450" />
-                </div>
-              <div class="card__body">
-                <span class="card__category">Emotional Intelligence · Featured</span>
-                <h2 class="card__title">
-                  <a href="blog/why-smart-christians-struggle-to-feel.html">
-                    Why Smart Christians Struggle to Feel Their Feelings
-                  </a>
-                </h2>
-                <p class="card__excerpt">
-                  We were taught to think our way to God.<br />
-                  To reason through the pain.<br />
-                  To exegete our way out of the darkness.<br /><br />
-                  But feelings don't respond to arguments.
-                  And the part of you that needs healing isn't the part that reads commentaries.
-                </p>
-                <div class="card__meta">
-                  <span>7 min read</span>
-                  <span class="card__meta-dot" aria-hidden="true"></span>
-                  <time datetime="2025-05-01">May 1, 2025</time>
-                </div>
-                <a href="blog/why-smart-christians-struggle-to-feel.html" class="card__link">
-                  Read the full essay <span class="arrow" aria-hidden="true">→</span>
-                </a>
-              </div>
-            </article>
+
 
             <!-- Posts Grid -->
             <div class="posts-grid posts-grid--2col">
@@ -1206,26 +1209,22 @@
 
             </div><!-- .posts-grid -->
 
-            <!-- Load More (placeholder for pagination) -->
-            <div style="text-align:center; margin-top: 3rem;">
-              <button class="btn btn--outline-gold" aria-label="Load more posts">
-                Load More <span class="arrow" aria-hidden="true">â†“</span>
-              </button>
+            <div class="blog-empty" id="blog-empty-state" hidden>
+              <h2>No essays found.</h2>
+              <p>Try a different word or explore another subject.</p>
+              <button class="btn btn--gold" id="blog-reset-filters" type="button">View all essays</button>
             </div>
+            <p class="blog-end-note">Some broke and bled. I broke and wrote. Now Christ holds the pen.</p>
 
           </section><!-- posts section -->
 
           <!-- SIDEBAR -->
           <aside class="blog-sidebar" aria-label="Blog sidebar">
 
-            <!-- Newsletter Widget -->
-            <div class="sidebar-widget" style="background: var(--color-black); border-color: rgba(201,169,97,0.2);">
-              <h3 class="sidebar-widget__title" style="color: var(--color-cream); border-color: rgba(255,255,255,0.1);">The David Adesina Letter</h3>
-              <p style="font-size: 0.875rem; color: rgba(245,245,240,0.6); margin-bottom: 1.25rem; line-height: 1.7;">
-                Words on healing and transformation.<br />
-                Written for those doing the hard interior work.
-              </p>
-              <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script><iframe src="https://subscribe-forms.beehiiv.com/2466ce69-133c-465f-877b-2a2442caa5b2" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width:100%; max-width:560px; height:291px; margin:0; border-radius:0; background-color:transparent; box-shadow:none;"></iframe>
+            <div class="sidebar-widget journal-letter">
+              <h3 class="sidebar-widget__title">A letter, every week.</h3>
+              <p>Revival. Healing. Apologetics.<br />Honest words for those doing the hard interior work.</p>
+              <a class="journal-letter__link" href="contact.html#newsletter">The David Adesina Letter &nbsp; ↗</a>
             </div>
 
             <!-- Popular Posts -->
@@ -1340,50 +1339,7 @@
 
   <script src="js/main.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-  <script>
-    (function () {
-      const input   = document.getElementById('blog-search-input');
-      const clearBtn = document.getElementById('blog-search-clear');
-      const countEl = document.getElementById('blog-search-count');
-      const cards   = Array.from(document.querySelectorAll('.posts-grid .card, .card--featured'));
 
-      function getCardText(card) {
-        const title   = card.querySelector('.card__title')   ? card.querySelector('.card__title').textContent   : '';
-        const excerpt = card.querySelector('.card__excerpt') ? card.querySelector('.card__excerpt').textContent : '';
-        const cat     = card.querySelector('.card__category') ? card.querySelector('.card__category').textContent : '';
-        return (title + ' ' + excerpt + ' ' + cat).toLowerCase();
-      }
-
-      function runSearch(query) {
-        const q = query.trim().toLowerCase();
-        clearBtn.hidden = q === '';
-        let visible = 0;
-
-        cards.forEach(function (card) {
-          const matches = q === '' || getCardText(card).includes(q);
-          card.style.display = matches ? '' : 'none';
-          if (matches) visible++;
-        });
-
-        if (q === '') {
-          countEl.hidden = true;
-        } else {
-          countEl.hidden = false;
-          countEl.textContent = visible === 0
-            ? 'No posts found for "' + query.trim() + '"'
-            : visible + ' post' + (visible === 1 ? '' : 's') + ' found';
-        }
-      }
-
-      input.addEventListener('input', function () { runSearch(this.value); });
-
-      clearBtn.addEventListener('click', function () {
-        input.value = '';
-        input.focus();
-        runSearch('');
-      });
-    })();
-  </script>
 
 <!-- Newsletter Popup -->
 <style>

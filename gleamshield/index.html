@@ -35,7 +35,7 @@
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
 </head>
-<body class="gs-page">
+<body class="gs-page gs-home">
   <a href="#gs-main" class="gs-skip-link">Skip to content</a>
 
   <!-- NAV -->
@@ -78,31 +78,47 @@
   <main id="gs-main">
 
     <!-- HERO -->
-    <section class="gs-hero" aria-label="Hero">
+    <section class="gs-hero" aria-labelledby="gs-hero-title">
       <div class="gs-hero__bg" style="background-image: url('/images/gleamshield/gs-zenithia-hero.jpg');" role="presentation"></div>
       <div class="gs-hero__overlay" role="presentation"></div>
-      <div class="gs-hero__orb gs-hero__orb--1" role="presentation"></div>
-      <div class="gs-hero__orb gs-hero__orb--2" role="presentation"></div>
+      <div class="gs-hero__frame" aria-hidden="true"></div>
+      <div class="gs-hero__topline">
+        <span>Independent animation &amp; apologetics</span>
+        <span>Faith. Frame by frame.</span>
+      </div>
       <div class="gs-hero__content">
         <span class="gs-hero__eyebrow gs-fade-up">Stories. Characters. Truth Explored.</span>
-        <h1 class="gs-hero__title gs-fade-up gs-fade-up--1">Where Stories<br><em>Meet Truth</em></h1>
-        <p class="gs-hero__sub gs-fade-up gs-fade-up--2">
-          We are currently in production of our first flagship animation.
-          Help us build the world of Zenithia and fund the journey of Abimifoluwa.
-        </p>
-        <div class="gs-hero__actions gs-fade-up gs-fade-up--3">
-          <a href="/gleamshield/support.html" class="gs-btn gs-btn--primary">Fund the Animation</a>
-          <a href="/gleamshield/characters/abimifoluwa.html" class="gs-btn gs-btn--outline">Meet the Seeker</a>
+        <h1 id="gs-hero-title" class="gs-hero__title gs-fade-up gs-fade-up--1">Where stories<br>meet <em>truth.</em></h1>
+        <div class="gs-hero__bottom">
+          <div class="gs-hero__actions gs-fade-up gs-fade-up--3">
+            <a href="/gleamshield/support.html" class="gs-btn gs-btn--primary">Fund the Animation <span aria-hidden="true">↗</span></a>
+            <a href="/gleamshield/characters/abimifoluwa.html" class="gs-btn gs-btn--outline">Meet the Seeker <span aria-hidden="true">→</span></a>
+          </div>
+          <p class="gs-hero__sub gs-fade-up gs-fade-up--2">
+            We are currently in production of our first flagship animation.
+            Help us build the world of Zenithia and fund the journey of Abimifoluwa.
+          </p>
         </div>
+      </div>
+      <div class="gs-hero__footnote">
+        <a href="#gs-flagship">Explore the world <span aria-hidden="true">↓</span></a>
+        <span>Zenithia / The world of Abimifoluwa</span>
+        <span>01 — In development</span>
       </div>
     </section>
 
+    <div class="gs-studio-index" aria-label="Explore GleamShield">
+      <a href="/gleamshield/characters.html"><span>01 / The people</span>Characters <span aria-hidden="true">↗</span></a>
+      <a href="/gleamshield/stories.html"><span>02 / The worlds</span>Stories <span aria-hidden="true">↗</span></a>
+      <a href="/gleamshield/chronicles.html"><span>03 / The questions</span>Chronicles <span aria-hidden="true">↗</span></a>
+    </div>
+
     <!-- FEATURED CHARACTER -->
-    <section class="gs-section" aria-labelledby="gs-character-heading">
+    <section class="gs-section gs-flagship" id="gs-flagship" aria-labelledby="gs-character-heading">
       <div class="gs-container">
         <div class="gs-feature-grid">
           <div>
-            <span class="gs-label">Flagship Project</span>
+            <span class="gs-label">01 / Flagship Project</span>
             <h2 id="gs-character-heading" class="gs-section-title">Abimifoluwa:<br>The Animation</h2>
             <p style="font-family:var(--gs-font-display);font-size:1.1rem;font-style:italic;color:var(--gs-text-dim);margin-bottom:1.5rem;">A journey from Igbajo to the peak of the stars.</p>
             <p style="font-family:var(--gs-font-body);font-size:0.95rem;line-height:1.75;color:var(--gs-text-dim);margin-bottom:2rem;">
@@ -118,11 +134,11 @@
               <a href="/gleamshield/characters/abimifoluwa.html" class="gs-btn gs-btn--outline">Full Profile</a>
             </div>
           </div>
-          <div style="position:relative;">
+          <div class="gs-character-portrait">
             <img
               src="/images/gleamshield/gs-abimifoluwa-avatar.jpg"
               alt="Abimifoluwa — The Seeker"
-              style="width:100%;border-radius:4px;filter:grayscale(10%);box-shadow:0 24px 60px rgba(0,0,0,0.6);"
+              width="640" height="640" loading="lazy"
             />
             <div style="position:absolute;bottom:1.5rem;left:1.5rem;background:rgba(10,10,11,0.85);backdrop-filter:blur(8px);padding:1rem 1.5rem;border-left:2px solid var(--gs-accent);border-radius:2px;">
               <p style="font-family:var(--gs-font-body);font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gs-accent);margin-bottom:0.25rem;">The Seeker</p>
@@ -134,10 +150,10 @@
     </section>
 
     <!-- 4 PILLARS -->
-    <section class="gs-section gs-section--alt" aria-labelledby="gs-pillars-heading">
+    <section class="gs-section gs-section--alt gs-craft" aria-labelledby="gs-pillars-heading">
       <div class="gs-container">
         <div class="gs-section-header gs-section-header--center">
-          <span class="gs-label">Our Craft</span>
+          <span class="gs-label">02 / Our Craft</span>
           <h2 id="gs-pillars-heading" class="gs-section-title">How We Build Truth</h2>
           <p class="gs-section-desc">Every frame, every character, every world is built with one question: does this help a seeker encounter the real?</p>
         </div>
@@ -175,7 +191,7 @@
     </section>
 
     <!-- BOOK RELEASE -->
-    <section class="gs-section gs-section--alt" aria-labelledby="gs-book-heading">
+    <section class="gs-section gs-section--alt gs-book" aria-labelledby="gs-book-heading">
       <div class="gs-container">
         <div class="gs-feature-grid" style="gap:4rem;align-items:center;">
           <div style="position:relative;max-width:380px;">
@@ -190,7 +206,7 @@
             <div style="position:absolute;top:-0.75rem;right:-0.75rem;background:var(--gs-accent);color:var(--gs-bg);font-family:var(--gs-font-body);font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:0.4rem 0.9rem;border-radius:999px;">Available Now</div>
           </div>
           <div>
-            <span class="gs-label">New Release</span>
+            <span class="gs-label">03 / New Release</span>
             <h2 id="gs-book-heading" class="gs-section-title">The Book is Here</h2>
             <p style="font-family:var(--gs-font-display);font-size:1.1rem;font-style:italic;color:var(--gs-text-dim);margin-bottom:1.5rem;">A city that forgot God. A girl who refused to.</p>
             <p style="font-family:var(--gs-font-body);font-size:0.975rem;line-height:1.85;color:var(--gs-text-dim);margin-bottom:2rem;">
@@ -214,7 +230,7 @@
       <div class="gs-container">
         <div class="gs-section-header" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;">
           <div>
-            <span class="gs-label">The Chronicle</span>
+            <span class="gs-label">04 / The Chronicle</span>
             <h2 id="gs-chronicles-heading" class="gs-section-title" style="margin-bottom:0;">Latest Insights</h2>
           </div>
           <a href="/gleamshield/chronicles.html" class="gs-btn gs-btn--ghost">See Articles &rarr;</a>
@@ -414,5 +430,6 @@
   }
 })();
 </script>
+<script src="/js/gleamshield-design.js" defer></script>
 </body>
 </html>

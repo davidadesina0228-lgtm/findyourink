@@ -35,9 +35,11 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/editorial.css" />
+  <link rel="stylesheet" href="css/home.css" />
 
   <meta name="google-adsense-account" content="ca-pub-6207125181553910" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6207125181553910" crossorigin="anonymous"></script>
@@ -114,429 +116,75 @@
   <link rel="apple-touch-icon" sizes="180x180" href="images/logo.png" />
   <script defer src="/_vercel/insights/script.js"></script>
 </head>
-<body class="hub-page">
-
+<body class="hub-page atelier-home">
   <a class="skip-link" href="#main">Skip to content</a>
-
-  <nav class="nav nav--transparent" aria-label="Main navigation">
-    <div class="container">
-      <div class="nav__inner">
-        <a href="index.html" class="nav__logo hub-logo" aria-label="David Adesina home">
-          <img src="images/david-adesina-logo.png" alt="David Adesina" class="nav__logo-img hub-logo-img" width="180" height="111" />
-        </a>
-
-        <ul class="nav__links" role="list">
-          <li><a href="#home" class="nav__link">Home</a></li>
-          <li><a href="#about-david" class="nav__link">About</a></li>
-          <li><a href="#find-your-ink" class="nav__link">Find Your Ink</a></li>
-          <li><a href="#cave-echoes" class="nav__link">Cave Echoes</a></li>
-          <li><a href="#gleamshield" class="nav__link">GleamShield</a></li>
-          <li><a href="#contact" class="nav__link">Contact</a></li>
-        </ul>
-
-        <a href="blog.html" class="btn btn--outline-cream nav__cta">Read Find Your Ink</a>
-
-        <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </div>
+  <nav class="nav atelier-nav" aria-label="Main navigation">
+    <div class="container"><div class="nav__inner">
+      <a href="index.html" class="atelier-brand" aria-label="David Adesina home"><span class="atelier-brand__mark"><img src="images/david-adesina-logo.png" alt="" width="76" height="48" /></span><span>David<br />Adesina<span class="atelier-brand__period">.</span></span></a>
+      <ul class="nav__links" role="list">
+        <li><a href="about.html" class="nav__link">The story</a></li>
+        <li><a href="blog.html" class="nav__link">Find Your Ink</a></li>
+        <li><a href="#cave-echoes" class="nav__link">Cave Echoes</a></li>
+        <li><a href="gleamshield/" class="nav__link">GleamShield <span aria-hidden="true">↗</span></a></li>
+      </ul>
+      <a href="contact.html" class="atelier-nav__contact">Let’s connect <span aria-hidden="true">↗</span></a>
+      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+    </div></div>
   </nav>
-
-  <div class="mobile-menu" id="mobile-menu" aria-hidden="true" role="dialog" aria-label="Mobile navigation">
-    <a href="#home" class="mobile-menu__link">Home</a>
-    <div class="mobile-menu__divider"></div>
-    <a href="#about-david" class="mobile-menu__link">About</a>
-    <a href="#find-your-ink" class="mobile-menu__link">Find Your Ink</a>
-    <a href="#cave-echoes" class="mobile-menu__link">Cave Echoes</a>
-    <a href="#gleamshield" class="mobile-menu__link">GleamShield</a>
-    <a href="#contact" class="mobile-menu__link">Contact</a>
-    <div class="mobile-menu__divider"></div>
-    <a href="blog.html" class="mobile-menu__link" style="font-size:1.5rem; color: var(--hub-bright);">Open Blog -&gt;</a>
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <a href="index.html" class="mobile-menu__link">Home</a><a href="about.html" class="mobile-menu__link">The story</a><a href="blog.html" class="mobile-menu__link">Find Your Ink</a><a href="#cave-echoes" class="mobile-menu__link">Cave Echoes</a><a href="gleamshield/" class="mobile-menu__link">GleamShield</a><a href="contact.html" class="mobile-menu__link">Let’s connect</a>
   </div>
-
-  <main id="main" class="hub-main">
-
-    <section class="hub-hero" id="home" aria-labelledby="hero-heading">
-      <div class="container">
-        <div class="hub-hero__inner">
-          <h1 class="hub-hero__title" id="hero-heading">
-            Revival first.<br />
-            Minds renewed.<br />
-            A generation awakened.
-          </h1>
-          <p class="hub-hero__text">
-            I'm David Adesina — a revivalist. But God showed me early:
-            revival is the goal, not just the fire.
-            Real revival heals what the fire exposes,
-            and defends the generation that rises from the ashes.
-            Find Your Ink tends to the wounded mind.
-            Gleamshield arms the next generation with truth they can see and hold.
-            Three fronts. One goal. Revival.
-          </p>
-
-          <div class="hub-hero__actions">
-            <a href="#find-your-ink" class="btn btn--hub-primary">Read Find Your Ink</a>
-            <a href="#about-david" class="btn btn--hub-secondary">Start Here</a>
-          </div>
-
-          <ul class="hub-pill-list" role="list">
-            <li class="hub-pill">Revival Ministry</li>
-            <li class="hub-pill">Find Your Ink Blogs</li>
-            <li class="hub-pill">Mind Renewal</li>
-            <li class="hub-pill">Gleamshield Studio</li>
-            <li class="hub-pill">YouTube Teachings</li>
-          </ul>
+  <main id="main">
+    <section class="atelier-hero" id="home" aria-labelledby="hero-heading">
+      <div class="atelier-hero__copy">
+        <p class="atelier-kicker atelier-enter"><span class="atelier-dot" aria-hidden="true"></span> Revival. Healing. Truth.</p>
+        <h1 id="hero-heading" class="atelier-hero__title atelier-enter">Revival first.<br />Minds <em>renewed.</em></h1>
+        <p class="atelier-hero__declaration atelier-enter">A generation awakened.</p>
+        <div class="atelier-hero__intro atelier-enter"><span class="atelier-small-number" aria-hidden="true">01 /</span><p>I’m David Adesina. A revivalist, a writer, and a believer that the fire of revival must also heal the mind.</p></div>
+        <div class="atelier-hero__actions atelier-enter"><a class="atelier-button" href="blog.html">Find your next read <span aria-hidden="true">↗</span></a><a class="atelier-text-link" href="about.html">My story <span aria-hidden="true">↗</span></a></div>
+        <a href="#the-work" class="atelier-scroll">Scroll to explore <span aria-hidden="true">↓</span></a>
+      </div>
+      <figure class="atelier-hero__portrait atelier-enter">
+        <img src="images/david-adesina-photo.jpg" alt="David Adesina, revival minister and writer" width="720" height="1152" fetchpriority="high" />
+        <div class="atelier-portrait__corner" aria-hidden="true">DA /</div>
+        <figcaption><span>Faith that reaches<br />the whole person.</span><span class="atelier-portrait__caption-small">THE PERSON<br />BEHIND THE WORDS ↗</span></figcaption>
+      </figure>
+    </section>
+    <section class="atelier-paths" id="the-work" aria-label="Explore the three expressions of the work">
+      <div class="atelier-paths__intro"><span class="atelier-kicker">Three expressions.</span><span>One calling.</span></div>
+      <a href="#find-your-ink"><span class="atelier-small-number">01 / HEALING</span><span>Find Your Ink <i aria-hidden="true">↗</i></span></a>
+      <a href="#cave-echoes"><span class="atelier-small-number">02 / REVIVAL</span><span>Cave Echoes <i aria-hidden="true">↗</i></span></a>
+      <a href="#gleamshield"><span class="atelier-small-number">03 / DEFENSE OF FAITH</span><span>GleamShield <i aria-hidden="true">↗</i></span></a>
+    </section>
+    <section class="atelier-section atelier-statement" id="about-david" aria-labelledby="about-heading">
+      <div class="atelier-section-label js-fade"><span>THE HEART BEHIND IT</span><span>01 —</span></div>
+      <div class="atelier-statement__body js-fade"><h2 id="about-heading">The fire is only<br /><em>the beginning.</em></h2><div class="atelier-statement__columns"><p>I was an atheist. Then an agnostic. Then, in 2016, in Ryazan, Russia, I encountered God — and everything changed.</p><div><p>Today I pastor, write, and create for a generation that needs more than a moment of fire. Real revival heals what the fire exposes, and equips us to stand in truth.</p><a class="atelier-text-link" href="about.html">Read the full story <span aria-hidden="true">↗</span></a></div></div></div>
+    </section>
+    <section class="atelier-section atelier-journal" id="find-your-ink" aria-labelledby="journal-heading">
+      <div class="atelier-section-label js-fade"><span>01 / FIND YOUR INK</span><span>THE WRITING</span></div>
+      <div class="atelier-section-heading js-fade"><h2 id="journal-heading">Words for the work<br /><em>happening within.</em></h2><div><p>Honest reflections on faith, healing, and the slow work of being remade.</p><a class="atelier-text-link" href="blog.html">Explore the journal <span aria-hidden="true">↗</span></a></div></div>
+      <div class="atelier-essays">
+        <a class="atelier-essay atelier-essay--featured js-fade" href="blog/healing-is-not-linear.html"><div class="atelier-essay__art" aria-hidden="true"><span>NOT A<br />STRAIGHT<br /><em>line.</em></span><span class="atelier-essay__art-foot">NOTES ON BECOMING / FIND YOUR INK</span></div><div class="atelier-essay__meta">HEALING &amp; TRAUMA <span>ESSAY 01</span></div><h3>Healing Is Not Linear</h3><p>For the days when moving forward feels a lot like starting over.</p><span class="atelier-read">Read the essay <span aria-hidden="true">↗</span></span></a>
+        <div class="atelier-essay-list">
+          <a href="blog/rewiring-the-renewing-of-your-mind.html" class="atelier-essay-row js-fade"><span class="atelier-small-number">02</span><div><span class="atelier-kicker">MIND RENEWAL</span><h3>Rewiring the Renewing<br />of Your Mind</h3><p>Where faith and the way we think meet.</p></div><span aria-hidden="true">↗</span></a>
+          <a href="blog/boundaries-are-not-betrayal.html" class="atelier-essay-row js-fade"><span class="atelier-small-number">03</span><div><span class="atelier-kicker">HEALING &amp; IDENTITY</span><h3>Boundaries Are<br />Not Betrayal</h3><p>Making room for wholeness, without guilt.</p></div><span aria-hidden="true">↗</span></a>
+          <a href="blog/lament-as-worship.html" class="atelier-essay-row js-fade"><span class="atelier-small-number">04</span><div><span class="atelier-kicker">FAITH &amp; DOUBT</span><h3>Lament as Worship</h3><p>There is room for your grief in the presence of God.</p></div><span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
-
-    <section class="hub-section" id="about-david" aria-labelledby="about-heading">
-      <div class="container">
-        <div class="hub-section__header js-fade">
-          <p class="hub-eyebrow">About Me</p>
-          <h2 class="hub-section__title" id="about-heading">David Adesina</h2>
-        </div>
-
-        <div class="hub-about js-fade fade-up-delay-1">
-          <div style="font-family: 'Manrope', sans-serif; line-height: 1.75; color: var(--hub-text);">
-            <p class="hub-about__lead">
-              I was an atheist. Then an agnostic. Then in 2016, in Ryazan, Russia,
-              I encountered God — and everything changed.
-            </p>
-            <p style="margin-bottom: 1rem; color: var(--hub-text); line-height: 1.75;">
-              It happened under the ministry of Dr. Samson Ajikobi — then pastoring under Christ Embassy,
-              now founder of Spirit Assembly International (Latvia).
-              He was the one God used to reach me.
-            </p>
-            <p style="margin-bottom: 1rem; color: var(--hub-text); line-height: 1.75;">
-              From 2018 to 2026 I was discipled under Apostle Nife Ibiyemi,
-              founder of Love Dominion Assembly — years that built the theological backbone
-              behind everything I preach and write.
-            </p>
-            <p style="margin-bottom: 1rem; color: var(--hub-text); line-height: 1.75;">
-              Today I pastor a church, host Chayah revival meetings — which began in Tbilisi, Georgia
-              with a mandate to go to the ends of the earth — and write for believers
-              who are on fire but breaking on the inside.
-              I am a husband and a father, and I love apologetics,
-              because I have watched honest people lose their faith
-              when no one taught them how to answer the questions that came.
-            </p>
-            <p style="margin-bottom: 1.5rem; color: var(--hub-bright); line-height: 1.75;">
-              That is why three streams exist:
-              <strong>Cave Echoes</strong> for revival —
-              <strong>Find Your Ink</strong> for healing the mind —
-              <strong>Gleamshield</strong> for the defense of faith.
-              Three fronts. One war. One answer.
-            </p>
-          </div>
-          <div class="hub-about__side">
-            <figure class="hub-about__photo-wrap">
-              <img src="images/david-adesina-photo.jpg" alt="Portrait of David Adesina" class="hub-about__photo" loading="lazy" decoding="async" width="480" height="768" />
-            </figure>
-            <div class="hub-about__facts">
-              <p><span>Name</span> David Adesina</p>
-              <p><span>Primary Calling</span> Cave Echoes (Revival Ministry)</p>
-              <p><span>Writing</span> Find Your Ink</p>
-              <p><span>Studio</span> <a href="/gleamshield/" style="color:inherit;">GleamShield Production</a></p>
-              <p><span>Business Site</span> Remshield (Separate Website)</p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <section class="atelier-revival" id="cave-echoes" aria-labelledby="revival-heading">
+      <div class="atelier-section-label js-fade"><span>02 / CAVE ECHOES</span><span>THE MINISTRY</span></div>
+      <div class="atelier-revival__main"><div class="js-fade"><p class="atelier-kicker">From the secret place. To the ends of the earth.</p><h2 id="revival-heading">Let the<br /><em>fire remain.</em></h2></div><div class="atelier-revival__copy js-fade"><span class="atelier-revival__asterisk" aria-hidden="true">✳</span><p>Revival is a people encountering God and being unable to remain the same.</p><p>Cave Echoes exists to awaken hunger, restore reverence for truth, and call us into a life of prayer, repentance, and consecration. Chayah revival meetings began in Tbilisi, Georgia. The mandate reaches beyond it.</p><a href="contact.html" class="atelier-button atelier-button--light">Connect with the ministry <span aria-hidden="true">↗</span></a></div></div>
+      <div class="atelier-revival__foot"><span>PRAYER</span><span>TRUTH</span><span>CONSECRATION</span><a href="https://youtube.com/@davidadesina0" target="_blank" rel="noopener">Watch the teachings ↗</a></div>
     </section>
-
-    <section class="hub-section hub-section--alt" id="find-your-ink" aria-labelledby="fyi-heading">
-      <div class="container">
-        <div class="hub-section__header js-fade">
-          <p class="hub-eyebrow">Find Your Ink</p>
-          <h2 class="hub-section__title" id="fyi-heading">Writing That Helps You Heal And Rebuild</h2>
-          <p class="hub-section__subtitle">
-            Find Your Ink exists for people who love the Lord but are under pressure in their mind.
-            The writing helps you confront internal attacks, recover clarity, and stay grounded in Christ.
-          </p>
-        </div>
-
-        <div class="hub-columns">
-          <article class="hub-card js-fade fade-up-delay-1">
-            <h3>What You'll Find</h3>
-            <p>
-              Blogs that name hidden battles, expose mental strongholds,
-              and point you back to truth with practical next steps.
-            </p>
-          </article>
-          <article class="hub-card js-fade fade-up-delay-2">
-            <h3>Who It's For</h3>
-            <p>
-              Believers who are passionate for God but feel attacked in thought,
-              identity, focus, or emotional stability.
-            </p>
-          </article>
-          <article class="hub-card js-fade fade-up-delay-3">
-            <h3>Start Here</h3>
-            <p>
-              Start with the latest posts, then explore by topic to find
-              what speaks directly to your present battle.
-            </p>
-          </article>
-        </div>
-
-        <div class="hub-actions-inline">
-          <a href="blog.html" class="btn btn--hub-primary">Read The Blog</a>
-          <a href="resources.html" class="btn btn--hub-secondary">Resources</a>
-        </div>
-      </div>
+    <section class="atelier-studio" id="gleamshield" aria-labelledby="studio-heading">
+      <img class="atelier-studio__image" src="images/gleamshield/gs-zenithia-hero.jpg" alt="The imagined city of Zenithia from the GleamShield story universe" loading="lazy" width="1600" height="679" />
+      <div class="atelier-studio__overlay"></div>
+      <div class="atelier-studio__content"><div class="atelier-section-label"><span>03 / GLEAMSHIELD</span><span>THE STUDIO ↗</span></div><div class="atelier-studio__bottom js-fade"><div><p class="atelier-kicker">Apologetics. Animation. A world of possibility.</p><h2 id="studio-heading">Truth worth<br /><em>seeing.</em></h2></div><div><p>Stories that make you feel.<br />Questions that make you think.<br />Faith you can give a reason for.</p><a class="atelier-button atelier-button--light" href="gleamshield/">Enter GleamShield <span aria-hidden="true">↗</span></a></div></div></div>
     </section>
-
-    <section class="hub-section" id="cave-echoes" aria-labelledby="cave-heading">
-      <div class="container">
-        <div class="hub-section__header js-fade">
-          <p class="hub-eyebrow">Cave Echoes</p>
-          <h2 class="hub-section__title" id="cave-heading">Revival Ministry</h2>
-          <p class="hub-section__subtitle">
-            Cave Echoes exists to awaken hunger for God, restore reverence for truth,
-            and call people into real repentance, obedience, and consecration.
-          </p>
-        </div>
-
-        <div class="hub-ministry js-fade fade-up-delay-1">
-          <div class="hub-ministry__panel">
-            <h3>Ministry Emphasis</h3>
-            <ul>
-              <li>Revival teaching and discipleship</li>
-              <li>Prayer, holiness, and spiritual formation</li>
-              <li>Truth, repentance, and sustained consecration</li>
-            </ul>
-          </div>
-          <div class="hub-ministry__panel">
-            <h3>How To Connect</h3>
-            <p>
-              For ministry collaborations, speaking invitations, or prayer
-              gatherings, use the contact page and mention Cave Echoes.
-            </p>
-            <a href="contact.html" class="btn btn--hub-secondary">Contact For Ministry</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- THE VISION -->
-    <section class="hub-section" id="the-vision" aria-labelledby="vision-heading">
-      <div class="container">
-        <div class="hub-section__header js-fade">
-          <p class="hub-eyebrow">The Vision</p>
-          <h2 class="hub-section__title" id="vision-heading">Three Fronts. One War. One Answer.</h2>
-          <p class="hub-section__subtitle">
-            The enemy has never attacked on one front. He attacks the fire, the mind, and the reason.
-            This is why revival, healing, and the defense of faith cannot be separated.
-          </p>
-        </div>
-
-        <div class="hub-columns">
-          <article class="hub-card js-fade fade-up-delay-1">
-            <h3>Cave Echoes — Revival</h3>
-            <p>
-              The fire has to start somewhere. Revival is not an event —
-              it is a people encountering God and being unable to remain the same.
-              Chayah revival meetings began in Tbilisi, Georgia.
-              The mandate: to the ends of the earth.
-            </p>
-          </article>
-          <article class="hub-card js-fade fade-up-delay-2">
-            <h3>Find Your Ink — Healing the Mind</h3>
-            <p>
-              People catch fire for God and then lose it — not because they chose the world,
-              but because unhealed wounds became back doors.
-              These blogs exist to heal what the present-day church has often left unnamed.
-            </p>
-          </article>
-          <article class="hub-card js-fade fade-up-delay-3">
-            <h3>GleamShield — Defense of Faith</h3>
-            <p>
-              In the moment when faith is thin and someone hands you an argument
-              you were never taught to answer, you need more than zeal.
-              GleamShield equips the next generation with a reason for what they believe.
-            </p>
-            <a href="/gleamshield/" class="btn btn--hub-secondary" style="margin-top:1rem;display:inline-block;">Explore GleamShield</a>
-          </article>
-        </div>
-
-        <div class="hub-actions-inline" style="margin-top: 2.5rem;">
-          <a href="blog/revival-healing-and-defense-of-faith.html" class="btn btn--hub-primary">Read the Full Vision →</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="hub-section hub-section--alt" id="gleamshield" aria-labelledby="gleamshield-heading">
-      <div class="container">
-        <div class="hub-section__header js-fade">
-          <p class="hub-eyebrow">GleamShield Production</p>
-          <h2 class="hub-section__title" id="gleamshield-heading">Apologetics &amp; Faith Storytelling</h2>
-          <p class="hub-section__subtitle">
-            GleamShield exists for the seeker, the skeptic, and the believer facing hard questions.
-            The Chronicles engage the arguments — from the problem of evil to the rationality of faith —
-            with evidence, scripture, and intellectual honesty.
-          </p>
-        </div>
-
-        <div class="hub-post-grid">
-          <article class="hub-post-card js-fade fade-up-delay-1">
-            <h3><a href="/gleamshield/chronicles/does-evil-disprove-god.html">Does Evil Disprove God?</a></h3>
-            <p>The ability to call something evil requires a moral standard — and that standard requires God.</p>
-          </article>
-          <article class="hub-post-card js-fade fade-up-delay-2">
-            <h3><a href="/gleamshield/chronicles/is-god-hidden.html">Is God Hidden? Why God Feels Distant</a></h3>
-            <p>God is invisible by nature — but He declared Himself fully in Christ.</p>
-          </article>
-          <article class="hub-post-card js-fade fade-up-delay-3">
-            <h3><a href="/gleamshield/chronicles/if-god-is-good-why-does-evil-exist.html">If God Is Good, Why Does Evil Exist?</a></h3>
-            <p>Evil exists because free will exists — and free will is necessary for genuine love.</p>
-          </article>
-          <article class="hub-post-card js-fade fade-up-delay-1">
-            <h3><a href="/gleamshield/chronicles/is-belief-in-god-rational-or-blind-faith.html">Is Belief in God Rational or Blind Faith?</a></h3>
-            <p>The Greek word for faith means persuaded trust — not belief without evidence.</p>
-          </article>
-          <article class="hub-post-card js-fade fade-up-delay-2">
-            <h3><a href="/gleamshield/chronicles/why-did-jesus-have-to-die.html">Why Did Jesus Have to Die?</a></h3>
-            <p>Sin is not just an act — it is a governing dominion. Only the cross could break it.</p>
-          </article>
-          <article class="hub-post-card js-fade fade-up-delay-3">
-            <h3><a href="/gleamshield/chronicles/is-god-the-same-in-old-and-new-testament.html">Is the God of the Old Testament the Same as the New?</a></h3>
-            <p>People see a violent God in one and a loving one in the other. Scripture tells a different story.</p>
-          </article>
-        </div>
-
-        <div class="hub-actions-inline">
-          <a href="/gleamshield/" class="btn btn--hub-primary">Explore GleamShield</a>
-          <a href="/gleamshield/chronicles.html" class="btn btn--hub-secondary">See Articles</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="hub-section" id="projects" aria-labelledby="projects-heading">
-      <div class="container">
-        <div class="hub-section__header js-fade">
-          <p class="hub-eyebrow">Mission Map</p>
-          <h2 class="hub-section__title" id="projects-heading">How The Work Is Structured</h2>
-          <p class="hub-section__subtitle">
-            The ministry and writing live here.
-            Additional projects have dedicated homes and are linked below.
-          </p>
-        </div>
-
-        <div class="hub-project-grid">
-          <article class="hub-project-card js-fade fade-up-delay-1">
-            <p class="hub-project-card__label">On This Site</p>
-            <h3>Find Your Ink</h3>
-            <p>Blogs, reflection pieces, and practical spiritual content.</p>
-            <a href="blog.html">Open blog</a>
-          </article>
-
-          <article class="hub-project-card js-fade fade-up-delay-2">
-            <p class="hub-project-card__label">On This Site</p>
-            <h3>Cave Echoes</h3>
-            <p>Revival ministry updates and direct connection path.</p>
-            <a href="#cave-echoes">View ministry section</a>
-          </article>
-
-          <article class="hub-project-card js-fade fade-up-delay-3">
-            <p class="hub-project-card__label">External Site</p>
-            <h3>Remshield</h3>
-            <p>Business website for separate professional services.</p>
-            <a href="https://remshield.solutions/" target="_blank" rel="noopener">Visit business site</a>
-          </article>
-
-          <article class="hub-project-card js-fade fade-up-delay-1">
-            <p class="hub-project-card__label">On This Site</p>
-            <h3>GleamShield Production</h3>
-            <p>Faith-centered apologetics and animation — helping the next generation understand God clearly and answer the hardest questions about faith.</p>
-            <a href="/gleamshield/">Explore GleamShield</a>
-          </article>
-
-          <article class="hub-project-card js-fade fade-up-delay-2">
-            <p class="hub-project-card__label">External Channel</p>
-            <h3>YouTube</h3>
-            <p>Video teachings, conversations, and visual storytelling.</p>
-            <a href="https://youtube.com/@davidadesina0?si=oQRRDq-_5o9eDQP1" target="_blank" rel="noopener">Open channel</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="hub-section hub-section--contact" id="contact" aria-labelledby="contact-heading">
-      <div class="container">
-        <div class="hub-contact js-fade">
-          <p class="hub-eyebrow">Contact</p>
-          <h2 class="hub-section__title" id="contact-heading">Let Us Connect</h2>
-          <p>
-            For partnerships, speaking invitations, ministry requests, or
-            collaborations, reach out through the contact page.
-          </p>
-          <div class="hub-hero__actions">
-            <a href="contact.html" class="btn btn--hub-primary">Send A Message</a>
-            <a href="about.html" class="btn btn--hub-secondary">Read Full Story</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
+    <section class="atelier-section atelier-letter" id="contact" aria-labelledby="letter-heading"><div class="atelier-section-label js-fade"><span>STAY IN THE CONVERSATION</span><span>A LETTER FROM DAVID</span></div><div class="atelier-letter__inner js-fade"><h2 id="letter-heading">A little clarity.<br /><em>In your inbox.</em></h2><div><p>Revival. Healing. Apologetics. One letter, every week — for the work God is doing in you.</p><a class="atelier-button" href="contact.html#newsletter">Receive the letter <span aria-hidden="true">↗</span></a><span class="atelier-letter__note">No noise. Unsubscribe anytime.</span></div></div></section>
   </main>
-
-  <footer class="footer" aria-label="Site footer">
-    <div class="container">
-      <div class="footer__inner">
-
-        <div>
-          <a href="index.html" class="footer__brand-logo hub-footer__logo" aria-label="David Adesina home">
-            <img src="images/david-adesina-logo.png" alt="David Adesina" class="footer__brand-logo-img hub-footer-logo-img" width="220" height="136" />
-          </a>
-          <p class="footer__tagline">
-            Revival ministry, mind renewal, and next-generation faith storytelling.
-          </p>
-          <nav class="footer__social" aria-label="Social links">
-            <a href="https://youtube.com/@davidadesina0?si=oQRRDq-_5o9eDQP1" class="footer__social-link" aria-label="YouTube" target="_blank" rel="noopener">YT</a>
-            <a href="https://remshield.solutions/" class="footer__social-link" aria-label="Business website" target="_blank" rel="noopener">RS</a>
-            <a href="/gleamshield/" class="footer__social-link" aria-label="Gleamshield">GS</a>
-          </nav>
-        </div>
-
-        <div>
-          <h3 class="footer__col-title">On This Site</h3>
-          <ul class="footer__links" role="list">
-            <li><a href="#about-david" class="footer__link">About David</a></li>
-            <li><a href="#find-your-ink" class="footer__link">Find Your Ink</a></li>
-            <li><a href="#cave-echoes" class="footer__link">Cave Echoes</a></li>
-            <li><a href="blog.html" class="footer__link">Blog</a></li>
-            <li><a href="resources.html" class="footer__link">Resources</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 class="footer__col-title">External</h3>
-          <ul class="footer__links" role="list">
-            <li><a href="https://remshield.solutions/" class="footer__link" target="_blank" rel="noopener">Business Website (Remshield)</a></li>
-            <li><a href="/gleamshield/" class="footer__link">GleamShield Production</a></li>
-            <li><a href="https://youtube.com/@davidadesina0?si=oQRRDq-_5o9eDQP1" class="footer__link" target="_blank" rel="noopener">YouTube Channel</a></li>
-            <li><a href="rss.xml" class="footer__link">RSS Feed</a></li>
-          </ul>
-        </div>
-
-      </div>
-
-      <div class="footer__bottom">
-        <p class="footer__copyright">
-          &copy; <span id="year"></span> David Adesina. All rights reserved.
-        </p>
-        <nav class="footer__bottom-links" aria-label="Legal links">
-          <a href="privacy.html" class="footer__bottom-link">Privacy</a>
-          <a href="terms.html" class="footer__bottom-link">Terms</a>
-        </nav>
-      </div>
-    </div>
-  </footer>
-
+  <footer class="atelier-footer" aria-label="Site footer"><div class="atelier-footer__top"><a href="index.html" class="atelier-footer__name">David Adesina<span>.</span></a><p>Revival first. Minds renewed.<br />A generation awakened.</p></div><div class="atelier-footer__links"><nav aria-label="Explore the website"><a href="about.html">The story</a><a href="blog.html">Find Your Ink</a><a href="#cave-echoes">Cave Echoes</a><a href="gleamshield/">GleamShield</a><a href="resources.html">Resources</a><a href="contact.html">Contact</a></nav><nav aria-label="Elsewhere"><a href="https://youtube.com/@davidadesina0" target="_blank" rel="noopener">YouTube ↗</a><a href="https://remshield.solutions/" target="_blank" rel="noopener">Remshield ↗</a><a href="rss.xml">RSS ↗</a></nav></div><div class="atelier-footer__bottom"><span>© <span id="year"></span> David Adesina</span><span>Rooted in Christ. Written with purpose.</span><nav aria-label="Legal links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="#home" aria-label="Back to top">↑</a></nav></div></footer>
   <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
     <div class="container">
       <div class="cookie-banner__inner">
