@@ -72,6 +72,11 @@ Replace all `{{placeholders}}` with real values.
   <meta property="og:title" content="{{TITLE}}" />
   <meta property="og:description" content="{{META_DESCRIPTION_150_CHARS}}" />
   <meta property="og:image" content="https://davidadesina.com/images/gleamshield/gs-chron-{{SLUG}}.jpg" />
+  <meta property="og:image:secure_url" content="https://davidadesina.com/images/gleamshield/gs-chron-{{SLUG}}.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="{{SHORT_IMAGE_DESCRIPTION}}" />
   <meta property="og:site_name" content="GleamShield Production" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="{{TITLE}}" />
@@ -386,10 +391,10 @@ Use for direct scripture quotes, key statements, or memorable lines from Angel:
 
 ## chronicles.html Card to Add
 
-After building the article file, add a card to `d:/FYI/gleamshield/chronicles.html` inside `<div class="gs-grid gs-grid--2" id="gs-posts">`:
+After building the article file, add a card to `d:/FYI/gleamshield/chronicles.html` inside `<div class="gs-grid gs-grid--2" id="gs-posts">`, **at the end of the grid** (newest last). The `data-date` is required: it is what makes the post "New" for 60 days (see "New Posts" below).
 
 ```html
-<article class="gs-post-card" data-cat="{{DATA_CAT}}">
+<article class="gs-post-card" data-cat="{{DATA_CAT}}" data-date="{{YYYY-MM-DD}}">
   <a href="/gleamshield/chronicles/{{SLUG}}.html" class="gs-post-card__link">
     <div class="gs-post-card__img-wrap">
       <img src="/images/gleamshield/gs-chron-{{SLUG}}.jpg" alt="{{TITLE}}" class="gs-post-card__img" loading="lazy" width="600" height="340" />
@@ -403,6 +408,54 @@ After building the article file, add a card to `d:/FYI/gleamshield/chronicles.ht
   </a>
 </article>
 ```
+
+---
+
+## New Posts (the 60-Day Rule) — automatic
+
+Every new chronicle is shown as **New** for 60 days, then drops out on its own. Nobody removes anything by hand.
+
+How it works (`/js/gleamshield-latest.js`, loaded by `chronicles.html` and `gleamshield/index.html`):
+- It reads the `data-date="YYYY-MM-DD"` on each card in `chronicles.html`. A post is New while it is 60 days old or less.
+- **Chronicles page:** a "New" section sits above the category filters and lists every New post, newest first. New posts also get a gold "New" badge in the main grid. The section hides itself when no post is New, and when a category filter is selected.
+- **GleamShield homepage ("Latest Insights"):** always shows the 3 most recent posts, newest first. Ones still inside 60 days carry the "New" badge.
+- Two posts with the same date: the one whose card comes later in the grid counts as newer. That is why new cards go at the **end** of the grid.
+
+What to do for each new post:
+1. Put `data-date` on its card, set to the publish date (the same date as `datePublished` in the post and `<lastmod>` in the sitemap).
+2. Add the card at the end of `#gs-posts`. Do not touch the "New" section or the homepage grid: the script fills them.
+3. Optional, for visitors whose browser blocks scripts: the three static cards inside `<div class="gs-grid gs-grid--3" id="gs-latest-grid">` in `gleamshield/index.html` are only a fallback. Refresh them to the 3 newest posts when convenient. The script replaces them on every normal visit.
+4. Never use a future `data-date` (it will not show anywhere until that day).
+
+Tested on 2026-11-02: day 0 and day 60 show as New; day 61 does not. Selecting a category filter hides the New section; "All Archives" brings it back.
+
+---
+
+## Images that Share Well (WhatsApp, Facebook, X)
+
+Link previews fail when the image is too heavy or the wrong shape. For every cover image:
+- **1200×630**, baseline (non-progressive) **JPEG**, under about **200 KB** (aim for 100 KB or less). Never use the multi-megabyte originals from an image generator.
+- Filename `gs-chron-{{SLUG}}.jpg`, stored in `d:/FYI/images/gleamshield/`, and committed together with the post so the URL works the moment the page is live.
+- Keep the full set of `og:image` tags from the template (`secure_url`, `type`, `width`, `height`, `alt`).
+- Inline pictures from the author's document: save as `gs-chron-{{SLUG}}-short-name.jpg`, compress to under about 150 KB, and give each a descriptive `alt`.
+- If a screenshot shows a private person's name or photo (for example a social media post), crop that part out and tell David.
+- If WhatsApp still shows no preview after the site is live, clear the cache with Facebook's Sharing Debugger ("Scrape Again").
+
+---
+
+## Research Notes (only when David asks for supporting research)
+
+David sometimes asks for researched support beyond what Angel wrote. Keep her text untouched and add a separate `Research Notes` section **after her last paragraph and before the FAQ**, in a box that says: "Added by GleamShield to support the article. These notes are not part of Angel Kanu's text, and each one links to its source." Rules:
+- Every note links to a source that opens. Check each link, and use only claims the source supports.
+- Prefer primary and scholarly sources (NASA, NOAA, ESA, university and journal pages, the Quran and Hadith sites). Avoid polemical sites as the source.
+- If research contradicts something Angel wrote, do **not** change her words and do not write a note that contradicts her. Tell David so he can ask her.
+- Add `Research Notes` to the table of contents.
+
+---
+
+## Source Documents
+
+Angel's drafts arrive as pasted text or as a `.docx`. A `.docx` in the project folder can be read with Python (`zipfile`): the text is in `word/document.xml`, and pictures are in the `media/` folder. Do not commit the `.docx` (it would be published with the site). `1drv.ms` (OneDrive) links cannot be opened: ask David to paste the text or save the file into the project folder.
 
 ---
 
@@ -442,7 +495,8 @@ Save as: `d:\FYI\images\gleamshield\gs-chron-{{SLUG}}.jpg`
 - [ ] Table of Contents matches actual h2 section ids
 - [ ] FAQ schema in `<head>` matches FAQ section in body
 - [ ] Category (`data-cat`) is correct
-- [ ] Card added to `chronicles.html`
+- [ ] Card added to the **end** of `#gs-posts` in `chronicles.html`, with `data-date="YYYY-MM-DD"` set to the publish date (this makes it New for 60 days)
 - [ ] URL added to `sitemap.xml`
-- [ ] Image filename matches slug
+- [ ] Image filename matches slug; cover is 1200×630 baseline JPEG under about 200 KB
+- [ ] Opened the new post in a browser (or local test server) and confirmed it appears in the "New" section and on the GleamShield homepage
 - [ ] `git add`, `git commit`, `git push` done
