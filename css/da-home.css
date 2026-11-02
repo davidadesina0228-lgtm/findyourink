@@ -193,6 +193,16 @@
 .h-reel__head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px 48px; margin-bottom: clamp(36px, 5vh, 64px); }
 .h-reel__head h2 { margin: 22px 0 0; font: 400 clamp(44px, 6.2vw, 104px)/.95 var(--serif); letter-spacing: -.045em; }
 .h-reel__head h2 em { color: var(--gold-lo); }
+.h-reel__browse { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 32px; }
+.h-reel__controls { display: none; align-items: center; gap: 12px; }
+.reel-ready .h-reel__controls { display: flex; }
+.h-reel__controls button { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 1px solid var(--line-strong); border-radius: 50%; background: transparent; color: var(--text); cursor: pointer; transition: background .25s, color .25s, border-color .25s; }
+.h-reel__controls button svg { width: 18px; height: 18px; }
+.h-reel__controls button:hover:not([aria-disabled="true"]) { background: var(--ink-2); border-color: var(--ink-2); color: var(--bone); }
+.h-reel__controls button[aria-disabled="true"] { opacity: .35; cursor: default; }
+.h-reel__controls button:focus-visible { outline: 2px solid var(--gold-lo); outline-offset: 4px; }
+.h-reel__position { min-width: 46px; text-align: center; font: 500 10px/1 var(--sans); font-variant-numeric: tabular-nums; letter-spacing: .08em; color: var(--text-3); }
+@media (max-width: 899px) { .h-reel__browse { width: 100%; } }
 .h-reel__viewport { overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
 .h-reel__viewport::-webkit-scrollbar { display: none; }
 .h-reel__track { display: flex; align-items: flex-start; gap: clamp(22px, 3vw, 52px); width: max-content; margin: 0; padding: 18px var(--gutter) 30px; list-style: none; }
@@ -224,6 +234,7 @@
   .sda .h-reel { height: 320vh; view-timeline: --reel block; }
   .sda .h-reel__pin { position: sticky; top: 0; height: 100svh; display: flex; flex-direction: column; justify-content: center; overflow: hidden; padding: var(--nav-h) 0 0; }
   .sda .h-reel__viewport { overflow: visible; }
+  .sda .h-reel__controls { display: none; }
   .sda .h-reel__track { animation: reel-slide linear both; animation-timeline: --reel; animation-range: contain 4% contain 96%; will-change: transform; }
 }
 

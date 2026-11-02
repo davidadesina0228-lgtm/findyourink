@@ -12,6 +12,21 @@
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
   const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
   const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
+  const pauseKey = 'da_motion_paused';
+  let userPaused = false;
+  try { userPaused = localStorage.getItem(pauseKey) === 'true'; } catch { /* Motion controls still work without storage. */ }
+  const isMotionPaused = () => userPaused || reduce.matches;
+  const motionListeners = [];
+  root.classList.toggle('motion-paused', isMotionPaused());
+
+  const atmosphereHost = document.querySelector('[data-atmosphere]');
+  let motionControl = null;
+  if (atmosphereHost) {
+    motionControl = document.createElement('button');
+    motionControl.type = 'button';
+    motionControl.className = 'motion-control';
+    atmosphereHost.append(motionControl);
+  }
 
   /* ---------- Word splitting (keeps <em>, <br>, links intact) ---------- */
   function splitWords(el, wrapClass) {
@@ -138,7 +153,7 @@
   const revealTargets = () => $$('[data-reveal], [data-lines], [data-split], [data-observe]').filter((el) => !el.classList.contains('is-in'));
   const showAll = () => revealTargets().forEach((el) => el.classList.add('is-in'));
 
-  if (reduce.matches || !('IntersectionObserver' in window)) {
+  if (isMotionPaused() || !('IntersectionObserver' in window)) {
     showAll();
   } else {
     const io = new IntersectionObserver((entries) => {
@@ -157,7 +172,6 @@
       const hidden = e.target.closest('[data-reveal]:not(.is-in), [data-lines]:not(.is-in), [data-split]:not(.is-in)');
       if (hidden) hidden.classList.add('is-in');
     });
-    reduce.addEventListener('change', (e) => { if (e.matches) showAll(); });
   }
 
   /* ---------- Scroll-lit words ---------- */
@@ -166,7 +180,7 @@
     words.forEach((w) => { if (w.closest('em')) w.classList.add('gold'); });
     return { el, words, lit: 0, r: null };
   });
-  if (reduce.matches) scrubs.forEach((s) => s.words.forEach((w) => w.classList.add('on')));
+  if (isMotionPaused()) scrubs.forEach((s) => s.words.forEach((w) => w.classList.add('on')));
 
   /* ---------- Scroll-linked effects ----------
      Smoothness rules: every frame reads all positions first and writes after,
@@ -174,7 +188,7 @@
      are touched. Where the browser supports scroll-driven animations (html.sda)
      parallax and the stacked panels run in CSS on the compositor instead. */
   const scrollDriven = !!(window.CSS && CSS.supports('animation-timeline: view()') && CSS.supports('timeline-scope: --a'));
-  if (scrollDriven) root.classList.add('sda');
+  if (scrollDriven && !isMotionPaused()) root.classList.add('sda');
 
   const header = document.querySelector('[data-autohide]');
   const toggles = $$('.nav__toggle, .gs-nav__hamburger');
@@ -185,6 +199,11 @@
   // A class, not a CSS variable: a variable on <html> would restyle every element on the
   // page each time the header moves; a class only touches rules that name it (.journal-bar).
   const syncNavOffset = () => { root.classList.toggle('da-nav-hidden', navHidden); };
+  header?.addEventListener('focusin', () => {
+    navHidden = false;
+    header.classList.remove('is-hidden');
+    syncNavOffset();
+  });
 
   const parallax = $$('[data-parallax]').map((el) => {
     const speed = parseFloat(el.dataset.parallax) || 0.15;
@@ -216,7 +235,7 @@
     lastY = y;
     velocity = velocity * 0.82 + Math.abs(dy) * 0.18;
     const vh = innerHeight;
-    const live = !reduce.matches;
+    const live = !isMotionPaused();
     const jsParallax = live && !scrollDriven;
     const jsStack = live && !scrollDriven && desktopStack.matches;
 
@@ -228,7 +247,8 @@
     // 2 — Write.
     if (header && !menuOpen()) {
       let hidden = navHidden;
-      if (dy > 4 && y > Math.max(navH * 4, 360)) hidden = true;
+      if (header.contains(document.activeElement)) hidden = false;
+      else if (dy > 4 && y > Math.max(navH * 4, 360)) hidden = true;
       else if (dy < -4 || y < navH * 2) hidden = false;
       if (hidden !== navHidden) {
         navHidden = hidden;
@@ -291,40 +311,53 @@
 
   /* ---------- Blog hero: drop the noise filter once the ink has settled ---------- */
   const settle = document.querySelector('.ink-word__text');
-  if (settle) setTimeout(() => settle.classList.add('is-settled'), reduce.matches ? 0 : 3300);
+  if (settle) setTimeout(() => settle.classList.add('is-settled'), isMotionPaused() ? 0 : 3300);
 
   /* ---------- Magnetic buttons & tilt cards (fine pointers only) ---------- */
-  if (finePointer.matches && !reduce.matches) {
+  if (finePointer.matches) {
     // Depth: layers inside [data-depth-host] drift with the pointer, each by its own amount.
     $$('[data-depth-host]').forEach((host) => {
       const layers = $$('[data-depth]', host).map((el) => ({ el, d: parseFloat(el.dataset.depth) || 10 }));
       let tx = 0, ty = 0, x = 0, y = 0, raf = 0;
       const step = () => {
+        raf = 0;
+        if (isMotionPaused()) return;
         x += (tx - x) * 0.07; y += (ty - y) * 0.07;
         layers.forEach((l) => { l.el.style.translate = `${(x * l.d).toFixed(2)}px ${(y * l.d).toFixed(2)}px`; });
         raf = Math.abs(tx - x) + Math.abs(ty - y) > 0.002 ? requestAnimationFrame(step) : 0;
       };
       host.addEventListener('pointermove', (e) => {
+        if (isMotionPaused()) return;
         const r = host.getBoundingClientRect();
         tx = (e.clientX - r.left) / r.width - 0.5;
         ty = (e.clientY - r.top) / r.height - 0.5;
         if (!raf) raf = requestAnimationFrame(step);
       }, { passive: true });
-      host.addEventListener('pointerleave', () => { tx = 0; ty = 0; if (!raf) raf = requestAnimationFrame(step); });
+      host.addEventListener('pointerleave', () => { tx = 0; ty = 0; if (!raf && !isMotionPaused()) raf = requestAnimationFrame(step); });
+      motionListeners.push((paused) => {
+        if (!paused) return;
+        if (raf) cancelAnimationFrame(raf);
+        raf = 0;
+        tx = ty = x = y = 0;
+        layers.forEach((layer) => { layer.el.style.translate = ''; });
+      });
     });
     $$('[data-magnetic]').forEach((el) => {
       const strength = parseFloat(el.dataset.magnetic) || 0.28;
       el.addEventListener('pointermove', (e) => {
+        if (isMotionPaused()) return;
         const r = el.getBoundingClientRect();
         const x = (e.clientX - r.left - r.width / 2) * strength;
         const y = (e.clientY - r.top - r.height / 2) * strength;
         el.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0)`;
       });
       el.addEventListener('pointerleave', () => { el.style.transform = ''; });
+      motionListeners.push((paused) => { if (paused) el.style.transform = ''; });
     });
     $$('[data-tilt]').forEach((el) => {
       const max = parseFloat(el.dataset.tilt) || 8;
       el.addEventListener('pointermove', (e) => {
+        if (isMotionPaused()) return;
         const r = el.getBoundingClientRect();
         const px = (e.clientX - r.left) / r.width - 0.5;
         const py = (e.clientY - r.top) / r.height - 0.5;
@@ -334,6 +367,9 @@
         el.style.setProperty('--my', `${((py + 0.5) * 100).toFixed(1)}%`);
       });
       el.addEventListener('pointerleave', () => { el.style.setProperty('--rx', '0deg'); el.style.setProperty('--ry', '0deg'); });
+      motionListeners.push((paused) => {
+        if (paused) ['--rx', '--ry', '--mx', '--my'].forEach((property) => el.style.removeProperty(property));
+      });
     });
   }
 
@@ -345,9 +381,10 @@
         if (!isIntersecting) return;
         co.unobserve(target);
         const end = parseFloat(target.dataset.count);
-        if (reduce.matches) { target.textContent = end; return; }
+        if (isMotionPaused()) { target.textContent = end; return; }
         const t0 = performance.now();
         const step = (t) => {
+          if (isMotionPaused()) { target.textContent = end; return; }
           const k = clamp((t - t0) / 1600, 0, 1);
           target.textContent = Math.round(end * (1 - Math.pow(1 - k, 4)));
           if (k < 1) requestAnimationFrame(step);
@@ -360,20 +397,76 @@
 
   /* ---------- Film timecode (GleamShield viewfinder) ---------- */
   $$('[data-timecode]').forEach((el) => {
-    if (reduce.matches) return;
-    const start = performance.now();
+    let elapsed = 0, lastTick = 0, timer = 0;
     const pad = (n) => String(n).padStart(2, '0');
     const tick = () => {
-      if (!el.isConnected) return;
+      timer = 0;
+      if (!el.isConnected || isMotionPaused() || document.hidden) { lastTick = 0; return; }
       // Off-screen or in a background tab: check back later instead of re-laying out text 24×/s.
-      if (document.hidden || el.closest('.is-asleep')) { setTimeout(tick, 500); return; }
-      const t = (performance.now() - start) / 1000;
+      if (el.closest('.is-asleep')) { lastTick = 0; timer = setTimeout(tick, 500); return; }
+      const now = performance.now();
+      if (lastTick) elapsed += (now - lastTick) / 1000;
+      lastTick = now;
+      const t = elapsed;
       const f = Math.floor((t % 1) * 24);
       el.textContent = `00:${pad(Math.floor(t / 60) % 60)}:${pad(Math.floor(t) % 60)}:${pad(f)}`;
-      setTimeout(tick, 1000 / 24);
+      timer = setTimeout(tick, 1000 / 24);
     };
-    tick();
+    const sync = (paused) => {
+      if (timer) clearTimeout(timer);
+      timer = 0;
+      lastTick = 0;
+      if (!paused && !document.hidden) tick();
+    };
+    motionListeners.push(sync);
+    document.addEventListener('visibilitychange', () => sync(isMotionPaused()));
   });
+
+  function syncMotion() {
+    const paused = isMotionPaused();
+    root.classList.toggle('motion-paused', paused);
+    root.classList.toggle('sda', scrollDriven && !paused);
+    if (motionControl) {
+      motionControl.textContent = reduce.matches ? 'Reduced motion' : paused ? 'Resume motion' : 'Pause motion';
+      motionControl.setAttribute('aria-pressed', String(paused));
+      motionControl.disabled = reduce.matches;
+      if (reduce.matches) {
+        motionControl.setAttribute('aria-label', 'Reduced motion is enabled in your device settings');
+        motionControl.title = 'Your device is set to reduce motion.';
+      } else {
+        motionControl.removeAttribute('aria-label');
+        motionControl.removeAttribute('title');
+      }
+    }
+    if (paused) {
+      showAll();
+      resetStacks();
+      parallax.forEach((item) => { item.last = null; item.el.style.translate = ''; });
+      scrubs.forEach((item) => {
+        item.words.forEach((word) => word.classList.add('on'));
+        item.lit = item.words.length;
+      });
+      settle?.classList.add('is-settled');
+      velocity = 0;
+    }
+    motionListeners.forEach((listener) => listener(paused));
+    lastY = scrollY;
+    request();
+    document.dispatchEvent(new CustomEvent('site:motion-change', { detail: { paused } }));
+  }
+  motionControl?.addEventListener('click', () => {
+    if (reduce.matches) return;
+    userPaused = !userPaused;
+    try { localStorage.setItem(pauseKey, String(userPaused)); } catch { /* Preference remains active for this page. */ }
+    syncMotion();
+  });
+  reduce.addEventListener('change', syncMotion);
+  window.addEventListener('storage', (event) => {
+    if (event.key !== pauseKey) return;
+    userPaused = event.newValue === 'true';
+    syncMotion();
+  });
+  syncMotion();
 
   const year = document.getElementById('year');
   if (year && !year.textContent) year.textContent = new Date().getFullYear();

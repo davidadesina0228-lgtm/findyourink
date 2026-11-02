@@ -13,7 +13,7 @@
   <meta name="google-site-verification" content="q4WLY516JCjVJiltjmmFL3KnG31K6yo4xnxm3GVDMcA" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>David Adesina — Faith, Healing &amp; Mind Renewal</title>
-  <script>document.documentElement.classList.add('js')</script>
+  <script>document.documentElement.classList.add('js');try{if(localStorage.getItem('da_motion_paused')==='true')document.documentElement.classList.add('motion-paused')}catch(e){}</script>
 
   <meta name="description" content="Official website of David Adesina — revival ministry (Cave Echoes), faith-based writing (Find Your Ink), and cinematic faith storytelling (GleamShield Production)." />
   <meta name="author" content="David Adesina" />
@@ -41,6 +41,7 @@
   <link rel="preload" as="image" href="images/cinema/david-gold.webp" fetchpriority="high" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/da.css" />
+  <link rel="stylesheet" href="css/motion-controls.css" />
   <link rel="stylesheet" href="css/da-home.css" />
 
   <meta name="google-adsense-account" content="ca-pub-6207125181553910" />
@@ -235,9 +236,16 @@
               <span class="line"><span><em>happening within.</em></span></span>
             </h2>
           </div>
-          <a class="da-link" href="blog.html">Every essay <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></a>
+          <div class="h-reel__browse">
+            <a class="da-link" href="blog.html">Every essay <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></a>
+            <div class="h-reel__controls" role="group" aria-label="Browse latest essays">
+              <button type="button" data-reel-prev aria-label="Previous essays" aria-controls="essay-reel" aria-disabled="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="m9 4-6 6 6 6M3 10h14"/></svg></button>
+              <span class="h-reel__position" aria-hidden="true">01 / 07</span>
+              <button type="button" data-reel-next aria-label="Next essays" aria-controls="essay-reel" aria-disabled="false"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="m11 4 6 6-6 6M3 10h14"/></svg></button>
+            </div>
+          </div>
         </header>
-        <div class="h-reel__viewport">
+        <div class="h-reel__viewport" id="essay-reel">
           <ol class="h-reel__track">
             <li style="--tilt:-2.5deg"><a class="h-print" href="blog/revival-healing-and-defense-of-faith.html">
               <span class="h-print__frame"><span class="card__plate" data-plate data-slug="revival-healing-and-defense-of-faith" data-cat="spiritual-formation" aria-hidden="true"></span><span class="h-print__no" aria-hidden="true">Nº 50</span></span>
@@ -441,6 +449,7 @@
   <script src="js/ink.js" defer></script>
   <script src="js/motion.js" defer></script>
   <script src="js/atmosphere.js" defer></script>
+  <script src="js/essay-reel.js" defer></script>
 
 <!-- Newsletter Popup -->
 <style>

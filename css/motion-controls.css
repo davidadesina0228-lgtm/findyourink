@@ -1,0 +1,70 @@
+/* Shared motion preference: a quiet label-style control that sits in each hero's own
+   label row, so it reads as part of the design (a pause, like a film's). 44px tall to tap. */
+.motion-control {
+  position: absolute; z-index: 10;
+  display: inline-flex; align-items: center; gap: 10px;
+  min-height: 44px; padding: 0; border: 0; background: none;
+  color: var(--on-dark-2, rgba(242,235,221,.72));
+  font: 600 10.5px/1 var(--sans, var(--gs-font-body, sans-serif));
+  letter-spacing: .22em; text-transform: uppercase; white-space: nowrap;
+  cursor: pointer; transition: color .25s;
+}
+.motion-control::before {
+  content: ''; box-sizing: border-box; flex: none; width: 7px; height: 9px;
+  border-left: 2px solid currentColor; border-right: 2px solid currentColor;
+}
+.motion-control[aria-pressed="true"]::before {
+  width: 0; height: 0; border: 5px solid transparent;
+  border-left: 7px solid currentColor; border-right: 0;
+}
+.motion-control:hover { color: var(--gold-hi, #e8cf94); }
+.motion-control:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; border-radius: 2px; }
+.motion-control:disabled { cursor: default; }
+.motion-control:disabled::before { width: 7px; height: 7px; border: 1px solid currentColor; border-radius: 50%; }
+
+/* Homepage: on the bottom row, aligned to the right-hand column, level with "Scroll". */
+.hx > .motion-control { left: calc(var(--vb) + 28px); bottom: 30px; animation: hx-up 1.2s 1.6s var(--ease-out, ease) backwards; }
+/* Journal: a caption under the spinning seal it pauses; top-right on phones. */
+.ink-hero > .motion-control { right: var(--gutter); top: calc(var(--nav-h) + 214px); width: 132px; justify-content: center; color: var(--text-3); }
+.ink-hero > .motion-control:hover { color: var(--gold-lo); }
+/* GleamShield: under the timecode, like a camera's transport control. */
+.gx-hero > .motion-control, .gx-chron-hero > .motion-control { color: var(--gx-text, #f1ece2); font-family: var(--gs-font-body, sans-serif); text-shadow: 0 1px 10px rgba(0,0,0,.75), 0 0 2px rgba(0,0,0,.6); }
+.gx-hero > .motion-control:hover, .gx-chron-hero > .motion-control:hover { color: var(--gx-gold, #d8b26a); }
+.gx-hero > .motion-control { right: calc(var(--gx-gutter) + 40px); top: 140px; }
+.gx-chron-hero > .motion-control { right: var(--gx-gutter); top: 104px; }
+@media (max-width: 899px) {
+  .hx > .motion-control { left: var(--gutter); bottom: 14px; }
+  .ink-hero > .motion-control { top: calc(var(--nav-h) + 16px); width: auto; }
+  .gx-hero > .motion-control { right: var(--gx-gutter); top: 130px; }
+}
+
+/* Hold ambient loops. Entrance sequences resolve to their readable final states. */
+.motion-paused, .motion-paused * { scroll-behavior: auto !important; }
+/* Paused works like the device's "reduce motion": every entrance lands on its finished,
+   readable state at once and every loop comes to rest. (Freezing animations in place
+   would strand anything that starts invisible.) */
+.motion-paused *, .motion-paused *::before, .motion-paused *::after {
+  animation-duration: .01ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important;
+  transition-duration: .01ms !important; transition-delay: 0s !important;
+}
+.motion-paused :is([data-reveal], [data-lines] .line > span, [data-split] .w > span, .final-words p) {
+  opacity: 1 !important; transform: none !important;
+}
+.motion-paused :is(.motion-control, .hx__line > span, .hx__index, .hx__star, .hx__roles, .hx__side, .hx__mark, .hx__polaroid, .hx__scroll, .da-home .da-nav__bar > *) {
+  animation: none !important;
+}
+.motion-paused :is(.hx .atmo-canvas, .hx__portrait img, .hx__grid i) {
+  animation: none !important; opacity: 1; transform: none;
+}
+.motion-paused .hx__portrait img { opacity: .96; }
+.motion-paused .front__inner { transform: none !important; }
+.motion-paused .front__shade { opacity: 0 !important; }
+.motion-paused .ink-word__swash path { stroke-dashoffset: 0 !important; }
+.motion-paused .ink-word__text { filter: none !important; }
+.motion-paused .gx-letterbox::before, .motion-paused .gx-letterbox::after { display: none; }
+.motion-paused :is(.gx-viewfinder, .gx-slate, .gx-presents, .gx-hero__sub, .gx-hero__actions, .gx-hero__foot, .gx-hero__card) {
+  animation: none !important; opacity: 1; transform: none;
+}
+.motion-paused .gx-hero__plate img { opacity: 1 !important; filter: none !important; }
+.motion-paused::view-transition-old(root), .motion-paused::view-transition-new(root) { animation: none !important; }
+@media print { .motion-control, .h-reel__controls { display: none !important; } }

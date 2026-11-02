@@ -12,6 +12,7 @@
   const hosts = [...document.querySelectorAll('[data-atmosphere]')];
   if (!hosts.length) return;
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const isPaused = () => reduce.matches || document.documentElement.classList.contains('motion-paused');
   const coarse = window.matchMedia('(pointer: coarse)').matches;
   const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
 
@@ -72,7 +73,7 @@ void main(){
       uM = gl.getUniformLocation(prog, 'u_m');
       uF = gl.getUniformLocation(prog, 'u_focus');
       ready = true;
-      if (reduce.matches) scene.draw(12); // reduced motion: one still frame
+      if (isPaused()) scene.draw(0); // Paused on entry: render one still frame.
     };
     const poll = () => {
       if (gl.isContextLost()) return;
@@ -82,7 +83,7 @@ void main(){
     const focus = parseFloat(host.dataset.focus || '0.66');
     let mx = 0.5, my = 0.5, tx = 0.5, ty = 0.5;
     host.addEventListener('pointermove', (e) => {
-      if (e.pointerType === 'touch') return;
+      if (e.pointerType === 'touch' || isPaused()) return;
       const r = host.getBoundingClientRect();
       tx = (e.clientX - r.left) / r.width; ty = (e.clientY - r.top) / r.height;
     }, { passive: true });
@@ -139,12 +140,13 @@ void main(){
     const black = [1, 2, 3, 4, 5, 6].map((i) => blotSprite(i, '20,18,14'));
     const gold = [7, 8, 9].map((i) => blotSprite(i, '168,129,56'));
     const blooms = [];
-    let last = 0, px = -1, py = -1;
+    let last = 0, px = -1, py = -1, inkTime = 0;
     const add = (x, y, big, isGold) => {
-      blooms.push({ x, y, born: performance.now(), r: (big ? 90 : 34) + Math.random() * (big ? 120 : 46), life: big ? 9000 : 5200, s: (isGold ? gold : black)[Math.floor(Math.random() * 3)], rot: Math.random() * 6.28, a: isGold ? 0.38 : 0.14 + Math.random() * 0.1 });
+      blooms.push({ x, y, born: inkTime, r: (big ? 90 : 34) + Math.random() * (big ? 120 : 46), life: big ? 9000 : 5200, s: (isGold ? gold : black)[Math.floor(Math.random() * 3)], rot: Math.random() * 6.28, a: isGold ? 0.38 : 0.14 + Math.random() * 0.1 });
       if (blooms.length > 140) blooms.shift();
     };
     host.addEventListener('pointermove', (e) => {
+      if (isPaused()) return;
       const now = performance.now();
       const r = host.getBoundingClientRect();
       const x = e.clientX - r.left, y = e.clientY - r.top;
@@ -153,6 +155,7 @@ void main(){
       add(x * scaleX, y * scaleY, false, Math.random() < 0.06);
     }, { passive: true });
     host.addEventListener('pointerdown', (e) => {
+      if (isPaused()) return;
       const r = host.getBoundingClientRect();
       add((e.clientX - r.left) * scaleX, (e.clientY - r.top) * scaleY, true, Math.random() < 0.3);
     }, { passive: true });
@@ -162,6 +165,7 @@ void main(){
       fps: 30,
       resize(w, h, cw, ch) { scaleX = cw / w; scaleY = ch / h; },
       draw(t, now) {
+        inkTime = now;
         const w = canvas.width, h = canvas.height;
         ctx.clearRect(0, 0, w, h);
         if (now > nextDrop) {
@@ -288,23 +292,25 @@ void main(){
     if (s.canvas.width !== w || s.canvas.height !== h) {
       s.canvas.width = w; s.canvas.height = h;
       s.scene.resize?.(r.width, r.height, w, h);
-      if (reduce.matches) still(s);
+      if (isPaused()) still(s);
     }
   }
   function still(s) {
     if (s.scene.staticFrame) s.scene.staticFrame();
-    else s.scene.draw(12, performance.now());
+    else s.scene.draw(elapsed / 1000, elapsed);
   }
 
   let raf = 0;
-  const t0 = performance.now();
+  let elapsed = 0, lastFrameTime = 0;
   // While the reader is actively scrolling, scenes give the GPU back to the scroll:
   // the heavy shader holds its frame, the particle scenes drop to a gentle 20fps.
   let lastScroll = -1e9;
   addEventListener('scroll', () => { lastScroll = performance.now(); }, { passive: true });
   function loop(now) {
     raf = 0;
-    if (document.hidden || reduce.matches) return;
+    if (document.hidden || isPaused()) { lastFrameTime = 0; return; }
+    if (lastFrameTime) elapsed += clamp(now - lastFrameTime, 0, 80);
+    lastFrameTime = now;
     const scrolling = now - lastScroll < 140;
     let any = false;
     scenes.forEach((s) => {
@@ -314,14 +320,27 @@ void main(){
       const fps = scrolling ? Math.min(s.scene.fps, 20) : s.scene.fps;
       if (now - s.lastDraw < 1000 / fps) return;
       s.lastDraw = now;
-      s.scene.draw((now - t0) / 1000, now);
+      s.scene.draw(elapsed / 1000, elapsed);
     });
     if (any) raf = requestAnimationFrame(loop);
+    else lastFrameTime = 0;
   }
-  const kick = () => { if (!raf && !reduce.matches) raf = requestAnimationFrame(loop); };
+  const kick = () => {
+    if (!raf && !isPaused() && !document.hidden) {
+      lastFrameTime = 0;
+      raf = requestAnimationFrame(loop);
+    }
+  };
+  const syncMotion = () => {
+    if (raf) cancelAnimationFrame(raf);
+    raf = 0;
+    lastFrameTime = 0;
+    // Pausing holds the current canvas. Only initialization/resize needs a still.
+    if (!isPaused()) kick();
+  };
 
   scenes.forEach(size);
-  if (reduce.matches) scenes.forEach(still);
+  if (isPaused()) scenes.forEach(still);
 
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e) => { const s = scenes.find((x) => x.host === e.target); if (s) s.visible = e.isIntersecting; });
@@ -332,6 +351,7 @@ void main(){
     const ro = new ResizeObserver(() => { scenes.forEach(size); kick(); });
     scenes.forEach((s) => ro.observe(s.host));
   } else addEventListener('resize', () => { scenes.forEach(size); kick(); });
-  document.addEventListener('visibilitychange', kick);
-  reduce.addEventListener('change', () => { if (reduce.matches) scenes.forEach(still); else kick(); });
+  document.addEventListener('visibilitychange', syncMotion);
+  document.addEventListener('site:motion-change', syncMotion);
+  reduce.addEventListener('change', syncMotion);
 })();

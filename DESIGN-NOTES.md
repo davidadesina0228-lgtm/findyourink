@@ -28,6 +28,13 @@ Static site, no build step, no new dependencies. Preview from this folder:
 
 All motion respects `prefers-reduced-motion`. Cross-page fades use the View Transitions API where supported.
 
+## Visitor controls
+- The opening atmosphere scene includes a **Pause motion / Resume motion** control, styled as a small label and placed in each hero's own label row. The choice is saved as `da_motion_paused`; a device's reduced-motion preference takes priority and updates immediately when changed.
+- Each page's inline head script applies a saved pause before first paint (`html.motion-paused`), so nothing starts and then stops.
+- `css/motion-controls.css` is linked from every page, directly after `da.css` or `gs-luxe.css`. New pages copied from an existing one inherit both. Pausing works like reduced motion: entrances land on their finished state, loops come to rest, and the homepage reel switches to native horizontal scrolling. Canvas scenes and the film timecode resume without counting the paused time.
+- `js/essay-reel.js` adds previous/next controls and a position indicator to the swipeable reel on phones and in the desktop fallback. The regular desktop scroll animation is retained.
+- Auto-hiding navigation reveals itself when a link receives keyboard focus and stays visible while focus remains inside it.
+
 ## Adding a new essay
 Copy any `blog/*.html` file. The header, menu and footer markup is shared. The hero plate is
 `<span class="da-plate" data-plate data-variant="dark" data-slug="SLUG" data-cat="CATEGORY" data-no="N">`.
