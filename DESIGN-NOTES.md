@@ -14,6 +14,11 @@ Static site, no build step, no new dependencies. Preview from this folder:
 - Dusk, gold and ember from the Zenithia skyline, with Abimifoluwa's teal as the cool accent.
 - Cinzel for title cards, Cormorant Garamond for voice, Sora for body.
 
+## Homepage
+- **Hero (`.hx`)**: an editorial frame. Thin grid lines (`--va`, `--vb`, `--hz` set the two columns and the horizontal line); a light Inter Tight + italic Playfair headline; the gold portrait screen-blended over the live gold smoke; a Cave Echoes polaroid with a Caveat caption; a faint "Adesina" watermark behind the portrait. It enters as one CSS sequence. On scroll-out (scroll-driven) the portrait, headline, watermark and polaroid drift apart. On desktop, `[data-depth]` layers follow the pointer.
+- **Journal reel (`.h-reel`)**: on desktop with scroll-driven animations the section pins and the prints slide sideways. Elsewhere it's a swipeable row.
+- Then the manifesto, the three stacked fronts and the closing verse.
+
 ## Scripts
 - `js/main.js` (unchanged role): menu, search and filters, cookies, reading progress.
 - `js/motion.js`: everything driven by data attributes (`data-reveal`, `data-lines`, `data-split`, `data-scrub`, `data-parallax`, `data-magnetic`, `data-tilt`, `data-stack`, `data-count`, `data-timecode`, `data-autohide`). It also adds the essay chapter rail and "Share this line" on blockquotes.
@@ -28,6 +33,8 @@ Copy any `blog/*.html` file. The header, menu and footer markup is shared. The h
 `<span class="da-plate" data-plate data-variant="dark" data-slug="SLUG" data-cat="CATEGORY" data-no="N">`.
 `N` is the next plate number in date order (the newest essay currently holds Nº 50). In `blog.html`, give the new card
 `<span class="card__plate" data-plate data-no="N" aria-hidden="true"></span>` in place of an image.
+
+On the homepage, the journal reel (`#latest` in `index.html`) shows the six newest essays by hand. Add the new essay as the first `<li>`, remove the last one, and keep the handwritten `Nº`.
 
 Then run `node scripts/make-images.mjs --only=SLUG` (or no flag to redo everything). It bakes:
 - `images/plates/SLUG.jpg`: the card plate. Archive cards load this image instead of drawing SVG filters live. Until it exists, the card draws the plate live, so nothing breaks.

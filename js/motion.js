@@ -282,7 +282,7 @@
 
   /* ---------- Endless loops sleep while off-screen ---------- */
   if ('IntersectionObserver' in window) {
-    const sleepers = $$('.gilded, .gx-shine, .da-dot, .h-hero__seal, .ink-hero__seal, .h-hero__scroll, .ink-hero__drop, .gx-hero__rays, .gx-hero__foot, .gx-slate, .gx-status, .gx-book__cover, .da-marquee, .gs-marquee');
+    const sleepers = $$('.gilded, .gx-shine, .da-dot, .hx__portrait, .hx__scroll, .ink-hero__seal, .ink-hero__drop, .gx-hero__rays, .gx-hero__foot, .gx-slate, .gx-status, .gx-book__cover, .da-marquee, .gs-marquee');
     const so = new IntersectionObserver((entries) => {
       entries.forEach(({ target, isIntersecting }) => target.classList.toggle('is-asleep', !isIntersecting));
     }, { rootMargin: '120px 0px' });
@@ -295,6 +295,23 @@
 
   /* ---------- Magnetic buttons & tilt cards (fine pointers only) ---------- */
   if (finePointer.matches && !reduce.matches) {
+    // Depth: layers inside [data-depth-host] drift with the pointer, each by its own amount.
+    $$('[data-depth-host]').forEach((host) => {
+      const layers = $$('[data-depth]', host).map((el) => ({ el, d: parseFloat(el.dataset.depth) || 10 }));
+      let tx = 0, ty = 0, x = 0, y = 0, raf = 0;
+      const step = () => {
+        x += (tx - x) * 0.07; y += (ty - y) * 0.07;
+        layers.forEach((l) => { l.el.style.translate = `${(x * l.d).toFixed(2)}px ${(y * l.d).toFixed(2)}px`; });
+        raf = Math.abs(tx - x) + Math.abs(ty - y) > 0.002 ? requestAnimationFrame(step) : 0;
+      };
+      host.addEventListener('pointermove', (e) => {
+        const r = host.getBoundingClientRect();
+        tx = (e.clientX - r.left) / r.width - 0.5;
+        ty = (e.clientY - r.top) / r.height - 0.5;
+        if (!raf) raf = requestAnimationFrame(step);
+      }, { passive: true });
+      host.addEventListener('pointerleave', () => { tx = 0; ty = 0; if (!raf) raf = requestAnimationFrame(step); });
+    });
     $$('[data-magnetic]').forEach((el) => {
       const strength = parseFloat(el.dataset.magnetic) || 0.28;
       el.addEventListener('pointermove', (e) => {

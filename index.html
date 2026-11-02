@@ -37,7 +37,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Inter+Tight:wght@300;400&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Caveat:wght@500&display=swap" rel="stylesheet" />
   <link rel="preload" as="image" href="images/cinema/david-gold.webp" fetchpriority="high" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/da.css" />
@@ -151,39 +151,48 @@
 
   <main id="main">
 
-    <!-- HERO -->
-    <section class="h-hero" id="home" aria-labelledby="hero-heading" data-atmosphere="gold" data-focus="0.7">
+    <!-- HERO — an editorial frame: grid lines, mixed type, a polaroid and a watermark over living gold smoke -->
+    <section class="hx" id="home" aria-labelledby="hero-heading" data-atmosphere="gold" data-focus="0.6" data-depth-host>
       <canvas class="atmo-canvas" aria-hidden="true"></canvas>
-      <div class="h-hero__portrait" aria-hidden="true">
-        <img src="images/cinema/david-gold.webp" alt="" width="720" height="1060" fetchpriority="high" decoding="async" />
+
+      <div class="hx__mark" aria-hidden="true"><span data-depth="-10">Adesina</span></div>
+      <div class="hx__portrait" aria-hidden="true">
+        <div data-depth="14"><img src="images/cinema/david-gold.webp" alt="" width="720" height="1060" fetchpriority="high" decoding="async" /></div>
       </div>
-      <div class="h-hero__veil" aria-hidden="true"></div>
-      <div class="h-hero__flash" aria-hidden="true"></div>
+      <div class="hx__veil" aria-hidden="true"></div>
 
-      <div class="h-hero__frame"><span>The work of David Adesina</span><span>Revivalist · Writer · Apologist</span><span>Est. in the secret place</span></div>
+      <div class="hx__grid" aria-hidden="true"><i class="hx__rule"></i><i class="hx__v hx__v--a"></i><i class="hx__v hx__v--b"></i><i class="hx__h"></i></div>
 
-      <div class="h-hero__content">
-        <p class="h-hero__eyebrow"><span class="da-dot" aria-hidden="true"></span> From the secret place. Into the world.</p>
-        <h1 class="h-hero__title" id="hero-heading" data-lines>
-          <span class="line"><span>Revival first.</span></span>
-          <span class="line"><span>Minds <em class="gilded">renewed.</em></span></span>
+      <p class="hx__index" aria-hidden="true"><span>Nº 01</span><span>The work of David Adesina</span></p>
+
+      <div class="hx__headline">
+        <h1 class="hx__title" id="hero-heading">
+          <span class="hx__line"><span>Revival</span></span>
+          <span class="hx__line"><span>first.</span></span>
+          <span class="hx__line hx__line--serif"><span><em>Minds renewed.</em></span></span>
         </h1>
-        <p class="h-hero__sub">A generation awakened.</p>
-        <div class="h-hero__actions">
-          <a class="da-btn da-btn--gold" href="blog.html" data-magnetic=".22">Read the journal <span class="da-btn__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span></a>
-          <a class="da-link" href="about.html">My story <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></a>
+      </div>
+
+      <p class="hx__star"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0Z"/></svg>From the secret place.<br />Into the world.</p>
+
+      <div class="hx__side">
+        <p>I’m David. I write, preach, and create for the places where faith meets real life.</p>
+        <div class="hx__cta">
+          <a class="hx__pill" href="blog.html" data-magnetic=".18">Read the journal</a>
+          <a class="hx__round" href="about.html" aria-label="My story" data-magnetic=".3"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></a>
         </div>
       </div>
 
-      <div class="h-hero__seal" aria-hidden="true">
-        <svg viewBox="0 0 120 120"><defs><path id="seal-path" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0" /></defs><text><textPath href="#seal-path">REVIVAL · HEALING · TRUTH · REVIVAL · </textPath></text></svg>
-        <span>✳</span>
-      </div>
+      <p class="hx__roles"><span>Revivalist</span><span>Writer</span><span>Apologist</span></p>
 
-      <div class="h-hero__bottom">
-        <p class="h-hero__intro"><b>01 /</b> I’m David. I write, preach, and create for the places where faith meets real life.</p>
-        <a href="#story" class="h-hero__scroll"><span>Scroll</span><i aria-hidden="true"></i></a>
-      </div>
+      <a class="hx__polaroid" href="#cave-echoes" aria-label="Cave Echoes: let the fire remain">
+        <span class="hx__polaroid-in" data-depth="22">
+          <img src="images/cinema/home-dawn.webp" alt="" width="1672" height="941" decoding="async" />
+          <span class="hx__caption">Let the fire remain.</span>
+        </span>
+      </a>
+
+      <a href="#story" class="hx__scroll"><i aria-hidden="true"></i><span>Scroll</span></a>
     </section>
 
     <!-- MARQUEE -->
@@ -211,6 +220,63 @@
           </h2>
           <p class="h-manifesto__text" data-scrub>I was an atheist. Then an agnostic. Then, in 2016, in Ryazan, Russia, I <em>encountered God</em> — and everything changed. Today I pastor, write, and create for a generation that needs more than a moment of fire. Real revival <em>heals what the fire exposes,</em> and equips us to stand in truth.</p>
           <a class="da-btn da-btn--ghost" href="about.html" data-magnetic=".2">Read the full story <span class="da-btn__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOURNAL REEL — the newest essays slide past as you scroll -->
+    <section class="h-reel" id="latest" aria-labelledby="reel-heading">
+      <div class="h-reel__pin">
+        <header class="h-reel__head da-wrap">
+          <div>
+            <p class="da-label">Find Your Ink · Latest essays</p>
+            <h2 id="reel-heading" data-lines>
+              <span class="line"><span>Words for the work</span></span>
+              <span class="line"><span><em>happening within.</em></span></span>
+            </h2>
+          </div>
+          <a class="da-link" href="blog.html">Every essay <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></a>
+        </header>
+        <div class="h-reel__viewport">
+          <ol class="h-reel__track">
+            <li style="--tilt:-2.5deg"><a class="h-print" href="blog/revival-healing-and-defense-of-faith.html">
+              <span class="h-print__frame"><span class="card__plate" data-plate data-slug="revival-healing-and-defense-of-faith" data-cat="spiritual-formation" aria-hidden="true"></span><span class="h-print__no" aria-hidden="true">Nº 50</span></span>
+              <span class="h-print__cat">Spiritual Formation</span>
+              <span class="h-print__title">Revival, Healing the Mind, and the Defense of Faith</span>
+              <span class="h-print__meta">9 min read · Apr 21, 2026</span>
+            </a></li>
+            <li style="--tilt:1.8deg"><a class="h-print" href="blog/the-anatomy-of-doubt.html">
+              <span class="h-print__frame"><span class="card__plate" data-plate data-slug="the-anatomy-of-doubt" data-cat="faith-doubt" aria-hidden="true"></span><span class="h-print__no" aria-hidden="true">Nº 49</span></span>
+              <span class="h-print__cat">Faith &amp; Doubt</span>
+              <span class="h-print__title">The Anatomy of Doubt</span>
+              <span class="h-print__meta">8 min read · Apr 14, 2026</span>
+            </a></li>
+            <li style="--tilt:-1.2deg"><a class="h-print" href="blog/when-thinking-dies.html">
+              <span class="h-print__frame"><span class="card__plate" data-plate data-slug="when-thinking-dies" data-cat="faith-doubt" aria-hidden="true"></span><span class="h-print__no" aria-hidden="true">Nº 48</span></span>
+              <span class="h-print__cat">Faith &amp; Doubt</span>
+              <span class="h-print__title">When Thinking Dies</span>
+              <span class="h-print__meta">7 min read · Apr 7, 2026</span>
+            </a></li>
+            <li style="--tilt:2.4deg"><a class="h-print" href="blog/stockholm-syndrome-when-captivity-twists-the-soul.html">
+              <span class="h-print__frame"><span class="card__plate" data-plate data-slug="stockholm-syndrome-when-captivity-twists-the-soul" data-cat="trauma-healing" aria-hidden="true"></span><span class="h-print__no" aria-hidden="true">Nº 47</span></span>
+              <span class="h-print__cat">Trauma &amp; Healing</span>
+              <span class="h-print__title">Stockholm Syndrome: When Captivity Twists the Soul</span>
+              <span class="h-print__meta">8 min read · Mar 31, 2026</span>
+            </a></li>
+            <li style="--tilt:-2deg"><a class="h-print" href="blog/pain-is-a-prophet.html">
+              <span class="h-print__frame"><span class="card__plate" data-plate data-slug="pain-is-a-prophet" data-cat="trauma-healing" aria-hidden="true"></span><span class="h-print__no" aria-hidden="true">Nº 46</span></span>
+              <span class="h-print__cat">Trauma &amp; Healing</span>
+              <span class="h-print__title">Pain Is a Prophet</span>
+              <span class="h-print__meta">7 min read · Mar 24, 2026</span>
+            </a></li>
+            <li style="--tilt:1.4deg"><a class="h-print" href="blog/how-the-church-helped-build-the-lgbtq-movement.html">
+              <span class="h-print__frame"><span class="card__plate" data-plate data-slug="how-the-church-helped-build-the-lgbtq-movement" data-cat="cultural-commentary" aria-hidden="true"></span><span class="h-print__no" aria-hidden="true">Nº 45</span></span>
+              <span class="h-print__cat">Cultural Commentary</span>
+              <span class="h-print__title">How the Church Helped Build the LGBTQ Movement</span>
+              <span class="h-print__meta">9 min read · Mar 17, 2026</span>
+            </a></li>
+            <li class="h-reel__end"><a href="blog.html"><span>Every essay,<br /><em>written from scars.</em></span><b aria-hidden="true">↗</b></a></li>
+          </ol>
         </div>
       </div>
     </section>
@@ -245,24 +311,6 @@
                 <p class="front__lede" style="margin-top:28px">Words for the work happening within.</p>
                 <p>Honest reflections on faith, healing, and the slow work of being remade. Written from scars, not theory.</p>
                 <a class="da-btn da-btn--ink" href="blog.html" data-magnetic=".2">Explore the journal <span class="da-btn__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span></a>
-              </div>
-              <div class="front-essays" data-stagger=".1">
-                <p class="da-label">Latest essays</p>
-                <a class="front-essay" href="blog/revival-healing-and-defense-of-faith.html" data-reveal>
-                  <span class="card__plate" data-plate data-slug="revival-healing-and-defense-of-faith" data-cat="spiritual-formation" aria-hidden="true"></span>
-                  <span><span class="front-essay__cat">Spiritual Formation</span><span class="front-essay__title">Revival, Healing the Mind, and the Defense of Faith</span></span>
-                  <span class="front-essay__arrow" aria-hidden="true">↗</span>
-                </a>
-                <a class="front-essay" href="blog/the-anatomy-of-doubt.html" data-reveal>
-                  <span class="card__plate" data-plate data-slug="the-anatomy-of-doubt" data-cat="faith-doubt" aria-hidden="true"></span>
-                  <span><span class="front-essay__cat">Faith &amp; Doubt</span><span class="front-essay__title">The Anatomy of Doubt</span></span>
-                  <span class="front-essay__arrow" aria-hidden="true">↗</span>
-                </a>
-                <a class="front-essay" href="blog/when-thinking-dies.html" data-reveal>
-                  <span class="card__plate" data-plate data-slug="when-thinking-dies" data-cat="faith-doubt" aria-hidden="true"></span>
-                  <span><span class="front-essay__cat">Faith &amp; Doubt</span><span class="front-essay__title">When Thinking Dies</span></span>
-                  <span class="front-essay__arrow" aria-hidden="true">↗</span>
-                </a>
               </div>
             </div>
           </div>

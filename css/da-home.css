@@ -2,88 +2,229 @@
    Hub homepage — davidadesina.com
    ===================================================================== */
 
-/* ---------- Hero ---------- */
-.h-hero {
+/* ---------- Hero: an editorial frame ----------
+   Grid lines divide the frame; a light sans and a big italic serif share the headline;
+   a polaroid, a watermark and a portrait rising out of live gold smoke.
+   Everything that moves is transform/opacity only. */
+.hx {
+  --line: rgba(242, 235, 221, .15);
+  --va: 17.4%; --vb: 73%; --hz: 58%;
+  --top: calc(var(--nav-h) + 10px);
   position: relative; isolation: isolate; overflow: hidden;
-  min-height: 680px; height: 100svh; max-height: 1180px;
+  height: 100svh; min-height: 680px; max-height: 1120px;
   background: var(--ink-0); color: var(--on-dark);
+  view-timeline: --hx block;
 }
-.h-hero .atmo-canvas { z-index: 0; opacity: 0; animation: h-fade 2.4s .2s var(--ease-out) forwards; }
-.h-hero.atmo-fallback { background: radial-gradient(60% 70% at 70% 45%, rgba(201,169,97,.22), transparent 70%), var(--ink-0); }
-.h-hero__portrait {
-  position: absolute; z-index: 1; top: 0; right: 0; bottom: 0; width: min(54vw, 860px);
-  pointer-events: none;
+.hx .atmo-canvas { z-index: 0; opacity: 0; animation: hx-fade 2.4s .2s var(--ease-out) forwards; }
+.hx.atmo-fallback { background: radial-gradient(60% 70% at 62% 40%, rgba(201,169,97,.22), transparent 70%), var(--ink-0); }
+
+/* Watermark: sits behind the portrait, which is screen-blended, so the name shows through the dark and fades under the light. */
+.hx__mark { position: absolute; z-index: 1; left: 0; right: 0; bottom: 0; pointer-events: none; animation: hx-mark-in 2.2s 1.5s var(--ease-out) backwards; }
+.hx__mark span {
+  display: block; white-space: nowrap; padding-left: 21vw;
+  font: italic 400 clamp(140px, 25vw, 430px)/.78 var(--serif); letter-spacing: -.055em;
+  color: var(--gold-hi); opacity: .075; translate: 0 0; transform: translateY(17%);
 }
-.h-hero__portrait img {
-  width: 100%; height: 100%; object-fit: cover; object-position: 50% 12%;
-  mix-blend-mode: screen; opacity: .92;
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 42%), linear-gradient(0deg, transparent 2%, #000 34%);
-  -webkit-mask-composite: source-in; mask-image: linear-gradient(90deg, transparent 0%, #000 42%), linear-gradient(0deg, transparent 2%, #000 34%);
+
+.hx__portrait {
+  position: absolute; z-index: 2; top: -6%; bottom: 6%;
+  left: calc(63% - min(19vw, 330px)); width: min(38vw, 660px);
+  mix-blend-mode: screen; pointer-events: none;
+  animation: hx-breathe 26s ease-in-out 2.6s infinite alternate;
+}
+.hx__portrait > div { position: absolute; inset: 0; }
+.hx__portrait img {
+  width: 100%; height: 100%; object-fit: cover; object-position: 50% 8%;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 24%, #000 76%, transparent 100%), linear-gradient(0deg, transparent 2%, #000 42%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 24%, #000 76%, transparent 100%), linear-gradient(0deg, transparent 2%, #000 42%);
   mask-composite: intersect;
-  animation: h-portrait 2.6s .1s var(--ease-out) both;
+  animation: hx-develop 2.6s .1s var(--ease-out) both;
 }
-@keyframes h-portrait { from { opacity: 0; transform: scale(1.1); } to { opacity: .92; transform: none; } }
-@keyframes h-fade { to { opacity: 1; } }
-.h-hero__veil { position: absolute; inset: 0; z-index: 2; pointer-events: none; background: linear-gradient(180deg, rgba(11,10,8,.55) 0%, transparent 22%, transparent 62%, rgba(11,10,8,.9) 100%); }
-.h-hero__flash { position: absolute; z-index: 3; left: 0; right: 0; top: 54%; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-hi), transparent); transform: scaleX(0); opacity: 0; animation: h-flash 2.2s .35s var(--ease-in-out) forwards; pointer-events: none; }
-@keyframes h-flash { 0% { transform: scaleX(0); opacity: 0; } 35% { opacity: 1; } 70% { transform: scaleX(1); opacity: .9; } 100% { transform: scaleX(1); opacity: 0; } }
+.hx__veil { position: absolute; inset: 0; z-index: 3; pointer-events: none;
+  background: linear-gradient(90deg, rgba(11,10,8,.7) 0%, rgba(11,10,8,.15) 38%, transparent 60%, rgba(11,10,8,.35) 100%), linear-gradient(0deg, rgba(11,10,8,.85) 0%, transparent 30%), linear-gradient(180deg, rgba(11,10,8,.6) 0%, transparent 18%); }
 
-.h-hero__frame {
-  position: absolute; z-index: 4; left: var(--gutter); right: var(--gutter); top: calc(var(--nav-h) + 12px);
-  display: flex; justify-content: space-between; gap: 16px;
-  padding-top: 14px; border-top: 1px solid var(--line-d);
-  font: 600 10.5px/1.4 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--on-dark-3);
-  animation: h-rise 1.4s .9s var(--ease-out) both;
-}
-.h-hero__frame span:nth-child(2), .h-hero__frame span:nth-child(3) { display: none; }
-@keyframes h-rise { from { opacity: 0; transform: translateY(14px); } }
+/* Grid lines draw themselves in. */
+.hx__grid i { position: absolute; z-index: 4; display: block; background: var(--line); pointer-events: none; }
+.hx__rule { left: var(--gutter); right: var(--gutter); top: var(--top); height: 1px; transform-origin: 0 50%; animation: hx-draw-x 1.6s .25s var(--ease-in-out) both; }
+.hx__v { top: var(--top); bottom: 0; width: 1px; transform-origin: 50% 0; animation: hx-draw-y 1.8s .45s var(--ease-in-out) both; }
+.hx__v--a { left: var(--va); }
+.hx__v--b { left: var(--vb); animation-delay: .6s; }
+.hx__h { left: 0; right: 0; top: var(--hz); height: 1px; transform-origin: 0 50%; animation: hx-draw-x 1.8s .7s var(--ease-in-out) both; }
 
-.h-hero__content {
-  position: absolute; z-index: 4; left: var(--gutter); right: var(--gutter); bottom: clamp(132px, 19vh, 210px);
-  max-width: var(--max);
+.hx__index, .hx__star, .hx__roles {
+  position: absolute; z-index: 6; margin: 0;
+  font: 500 11px/1.6 var(--sans); letter-spacing: .24em; text-transform: uppercase; color: var(--on-dark-2);
+  animation: hx-up 1.2s 1.15s var(--ease-out) backwards;
 }
-.h-hero__eyebrow { display: flex; align-items: center; gap: 12px; margin: 0 0 clamp(18px, 3vh, 32px); font: 600 11px/1.4 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--on-dark-2); animation: h-rise 1.2s .5s var(--ease-out) both; }
-.h-hero__title {
-  margin: 0; color: var(--on-dark);
-  font: 400 clamp(58px, 10.4vw, 176px)/.9 var(--serif); letter-spacing: -.055em;
-}
-.h-hero__title .line > span { padding-right: .05em; }
-.h-hero__sub { margin: clamp(18px, 3vh, 30px) 0 0; font: italic 400 clamp(20px, 2vw, 30px)/1.3 var(--serif); color: var(--on-dark-2); animation: h-rise 1.4s 1s var(--ease-out) both; }
-.h-hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; margin-top: clamp(24px, 4vh, 40px); animation: h-rise 1.4s 1.15s var(--ease-out) both; }
+.hx__index { left: var(--gutter); top: calc(var(--top) + 18px); display: grid; gap: 4px; }
+.hx__index span:first-child { color: var(--gold); }
+.hx__star { left: calc(var(--vb) + 28px); top: calc(var(--top) + 18px); display: flex; gap: 14px; align-items: flex-start; }
+.hx__star svg { flex: none; width: 18px; height: 18px; fill: var(--gold-hi); margin-top: 1px; filter: drop-shadow(0 0 10px rgba(232,207,148,.45)); }
+.hx__roles { left: var(--gutter); bottom: 34px; display: grid; animation-delay: 1.35s; }
 
-.h-hero__seal { position: absolute; z-index: 4; right: calc(var(--gutter) + 2vw); top: 30%; width: clamp(86px, 9vw, 132px); aspect-ratio: 1; color: var(--gold); animation: h-rise 1.6s 1.3s var(--ease-out) both; display: none; }
-.h-hero__seal svg { width: 100%; height: 100%; animation: da-spin 36s linear infinite; }
-.h-hero__seal text { font: 600 8.6px var(--sans); letter-spacing: 3.3px; fill: currentColor; }
-.h-hero__seal span { position: absolute; inset: 0; display: grid; place-items: center; font: 300 40px/1 var(--sans); }
-
-.h-hero__bottom {
-  position: absolute; z-index: 4; left: var(--gutter); right: var(--gutter); bottom: 26px;
-  display: flex; justify-content: space-between; align-items: flex-end; gap: 24px;
-  padding-top: 18px; border-top: 1px solid var(--line-d);
-  animation: h-rise 1.4s 1.3s var(--ease-out) both;
+/* Headline: two light sans lines, then the big italic. Each line rises out of its own mask. */
+.hx__headline { position: absolute; z-index: 5; left: calc(var(--va) + clamp(18px, 2vw, 34px)); bottom: calc(100% - var(--hz) + 20px); }
+.hx__title { margin: 0; font-weight: 300; }
+.hx__line { display: block; overflow: hidden; padding-bottom: .1em; margin-bottom: -.1em; }
+.hx__line > span { display: inline-block; animation: hx-rise 1.3s var(--ease-out) backwards; }
+.hx__line:nth-child(1) > span { animation-delay: .55s; font: 300 clamp(50px, 6.7vw, 116px)/.98 'Inter Tight', var(--sans); letter-spacing: -.05em; }
+.hx__line:nth-child(2) > span { animation-delay: .68s; font: 300 clamp(50px, 6.7vw, 116px)/.98 'Inter Tight', var(--sans); letter-spacing: -.05em; padding-left: 1.05em; }
+.hx__line--serif { padding-right: .1em; }
+.hx__line--serif > span { animation-delay: .82s; font: italic 400 clamp(66px, 9.4vw, 164px)/.94 var(--serif); letter-spacing: -.04em; }
+.hx__line--serif em {
+  font-style: italic; padding-right: .06em;
+  background: linear-gradient(100deg, #b8913f 0%, #e8cf94 38%, #fff1cf 52%, #d9b56f 70%, #a8813a 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
 }
-.h-hero__intro { display: flex; gap: 18px; max-width: 42ch; margin: 0; font-size: 14.5px; line-height: 1.65; color: var(--on-dark-2); }
-.h-hero__intro b { font: 600 11px/2.1 var(--sans); letter-spacing: .16em; color: var(--gold); flex-shrink: 0; }
-.h-hero__scroll { display: inline-flex; align-items: center; gap: 14px; min-height: 44px; font: 600 10.5px/1 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--on-dark-2); text-decoration: none; flex-shrink: 0; }
-.h-hero__scroll i { position: relative; width: 1px; height: 44px; background: var(--line-d); overflow: hidden; }
-.h-hero__scroll i::after { content: ''; position: absolute; left: 0; top: -40%; width: 1px; height: 40%; background: var(--gold); animation: h-scroll 2.2s var(--ease-in-out) infinite; }
-@keyframes h-scroll { to { transform: translateY(350%); } } /* = top:-40% → 100%, without layout */
 
-@media (min-width: 760px) { .h-hero__seal { display: block; } }
-@media (min-width: 1040px) { .h-hero__frame span:nth-child(2), .h-hero__frame span:nth-child(3) { display: inline; } }
-@media (max-width: 759px) {
-  .h-hero { min-height: 640px; }
-  .h-hero__portrait { width: 100%; height: 72%; bottom: auto; }
-  .h-hero__portrait img { object-position: 58% 10%; -webkit-mask-image: linear-gradient(0deg, transparent 0%, #000 48%); mask-image: linear-gradient(0deg, transparent 0%, #000 48%); opacity: .8; }
-  .h-hero__content { bottom: 118px; }
-  .h-hero__title { font-size: clamp(54px, 16.5vw, 92px); }
-  .h-hero__intro { font-size: 13.5px; }
-  .h-hero__intro b { display: none; }
-  .h-hero__scroll span { display: none; }
+/* Right column, under the line: the intro and the call to action. */
+.hx__side { position: absolute; z-index: 6; left: calc(var(--vb) + 28px); right: var(--gutter); top: calc(var(--hz) + 28px); display: grid; gap: 26px; animation: hx-up 1.3s 1.25s var(--ease-out) backwards; }
+.hx__side p { margin: 0; max-width: 30ch; font-size: 15px; line-height: 1.7; color: var(--on-dark-2); }
+.hx__cta { display: flex; align-items: center; gap: 10px; }
+.hx__pill { display: inline-flex; align-items: center; white-space: nowrap; min-height: 50px; padding: 0 26px; border-radius: 999px; background: var(--bone, #f2ebdd); color: var(--ink-0); font: 500 14.5px/1 var(--sans); text-decoration: none; transition: background .3s, color .3s, transform .5s var(--ease-out); }
+.hx__pill:hover { background: var(--gold-hi); }
+.hx__round { display: grid; place-items: center; width: 50px; height: 50px; border-radius: 50%; border: 1px solid rgba(242,235,221,.28); background: rgba(201,169,97,.1); color: var(--on-dark); transition: background .3s, border-color .3s, transform .5s var(--ease-out); }
+.hx__round svg { width: 15px; height: 15px; transition: transform .5s var(--ease-out); }
+.hx__round:hover { background: var(--gold); border-color: var(--gold); color: var(--ink-0); }
+.hx__round:hover svg { transform: rotate(45deg); }
+
+/* The polaroid drops in, overshoots and settles at its tilt; it straightens when you reach for it. */
+.hx__polaroid {
+  position: absolute; z-index: 7; display: block;
+  left: calc(var(--va) - clamp(70px, 6.6vw, 118px)); top: calc(var(--hz) + 46px);
+  width: clamp(150px, 13.2vw, 228px); --tilt: -13deg; rotate: var(--tilt);
+  text-decoration: none; color: #2a2620;
+  transition: rotate .7s var(--ease-out), translate .7s var(--ease-out);
+  animation: hx-drop 1.5s 1.3s var(--ease-out) backwards;
 }
-@media (max-height: 720px) and (min-width: 760px) {
-  .h-hero__title { font-size: clamp(56px, 8.6vw, 128px); }
-  .h-hero__content { bottom: 112px; }
+.hx__polaroid:hover, .hx__polaroid:focus-visible { rotate: calc(var(--tilt) * .4); translate: 0 -8px; }
+.hx__polaroid-in { display: block; padding: 9px 9px 0; background: #f6f1e7; box-shadow: 0 2px 0 rgba(0,0,0,.08), 0 36px 60px -24px rgba(0,0,0,.75); }
+.hx__polaroid img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; object-position: 72% 50%; filter: saturate(.9) contrast(1.04); }
+.hx__caption { display: block; padding: 10px 2px 12px; text-align: center; font: 500 clamp(18px, 1.55vw, 24px)/1 'Caveat', cursive; }
+
+.hx__scroll { position: absolute; z-index: 6; right: var(--gutter); bottom: 30px; display: inline-flex; align-items: center; gap: 14px; min-height: 44px; font: 600 10.5px/1 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--on-dark-2); text-decoration: none; animation: hx-up 1.2s 1.6s var(--ease-out) backwards; }
+.hx__scroll i { position: relative; width: 1px; height: 44px; background: var(--line); overflow: hidden; }
+.hx__scroll i::after { content: ''; position: absolute; left: 0; top: -40%; width: 1px; height: 40%; background: var(--gold); animation: h-scroll 2.2s var(--ease-in-out) infinite; }
+@keyframes h-scroll { to { transform: translateY(350%); } }
+
+/* The header drops in with the frame (home only). */
+.da-home .da-nav__bar > * { animation: hx-down 1s var(--ease-out) backwards; }
+.da-home .da-nav__bar > :nth-child(2) { animation-delay: .12s; }
+.da-home .da-nav__bar > :nth-child(3) { animation-delay: .24s; }
+
+/* Pointer depth layers (motion.js) are composited only on devices with a fine pointer. */
+@media (hover: hover) and (pointer: fine) { .hx [data-depth] { will-change: translate; } }
+
+@keyframes hx-fade { to { opacity: 1; } }
+@keyframes hx-develop { from { opacity: 0; transform: scale(1.08); } to { opacity: .96; transform: none; } }
+@keyframes hx-breathe { to { scale: 1.045; } }
+@keyframes hx-draw-x { from { transform: scaleX(0); } }
+@keyframes hx-draw-y { from { transform: scaleY(0); } }
+@keyframes hx-rise { from { transform: translateY(112%) rotate(2deg); } }
+@keyframes hx-up { from { opacity: 0; translate: 0 18px; } }
+@keyframes hx-down { from { opacity: 0; translate: 0 -16px; } }
+@keyframes hx-mark-in { from { opacity: 0; translate: 0 6%; } }
+@keyframes hx-drop {
+  0% { opacity: 0; translate: 0 -120px; rotate: calc(var(--tilt) * .15); }
+  45% { opacity: 1; }
+  72% { translate: 0 6px; rotate: calc(var(--tilt) * 1.2); }
+  100% { translate: 0 0; rotate: var(--tilt); }
+}
+
+/* Leaving the hero: the frame comes apart, locked to the scroll on the compositor. */
+@keyframes hx-out-portrait { to { transform: scale(1.12) translateY(5%); opacity: .3; } }
+@keyframes hx-out-head { to { transform: translateY(-16vh); opacity: 0; } }
+@keyframes hx-out-side { to { transform: translateY(-9vh); opacity: 0; } }
+@keyframes hx-out-mark { to { transform: translateX(-18vw); } }
+@keyframes hx-out-pol { to { transform: translate(-4vw, -26vh) rotate(9deg); } }
+@media (prefers-reduced-motion: no-preference) {
+  .sda .hx__portrait { animation: hx-breathe 26s ease-in-out 2.6s infinite alternate, hx-out-portrait linear both; animation-timeline: auto, --hx; animation-range: normal, exit 0% exit 100%; }
+  .sda .hx__headline { animation: hx-out-head linear both; animation-timeline: --hx; animation-range: exit 0% exit 85%; }
+  .sda .hx__side, .sda .hx__star { animation: hx-up 1.3s 1.25s var(--ease-out) backwards, hx-out-side linear both; animation-timeline: auto, --hx; animation-range: normal, exit 0% exit 70%; }
+  .sda .hx__mark { animation: hx-mark-in 2.2s 1.5s var(--ease-out) backwards, hx-out-mark linear both; animation-timeline: auto, --hx; animation-range: normal, exit 0% exit 100%; }
+  .sda .hx__polaroid { animation: hx-drop 1.5s 1.3s var(--ease-out) backwards, hx-out-pol linear both; animation-timeline: auto, --hx; animation-range: normal, exit 0% exit 100%; }
+}
+
+/* Tablet and phone: the photo covers the screen, the type re-flows over it. One screen, no scrolling. */
+@media (max-width: 899px) {
+  .hx { --hz: 62%; min-height: 640px; max-height: none; }
+  .hx__grid .hx__v { display: none; }
+  .hx__portrait { left: 0; width: 100%; top: 0; bottom: 26%; }
+  .hx__portrait img { object-position: 50% 4%; -webkit-mask-image: linear-gradient(0deg, transparent 0%, #000 36%); mask-image: linear-gradient(0deg, transparent 0%, #000 36%); }
+  .hx__veil { background: linear-gradient(0deg, rgba(11,10,8,.95) 0%, rgba(11,10,8,.55) 42%, transparent 64%), linear-gradient(180deg, rgba(11,10,8,.55) 0%, transparent 20%); }
+  .hx__index { display: none; }
+  .hx__star { display: none; }
+  .hx__headline { left: var(--gutter); right: var(--gutter); bottom: calc(100% - var(--hz) + 14px); }
+  .hx__line:nth-child(1) > span, .hx__line:nth-child(2) > span { font-size: clamp(44px, 12.5vw, 76px); }
+  .hx__line--serif > span { font-size: clamp(56px, 16.4vw, 104px); }
+  .hx__side { left: var(--gutter); top: calc(var(--hz) + 22px); gap: 20px; }
+  .hx__side { right: 36%; }
+  .hx__side p { font-size: 14.5px; max-width: 34ch; }
+  .hx__cta { flex-wrap: wrap; }
+  .hx__polaroid { left: auto; top: auto; right: calc(var(--gutter) - 2px); bottom: 64px; width: clamp(100px, 27vw, 160px); --tilt: 9deg; }
+  .hx__caption { font-size: 15px; padding: 7px 2px 9px; }
+  .hx__polaroid-in { padding: 6px 6px 0; }
+  .hx__roles { display: none; }
+  .hx__scroll { display: none; }
+  .hx__mark span { padding-left: 4vw; font-size: 38vw; transform: translateY(12%); }
+}
+@media (min-width: 600px) and (max-width: 899px) {
+  .hx__portrait { left: 17%; width: 66%; bottom: 31%; }
+  .hx__portrait img {
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%, #000 78%, transparent 100%), linear-gradient(0deg, transparent 0%, #000 36%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 22%, #000 78%, transparent 100%), linear-gradient(0deg, transparent 0%, #000 36%);
+  }
+}
+@media (min-width: 900px) and (max-width: 1180px) { .hx { --vb: 68%; } }
+@media (min-width: 900px) and (max-height: 820px) { .hx__roles { display: none; } }
+@media (max-height: 760px) and (min-width: 900px) {
+  .hx__line:nth-child(1) > span, .hx__line:nth-child(2) > span { font-size: clamp(46px, 5.6vw, 92px); }
+  .hx__line--serif > span { font-size: clamp(60px, 7.8vw, 128px); }
+  .hx__polaroid { width: clamp(130px, 11vw, 190px); top: calc(var(--hz) + 30px); }
+}
+
+/* ---------- Journal reel ----------
+   Desktop with scroll-driven animations: the section pins and the prints slide across
+   as you scroll down (compositor only). Everywhere else it's a swipeable row. */
+.h-reel { position: relative; background: var(--paper); color: var(--text); }
+.h-reel::after { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .3; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .1  0 0 0 0 .09  0 0 0 0 .07  0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.h-reel__pin { position: relative; z-index: 1; padding: clamp(88px, 11vw, 150px) 0 clamp(72px, 8vw, 120px); }
+.h-reel__head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px 48px; margin-bottom: clamp(36px, 5vh, 64px); }
+.h-reel__head h2 { margin: 22px 0 0; font: 400 clamp(44px, 6.2vw, 104px)/.95 var(--serif); letter-spacing: -.045em; }
+.h-reel__head h2 em { color: var(--gold-lo); }
+.h-reel__viewport { overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.h-reel__viewport::-webkit-scrollbar { display: none; }
+.h-reel__track { display: flex; align-items: flex-start; gap: clamp(22px, 3vw, 52px); width: max-content; margin: 0; padding: 18px var(--gutter) 30px; list-style: none; }
+.h-reel__track > li { flex: none; width: clamp(250px, 24vw, 370px); scroll-snap-align: start; scroll-margin-left: var(--gutter); }
+.h-print { display: grid; gap: 10px; color: inherit; text-decoration: none; }
+.h-print__frame {
+  position: relative; display: block; margin-bottom: 14px; padding: 12px 12px 54px; background: #fbf8f1;
+  box-shadow: 0 1px 0 rgba(26,24,21,.05), 0 34px 60px -34px rgba(26,24,21,.45);
+  rotate: var(--tilt, 0deg); transition: rotate .7s var(--ease-out), translate .7s var(--ease-out);
+}
+.h-print__frame .card__plate { aspect-ratio: 4 / 2.7; }
+.h-print__frame .plate__img { object-position: 50% 0; } /* crop the printed Nº; the frame carries a handwritten one */
+.h-print__no { position: absolute; left: 16px; bottom: 13px; font: 500 27px/1 'Caveat', cursive; color: #3b362e; }
+.h-print:hover .h-print__frame, .h-print:focus-visible .h-print__frame { rotate: 0deg; translate: 0 -8px; }
+.h-print__cat { font: 600 10.5px/1.4 var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--gold-lo); }
+.h-print__title { font: 400 clamp(22px, 1.75vw, 28px)/1.16 var(--serif); letter-spacing: -.015em; transition: color .3s; }
+.h-print:hover .h-print__title { color: var(--gold-lo); }
+.h-print__meta { font-size: 13px; color: var(--text-3); }
+.h-reel__end { align-self: stretch; display: flex; }
+.h-reel__end a { flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; min-height: 320px; padding: 30px; border: 1px solid var(--line-strong); color: var(--text); text-decoration: none; font: 400 clamp(28px, 2.4vw, 40px)/1.08 var(--serif); letter-spacing: -.02em; transition: background .4s, color .4s; }
+.h-reel__end em { color: var(--gold-lo); }
+.h-reel__end b { align-self: flex-end; display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; border: 1px solid currentColor; font: 400 22px/1 var(--sans); transition: transform .5s var(--ease-out); }
+.h-reel__end a:hover { background: var(--ink-2); color: var(--bone, #f2ebdd); }
+.h-reel__end a:hover em { color: var(--gold-hi); }
+.h-reel__end a:hover b { transform: rotate(45deg); }
+
+@keyframes reel-slide { to { transform: translateX(calc(-100% + 100vw)); } }
+@media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
+  .sda .h-reel { height: 320vh; view-timeline: --reel block; }
+  .sda .h-reel__pin { position: sticky; top: 0; height: 100svh; display: flex; flex-direction: column; justify-content: center; overflow: hidden; padding: var(--nav-h) 0 0; }
+  .sda .h-reel__viewport { overflow: visible; }
+  .sda .h-reel__track { animation: reel-slide linear both; animation-timeline: --reel; animation-range: contain 4% contain 96%; will-change: transform; }
 }
 
 /* ---------- Marquee ---------- */
@@ -232,9 +373,8 @@
 .h-verse__sig { margin-top: 40px; font: italic 400 18px/1 var(--serif); color: var(--on-dark-3); }
 
 @media (prefers-reduced-motion: reduce) {
-  .h-hero__portrait img, .h-hero .atmo-canvas, .h-hero__frame, .h-hero__eyebrow, .h-hero__sub, .h-hero__actions, .h-hero__seal, .h-hero__bottom { animation: none !important; opacity: 1; }
-  .h-hero__portrait img { opacity: .92; }
-  .h-hero__flash { display: none; }
+  .hx .atmo-canvas, .hx__portrait img { animation: none !important; opacity: 1; }
+  .hx__portrait img { opacity: .96; }
   .front__inner { transform: none !important; }
   .front__shade { opacity: 0 !important; }
 }
