@@ -1611,6 +1611,10 @@ body.gs-page a.gs-btn--primary { color: var(--gs-bg); }
 .gs-article-content { min-width: 0; max-width: 760px; }
 .gs-article-figure { margin: 0 0 2.5rem; }
 .gs-article-img { display: block; width: 100%; height: auto; aspect-ratio: 1.9; object-fit: cover; }
+/* In-body images keep their own shape: no cropping, centred when narrower than the column */
+.gs-article-img--full { aspect-ratio: auto; object-fit: contain; margin-inline: auto; }
+/* Source line under a quoted book or article */
+.gs-quote-src { display: block; margin-top: 0.75em; font-style: normal; font-size: 0.62em; line-height: 1.6; letter-spacing: 0.02em; color: var(--gs-text-dim); }
 .gs-article-content p, .gs-article-content li { color: #c8c6c2; font-weight: 400; font-size: 1.0625rem; line-height: 1.95; }
 .gs-article-content h2 { font-size: clamp(2rem, 3.3vw, 3rem); font-weight: 500; letter-spacing: -0.025em; scroll-margin-top: calc(var(--gs-nav-h) + 1.5rem); }
 .gs-article-content h3 { font-size: 1.875rem; }
